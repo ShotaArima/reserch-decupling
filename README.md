@@ -3,12 +3,12 @@
 FreshRetailNet-50K を使った Decoupling-inspired baseline 実装です。  
 各シナリオをディレクトリで分離して、最小実験を独立実行できるようにしています。
 
-## セットアップ
+## セットアップ（uv）
 
 ```bash
-python -m venv .venv
+uv venv
 source .venv/bin/activate
-pip install -r requirements.txt
+uv sync
 ```
 
 ## ディレクトリ構成
@@ -29,11 +29,11 @@ pip install -r requirements.txt
 ## 実行
 
 ```bash
-python scenarios/scenario1_representation_probe/run.py
-python scenarios/scenario2_raw_sales_forecast/run.py
-python scenarios/scenario3_latent_demand_recovery/run.py
-python scenarios/scenario4_two_stage_pipeline/run.py
-python scenarios/scenario5_counterfactual_sanity/run.py
+uv run python scenarios/scenario1_representation_probe/run.py
+uv run python scenarios/scenario2_raw_sales_forecast/run.py
+uv run python scenarios/scenario3_latent_demand_recovery/run.py
+uv run python scenarios/scenario4_two_stage_pipeline/run.py
+uv run python scenarios/scenario5_counterfactual_sanity/run.py
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。
