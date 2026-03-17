@@ -6,8 +6,6 @@ FreshRetailNet-50K を使った Decoupling-inspired baseline 実装です。
 ## セットアップ（uv）
 
 ```bash
-uv venv
-source .venv/bin/activate
 uv sync
 ```
 
