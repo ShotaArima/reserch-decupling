@@ -13,7 +13,7 @@ if str(REPO_ROOT) not in sys.path:
 import torch
 from torch import nn
 
-from src.data import FreshRetailConfig, load_freshretail_dataframe, normalize_columns
+from src.data import FreshRetailConfig, coerce_numeric_columns, load_freshretail_dataframe, normalize_columns
 from src.metrics import wape
 from src.models import DecouplingAutoEncoder, DecouplingConfig, ForecastHead
 
@@ -22,6 +22,7 @@ FEATURES = ["sale_amount", "hours_stock_status", "discount", "holiday_flag", "ac
 
 def main() -> None:
     df = load_freshretail_dataframe(FreshRetailConfig())
+    df = coerce_numeric_columns(df, FEATURES)
     df = df.dropna(subset=FEATURES)
     x = torch.tensor(normalize_columns(df, FEATURES)[FEATURES].values, dtype=torch.float32)
 

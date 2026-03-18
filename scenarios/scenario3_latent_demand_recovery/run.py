@@ -14,7 +14,12 @@ import numpy as np
 import torch
 from torch import nn
 
-from src.data import FreshRetailConfig, load_freshretail_dataframe, normalize_columns
+from src.data import (
+    FreshRetailConfig,
+    coerce_numeric_columns,
+    load_freshretail_dataframe,
+    normalize_columns,
+)
 from src.metrics import wape, wpe
 from src.models import DecouplingAutoEncoder, DecouplingConfig
 
@@ -33,6 +38,7 @@ FEATURES = [
 
 def main() -> None:
     df = load_freshretail_dataframe(FreshRetailConfig())
+    df = coerce_numeric_columns(df, FEATURES)
     df = df.dropna(subset=FEATURES)
     norm = normalize_columns(df, FEATURES)
 
