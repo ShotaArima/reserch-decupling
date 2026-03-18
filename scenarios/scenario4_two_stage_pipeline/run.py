@@ -33,7 +33,8 @@ def main() -> None:
     rec_opt = torch.optim.Adam(recovery.parameters(), lr=1e-3)
     stage1_losses: list[float] = []
 
-    for _ in range(5):
+    for _ in range(100):
+        print(f'stage1-step: {_}')
         rec, local, global_latent = recovery(x)
         loss = nn.functional.mse_loss(rec, x)
         rec_opt.zero_grad()
@@ -47,7 +48,8 @@ def main() -> None:
     f_opt = torch.optim.Adam(forecaster.parameters(), lr=1e-3)
     stage2_losses: list[float] = []
 
-    for _ in range(5):
+    for _ in range(100):
+        print(f'stage2-step: {_}')
         pred = forecaster(local.detach(), global_latent.detach())
         f_loss = nn.functional.l1_loss(pred, y)
         f_opt.zero_grad()
