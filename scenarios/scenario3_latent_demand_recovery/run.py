@@ -7,6 +7,7 @@ from pathlib import Path
 
 # Allow running as `python scenarios/.../run.py` by adding repo root to sys.path.
 REPO_ROOT = Path(__file__).resolve().parents[2]
+SCENARIO_DIR = Path(__file__).resolve().parent
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
@@ -22,6 +23,7 @@ from src.data import (
 )
 from src.metrics import wape, wpe
 from src.models import DecouplingAutoEncoder, DecouplingConfig
+from src.plotting import save_learning_curve
 
 FEATURES = [
     "hours_sale",
@@ -48,8 +50,10 @@ def main() -> None:
     model = DecouplingAutoEncoder(DecouplingConfig(input_dim=len(FEATURES)))
     opt = torch.optim.Adam(model.parameters(), lr=1e-3)
     loss_fn = nn.MSELoss(reduction="none")
+    losses: list[float] = []
 
-    for _ in range(5):
+    for _ in range(100):
+        print(f'step: {_}')
         rec, _, _ = model(x)
         raw_loss = loss_fn(rec, x)
         weighted = (1 - mask) * raw_loss + 0.1 * mask * raw_loss
@@ -57,11 +61,18 @@ def main() -> None:
         opt.zero_grad()
         loss.backward()
         opt.step()
+        losses.append(loss.item())
 
     rec_np = rec.detach().cpu().numpy()[:, 0]
     true_np = x.detach().cpu().numpy()[:, 0]
     print(f"WAPE={wape(true_np, rec_np):.4f}")
     print(f"WPE={wpe(true_np, rec_np):.4f}")
+    curve_path = save_learning_curve(
+        losses,
+        SCENARIO_DIR / "train_loss_curve.png",
+        title="Scenario 3 Train Loss Curve",
+    )
+    print(f"Saved train loss curve to: {curve_path}")
 
 
 if __name__ == "__main__":
