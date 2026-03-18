@@ -24,7 +24,7 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
 2. **ネットワーク経由で Hugging Face にアクセスできるか確認**
 
 ```bash
-uv run python -c "from datasets import load_dataset; load_dataset('FreshRetailNet/FreshRetailNet-50K', split='train[:1]'); print('dataset reachable')"
+ uv run python -c 'from datasets import load_dataset; dataset = load_dataset("Dingdong-Inc/FreshRetailNet-50K"); print(dataset)' 
 ```
 
 3. 問題なければシナリオを実行
