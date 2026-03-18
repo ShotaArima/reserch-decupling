@@ -9,7 +9,7 @@ from datasets import load_dataset
 
 @dataclass
 class FreshRetailConfig:
-    dataset_name: str = "FreshRetailNet/FreshRetailNet-50K"
+    dataset_name: str = "Dingdong-Inc/FreshRetailNet-50K"
     split: str = "train"
 
 
