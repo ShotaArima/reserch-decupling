@@ -52,7 +52,8 @@ def main() -> None:
     loss_fn = nn.MSELoss(reduction="none")
     losses: list[float] = []
 
-    for _ in range(5):
+    for _ in range(100):
+        print(f'step: {_}')
         rec, _, _ = model(x)
         raw_loss = loss_fn(rec, x)
         weighted = (1 - mask) * raw_loss + 0.1 * mask * raw_loss
