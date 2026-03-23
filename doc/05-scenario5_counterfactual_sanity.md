@@ -1,43 +1,32 @@
 # Scenario 5: Counterfactual Sanity Check
 
-## 目的
-global/local 分離が意味を持つかを、**反実仮想生成の最小 sanity check**で確認します。
+## このシナリオの問い
+**「global/local を入れ替えたときに、出力が意味ある方向に変わるか？」** を確認する sanity check です。
 
-## 背景と狙い
-- 分離表現の妥当性は「片方を固定してもう片方だけ変えた時の挙動」で確認しやすいです。
-- 本シナリオでは定量主結果ではなく、解釈補助としての挙動確認を狙います。
+> 共通定義（1サンプル・global/local・指標）は `doc/00-experiment_problem_setting.md` を先に参照してください。
 
-## 入力
-- データセット: `FreshRetailNet/FreshRetailNet-50K`
-- 特徴量
-  - `sale_amount`
-  - `discount`
-  - `holiday_flag`
-  - `activity_flag`
-  - `avg_temperature`
+## 1サンプルの具体化（Scenario 5）
+- 入力 `x_i`: `sale_amount, discount, holiday_flag, activity_flag, avg_temperature`
+- 潜在: `local_i`, `global_i`
+- 反実仮想A: `local_i` 固定 + `global` シャッフル
+- 反実仮想B: `global_i` 固定 + `local` シャッフル
+- 出力: decoder で再生成した系列
 
-## モデル構成
-- `DecouplingAutoEncoder` で `local`, `global` を取得
-- 反実仮想 A
-  - local 固定 + global シャッフル
-- 反実仮想 B
-  - global 固定 + local シャッフル
-- decoder に再投入して系列を生成
+## 評価
+- `orig_mean_sale`
+- `cf_global_swap_mean_sale`
+- `cf_local_swap_mean_sale`
 
-## 出力
-- `orig_mean_sale=...`
-- `cf_global_swap_mean_sale=...`
-- `cf_local_swap_mean_sale=...`
+## このシナリオで言えること / 言えないこと
+### 言えること
+- 分離潜在を操作したときの感度を定性的に確認できる。
+- 「共通/固有分離」の解釈補助として機能する。
 
-## 何を確認するか
-- global/local の交換で出力統計がどう変化するか
-- 変化方向がドメイン直観と矛盾していないか
+### 言えないこと
+- 主効果の因果推論にはならない（統計検定・制御実験が必要）。
+- 平均値のみでは挙動の全体像を説明しきれない。
 
 ## 実行
 ```bash
 uv run python scenarios/scenario5_counterfactual_sanity/run.py
 ```
-
-## 次の発展
-- 条件付き平均、割引感応度、休日差分などのドメイン指標を追加
-- 可視化図（時系列重ね描き）で定性的説明を強化

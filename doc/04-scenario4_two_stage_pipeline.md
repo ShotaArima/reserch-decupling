@@ -1,48 +1,36 @@
 # Scenario 4: Two-stage Pipeline (Recovery → Forecast)
 
-## 目的
-FreshRetailNet-50K の利用意図に沿って、**需要復元 → 将来予測**の二段階構成を最小形で確認します。
+## このシナリオの問い
+**「需要復元を先に行う二段構成は、研究設計として成立するか？」** を確認する実験です。
 
-## 背景と狙い
-- 実運用に近い流れとして、まず需要信号を復元してから forecasting する構成が有効です。
-- 本シナリオはその研究ストーリーを最短で実装化したものです。
+> 共通定義（1サンプル・global/local・指標）は `doc/00-experiment_problem_setting.md` を先に参照してください。
 
-## Stage 1: Recovery
-- 入力特徴
-  - `sale_amount`
-  - `hours_stock_status`
-  - `discount`
-  - `holiday_flag`
-  - `activity_flag`
-- モデル
-  - `DecouplingAutoEncoder`
-- 出力
-  - 再構成系列（recovered proxy）
+## 1サンプルの具体化（Scenario 4）
+- Stage 1 入力 `x_i`: `sale_amount, hours_stock_status, discount, holiday_flag, activity_flag`
+- Stage 1 目的: `x_i` の再構成（recovery proxy）
+- Stage 2 入力: Stage 1 で得た `local_i`, `global_i`
+- Stage 2 目的: `sale_amount` 近傍指標（実装では `x[:, :1]`）を予測
 
-## Stage 2: Forecast
-- 入力
-  - Stage 1 で得られた local/global 表現
-- モデル
-  - `ForecastHead`
-- 損失
-  - L1Loss
-- 評価
-  - `WAPE`
+## モデル
+- Stage 1: `DecouplingAutoEncoder`（MSE）
+- Stage 2: `ForecastHead`（L1）
+- 評価: Stage1_recovery_mse, Stage2_wape
 
-## 出力
-- `stage1_recovery_mse=...`
-- `stage2_wape=...`
+## このシナリオで言えること / 言えないこと
+### 言えること
+- recovery と forecast をコード構造として分離できる。
+- Stage 1/2 を独立改善できる実験土台になる。
 
-## 何を確認するか
-- 2 段階パイプラインがコード上で分離されているか
-- recovery と forecasting を将来独立に改善できる構造になっているか
+### 言えないこと
+- 現時点では Scenario 2 より優れることは保証しない（比較実験が必要）。
+- Stage 1 が真の潜在需要を復元した、と断定はできない。
+
+## Scenario 2 との違い
+- Scenario 2 は **raw sales を直接予測**（単段・ベースライン）。
+- Scenario 4 は **recovery を経由**（二段・仮説検証向き）。
+- 研究上は、S4 が S2 より改善する条件（例: stockout多発期間）を示せて初めて価値が立つ。
 
 ## 実行
 ```bash
 uv run python scenarios/scenario4_two_stage_pipeline/run.py
 ```
-
-## 次の発展
-- Stage1 を hourly demand recovery に拡張
-- Stage2 を 7日先 multi-horizon に変更
-- raw 直接予測との比較で recovery の寄与を定量化
