@@ -8,10 +8,15 @@ from torch import nn
 
 @dataclass
 class DecouplingConfig:
-    input_dim: int
+    feature_dim: int
+    window_size: int
     global_dim: int = 16
     local_dim: int = 16
     hidden_dim: int = 64
+
+    @property
+    def flat_input_dim(self) -> int:
+        return self.feature_dim * self.window_size
 
 
 class DecouplingAutoEncoder(nn.Module):
@@ -21,25 +26,33 @@ class DecouplingAutoEncoder(nn.Module):
         super().__init__()
         self.config = config
         self.local_encoder = nn.Sequential(
-            nn.Linear(config.input_dim, config.hidden_dim),
+            nn.Linear(config.flat_input_dim, config.hidden_dim),
             nn.ReLU(),
             nn.Linear(config.hidden_dim, config.local_dim),
         )
         self.global_encoder = nn.Sequential(
-            nn.Linear(config.input_dim, config.hidden_dim),
+            nn.Linear(config.flat_input_dim, config.hidden_dim),
             nn.ReLU(),
             nn.Linear(config.hidden_dim, config.global_dim),
         )
         self.decoder = nn.Sequential(
             nn.Linear(config.local_dim + config.global_dim, config.hidden_dim),
             nn.ReLU(),
-            nn.Linear(config.hidden_dim, config.input_dim),
+            nn.Linear(config.hidden_dim, config.flat_input_dim),
         )
 
+    def _flatten(self, x: torch.Tensor) -> torch.Tensor:
+        return x.reshape(x.size(0), -1)
+
+    def _unflatten(self, x: torch.Tensor) -> torch.Tensor:
+        return x.reshape(x.size(0), self.config.window_size, self.config.feature_dim)
+
     def forward(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
-        local = self.local_encoder(x)
-        global_latent = self.global_encoder(x)
-        rec = self.decoder(torch.cat([local, global_latent], dim=-1))
+        x_flat = self._flatten(x)
+        local = self.local_encoder(x_flat)
+        global_latent = self.global_encoder(x_flat)
+        rec_flat = self.decoder(torch.cat([local, global_latent], dim=-1))
+        rec = self._unflatten(rec_flat)
         return rec, local, global_latent
 
 
