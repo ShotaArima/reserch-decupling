@@ -1,5 +1,25 @@
 # Scenario 4: Two-stage Pipeline (Recovery → Forecast)
 
+```mermaid
+flowchart LR
+    A[Input row x\nsale_amount, hours_stock_status,\ndiscount, holiday_flag, activity_flag] --> B[Stage 1\nDecouplingAutoEncoder]
+    B --> C[reconstructed x]
+    B --> D[local]
+    B --> E[global_latent]
+
+    C --> F[Stage 1 Loss\nMSE rec vs x]
+
+    D --> G[detach]
+    E --> H[detach]
+
+    G --> I[Stage 2\nForecastHead]
+    H --> I
+    I --> J[predicted sale_amount]
+
+    K["Teacher y\nsame row x[:, :1]"] --> L[Stage 2 Loss\nL1 Loss]
+    J --> L
+```
+
 ## このシナリオの問い
 **「需要復元を先に行う二段構成は、研究設計として成立するか？」** を確認する実験です。
 
