@@ -1,5 +1,17 @@
 # Scenario 2: Raw Sales Forecast
 
+```mermaid
+flowchart LR
+    A[Input row x\nsale_amount, discount,\nholiday_flag, activity_flag] --> B[DecouplingAutoEncoder]
+    B --> C[local]
+    B --> D[global_latent]
+    C --> E[ForecastHead]
+    D --> E
+    E --> F[predicted sale_amount]
+    G[Teacher y\nsale_amount at row t+7] --> H[L1 Loss]
+    F --> H
+```
+
 ## このシナリオの問い
 **「需要復元を挟まずに、raw sales を直接予測したときの基準性能はどの程度か？」** を確認するベースライン実験です。
 
