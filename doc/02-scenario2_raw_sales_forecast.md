@@ -1,46 +1,58 @@
-# Scenario 2: Raw Sales Forecast
+# Scenario 2: Raw Sales Forecast (Experiment 1: Forecast Baseline Block)
 
-```mermaid
-flowchart LR
-    A[Input row x\nsale_amount, discount,\nholiday_flag, activity_flag] --> B[DecouplingAutoEncoder]
-    B --> C[local]
-    B --> D[global_latent]
-    C --> E[ForecastHead]
-    D --> E
-    E --> F[predicted sale_amount]
-    G[Teacher y\nsale_amount at row t+7] --> H[L1 Loss]
-    F --> H
-```
+## 目的
+現在の `Scenario 2 raw sales forecast` が、
+**本当に意味のある性能なのか** を判断できるようにする。
 
-## このシナリオの問い
-**「需要復元を挟まずに、raw sales を直接予測したときの基準性能はどの程度か？」** を確認するベースライン実験です。
+現状では raw sales forecast は成立しているが、
+その値が naive baseline より良いのか、また Decoupling 風表現が役立っているのかがまだ見えにくい。
 
-> 共通定義（1サンプル・global/local・指標）は `doc/00-experiment_problem_setting.md` を先に参照してください。
+> 共通定義（1サンプル・global/local・指標）は `doc/00-experiment_problem_setting.md` を参照してください。
 
-## 1サンプルの具体化（Scenario 2）
-- 入力 `x_i`: `sale_amount, discount, holiday_flag, activity_flag`（正規化後）
-- 目的変数 `y_i`: `sale_amount` の `HORIZON=7` 先シフト値
-- 実装上の対応: `x = arr[:-7]`, `y = sale_amount[7:]`
+## 問い
+- `Scenario 2` は naive forecast より良いのか？
+- 窓長 14 にする意味はあるのか？
+- two-stage にする前に、そもそも素朴な predictor と比べてどうか？
 
-## モデル
-- 表現学習: `DecouplingAutoEncoder`
-- 予測ヘッド: `ForecastHead(horizon=1)`
-- 損失: L1Loss
-- 評価: WAPE, WPE
+## 入力
+- 直近 `W=14` の window tensor
+- 現在使っている特徴量一式
 
-## このシナリオで言えること / 言えないこと
-### 言えること
-- 分離潜在（local/global）を通しても、予測器が学習できるかの初期確認ができる。
-- Scenario 4 と比較するための **単段ベースライン** になる。
+## 出力
+- 次時点の raw sales
 
-### 言えないこと
-- 「7日マルチホライズン予測ができた」とはまだ言えない（現実装は1出力）。
-- 厳密な時系列窓を使うモデル比較は未実施。
+## 比較対象
+1. **Last Value**
+   - 直近時点の売上をそのまま予測
+2. **Moving Average**
+   - 直近 `k` 点平均
+3. **Flatten + Linear**
+   - window を平坦化して線形回帰
+4. **Flatten + MLP**
+   - window を平坦化して 2〜3 層 MLP
+5. **Scenario 2**
+   - 現在の raw sales forecast
+6. **Scenario 4**
+   - current two-stage pipeline
 
-## Scenario 4 との違い
-- Scenario 2 は **raw直予測**（単段）。
-- Scenario 4 は **Recovery → Forecast**（二段）。
-- したがって S2 は「簡潔・軽量」、S4 は「設計仮説を検証しやすい」が主な違いです。
+## 評価指標
+- valid/test `WAPE`
+- valid/test `WPE`
+
+## 成功条件
+- `Scenario 2` が Last Value / Moving Average / Linear に対して優位
+- 少なくとも naive と同等以下でないこと
+- `Scenario 4` が `Scenario 2` に勝てなくても、その差が見えること
+
+## 想定される解釈
+### 良い場合
+- Decoupling 風構成は naive baseline を超える
+- 小売時系列にも一定の表現学習の価値がある
+
+### 悪い場合
+- 直近値や単純平均で足りている
+- まだ Decoupling 的な構成の優位性は弱い
+- 特徴量またはタスク設計の見直しが必要
 
 ## 実行
 ```bash
