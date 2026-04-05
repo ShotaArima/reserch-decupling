@@ -125,6 +125,11 @@
 - まだ Decoupling 的な構成の優位性は弱い
 - 特徴量またはタスク設計の見直しが必要
 
+## 補助実験への接続
+- 本シナリオで予測性能の有無を確認した後、
+  `doc/06-scenario6_local_global_ablation.md` で local/global の役割差を検証する。
+- 役割差の検証は Scenario 2 本体の目的とは異なるため、研究管理上は Scenario 6 として分離して扱う。
+
 ## 実行
 ```bash
 uv run python scenarios/scenario2_raw_sales_forecast/run.py
