@@ -86,5 +86,21 @@ def normalize_by_train_stats(
     return _norm(train_x), _norm(valid_x), _norm(test_x)
 
 
+def fit_train_normalization_stats(train_x: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Compute train-only normalization stats with shape [1, 1, F]."""
+    mu = np.nanmean(train_x, axis=(0, 1), keepdims=True)
+    sigma = np.nanstd(train_x, axis=(0, 1), keepdims=True) + 1e-6
+    return mu, sigma
+
+
+def apply_normalization(x: np.ndarray, mu: np.ndarray, sigma: np.ndarray) -> np.ndarray:
+    out = (x - mu) / sigma
+    return np.nan_to_num(out, nan=0.0, posinf=0.0, neginf=0.0)
+
+
+def denormalize(x_norm: np.ndarray, mu: np.ndarray, sigma: np.ndarray) -> np.ndarray:
+    return (x_norm * sigma) + mu
+
+
 def extract_last_timestep_feature(x: np.ndarray, feature_idx: int) -> np.ndarray:
     return x[:, -1, feature_idx]
