@@ -102,12 +102,11 @@ global / local の意味的分離までは示せていない。
 1) 予測できる、2) パイプライン設計できる、3) 役割差がある、
 という主張を段階的に積み上げられる。
 
-## 実行（想定）
-Scenario 6 を追加する場合の実行例:
-
+## 実行
 ```bash
-uv run python scenarios/scenario6_local_global_ablation/run.py
+uv run python scenarios/scenario6_local_global_ablation/run.py --latent-source scenario2
+uv run python scenarios/scenario6_local_global_ablation/run.py --latent-source stage1
 ```
 
-> まずは Scenario 2 の `run.py` にフラグ追加でも実行可能。
-> ただし再現実験としては `scenario6_*` ディレクトリを独立させた方が管理しやすい。
+- 出力は `scenarios/scenario6_local_global_ablation/output/` に保存される。
+- 最小実験は `--latent-source scenario2` のみでも可。
