@@ -33,3 +33,29 @@ def save_learning_curve(
     fig.savefig(output, dpi=150)
     plt.close(fig)
     return output
+
+
+def save_metric_bar_chart(
+    labels: Sequence[str],
+    values: Sequence[float],
+    out_path: str | Path,
+    *,
+    title: str,
+    ylabel: str,
+) -> Path:
+    output = Path(out_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = plt.subplots(figsize=(9, 4))
+    x = list(range(len(labels)))
+    ax.bar(x, values)
+    ax.set_title(title)
+    ax.set_xlabel("Model")
+    ax.set_ylabel(ylabel)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels, rotation=20, ha="right")
+    ax.grid(alpha=0.3, axis="y")
+    fig.tight_layout()
+    fig.savefig(output, dpi=150)
+    plt.close(fig)
+    return output
