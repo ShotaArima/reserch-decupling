@@ -44,6 +44,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - recovery → forecasting の 2 段階
 - `scenarios/scenario5_counterfactual_sanity`
   - local 固定 / global 交換（および逆）の反実仮想 sanity check
+- `scenarios/scenario6_local_global_ablation`
+  - local only / global only / both の予測アブレーション（計画）
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
@@ -55,6 +57,7 @@ uv run python scenarios/scenario2_raw_sales_forecast/run.py
 uv run python scenarios/scenario3_latent_demand_recovery/run.py
 uv run python scenarios/scenario4_two_stage_pipeline/run.py
 uv run python scenarios/scenario5_counterfactual_sanity/run.py
+# (planned) uv run python scenarios/scenario6_local_global_ablation/run.py
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。
