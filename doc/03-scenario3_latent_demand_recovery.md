@@ -18,7 +18,7 @@
 > 共通定義（1サンプル・global/local・指標）は `doc/00-experiment_problem_setting.md` を先に参照してください。
 
 ## 1サンプルの具体化（Scenario 3）
-- 入力 `x_i`:
+- 入力 $x_i$:
   - `hours_sale`
   - `hours_stock_status`
   - `discount`
@@ -28,7 +28,7 @@
   - `avg_temperature`
   - `avg_humidity`
   - `avg_wind_level`
-- マスク `m_i`: `hours_stock_status > 0`
+- マスク $m_i$: `hours_stock_status > 0`
 - 目的変数: `hours_sale` を含む入力再構成（マスクで重み調整）
 
 ## モデル
@@ -67,74 +67,74 @@ WAPE も大きく、過大予測寄りになっている。
 - 教師信号（proxy）の定義に無理があるのか？
 
 ## 条件A: subset evaluation（区間切り分け）
-時点 `t` の欠品指標を `s_t \in \{0,1\}`（`1=stockout`）とする。
-近傍幅を `\delta`（推奨: `\delta=3` 時間）として、以下の3区間で評価する。
+時点 $t$ の欠品指標を $s_t \in \{0,1\}$（`1=stockout`）とする。
+近傍幅を $\delta$（推奨: $\delta=3$ 時間）として、以下の3区間で評価する。
 
 1. **非欠品区間**
-   \[
+   $$
    \mathcal{I}_{\mathrm{non}} = \{t \mid s_t = 0\}
-   \]
+   $$
 2. **欠品近傍区間**（前後 `\delta` を含む）
-   \[
+   $$
    \mathcal{I}_{\mathrm{near}} = \{t \mid \exists \tau,\ s_{\tau}=1\ \land\ |t-\tau|\le \delta\}
-   \]
+   $$
 3. **全体**
-   \[
+   $$
    \mathcal{I}_{\mathrm{all}} = \{1,\dots,T\}
-   \]
+   $$
 
 > 実装上は `near` が `non` と重なる可能性があるため、
 > 必要なら `non_far = non \setminus near` も補助的に出すと解釈が安定する。
 
 ## 条件B: mask weight sweep
-損失中のマスク重み `\alpha` を sweep:
+損失中のマスク重み $\alpha$ を sweep:
 - `0.1`
 - `0.3`
 - `0.5`
 - `1.0`
 
 重み付き再構成損失（`hours_sale` のみ書くと）:
-\[
+$$
 \mathcal{L}_{\mathrm{rec}}(\alpha)
 = \frac{1}{T}\sum_{t=1}^{T}
 \left[(1-s_t) + \alpha s_t\right](\hat y_t - y_t)^2
-\]
+$$
 
-- `\alpha < 1`: 欠品区間を軽く扱う（ノイズ抑制寄り）
-- `\alpha = 1`: 欠品/非欠品を同等扱い
+- $\alpha < 1$ : 欠品区間を軽く扱う（ノイズ抑制寄り）
+- $\alpha = 1$ : 欠品/非欠品を同等扱い
 
 ## 入力
 - current Scenario 3 入力
-- stockout indicator `s_t`
+- stockout indicator $s_t$
 
 ## 出力
-- latent demand の proxy / recovery 出力 `\hat y_t`
+- latent demand の proxy / recovery 出力 $\hat y_t$
 
 ## 評価指標（subset ごと）
-評価集合を `\mathcal{I}` として:
+評価集合を $\mathcal{I}$ として:
 
 1. **WAPE**
-\[
+$$
 \mathrm{WAPE}(\mathcal{I})=
 \frac{\sum_{t\in\mathcal{I}}|y_t-\hat y_t|}
 {\sum_{t\in\mathcal{I}}|y_t|+\varepsilon}
-\]
+$$
 
 2. **WPE（符号付きバイアス）**
-\[
+$$
 \mathrm{WPE}(\mathcal{I})=
 \frac{\sum_{t\in\mathcal{I}}(\hat y_t-y_t)}
 {\sum_{t\in\mathcal{I}}|y_t|+\varepsilon}
-\]
+$$
 
 3. **train/valid gap**（過学習・不安定性確認）
-\[
+$$
 \Delta_{\mathrm{gap}}(\mathcal{I})=
 \mathrm{WAPE}_{\mathrm{valid}}(\mathcal{I})-
 \mathrm{WAPE}_{\mathrm{train}}(\mathcal{I})
-\]
+$$
 
-> `\varepsilon` はゼロ割防止の小定数（推奨 `1e-8`）。
+> $\varepsilon$ はゼロ割防止の小定数（推奨 `1e-8`）。
 
 ## 追加パラメータ設定（推奨）
 Scenario 3 と比較可能性を保つため、以下は固定:
@@ -145,8 +145,8 @@ Scenario 3 と比較可能性を保つため、以下は固定:
 - seeds: 最低 `3`（例: `0,1,2`）
 
 可変なのは原則:
-- `\alpha \in \{0.1,0.3,0.5,1.0\}`
-- 近傍幅 `\delta`（主解析は `3`、感度確認で `1,6` を任意追加）
+- $\alpha \in \{0.1,0.3,0.5,1.0\}$
+- 近傍幅 $\delta$（主解析は `3`、感度確認で `1,6` を任意追加）
 
 ## 実験表（最小セット）
 - 4（mask重み） × 3（subset） × 3（seed）
