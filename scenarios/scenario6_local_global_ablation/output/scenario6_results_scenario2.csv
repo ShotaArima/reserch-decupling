@@ -1,0 +1,4 @@
+condition,valid_wape,valid_wpe,test_wape,test_wpe
+local_only,0.437210,-0.035961,0.433776,-0.033445
+global_only,0.438009,-0.043018,0.432357,-0.047690
+both,0.430321,-0.045133,0.425557,-0.046191
