@@ -1,0 +1,9 @@
+metric,value
+orig_mean_sale_denorm,1.000297
+cf_global_swap_mean_sale_denorm,1.041333
+cf_local_swap_mean_sale_denorm,1.041617
+diff_global_minus_orig_mean,0.041036
+diff_local_minus_orig_mean,0.041320
+diff_global_minus_local_mean,-0.000284
+diff_global_minus_orig_abs_mean,0.759121
+diff_local_minus_orig_abs_mean,0.518742

@@ -90,6 +90,9 @@ Scenario 5 の counterfactual 実験結果が読めない原因が、
 ---
 
 ## 実行・出力（運用案）
+```bash
+uv run scenarios/scenario7_counterfactual_sanity_denormalized/run.py 
+```
 現行の `scenarios/scenario5_counterfactual_sanity/run.py` を拡張し、
 以下を出力すると運用しやすい。
 
