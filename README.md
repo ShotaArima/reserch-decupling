@@ -48,6 +48,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - local only / global only / both の予測アブレーション
 - `scenarios/scenario7_counterfactual_sanity_denormalized`
   - counterfactual を denormalize 後に再評価して継続可否を判断
+- `doc/08-scenario8_recovery_subset_diagnosis.md`
+  - Scenario4 の recovery が stockout 区間で効くかを subset 別に診断
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
@@ -61,6 +63,7 @@ uv run python scenarios/scenario4_two_stage_pipeline/run.py
 uv run python scenarios/scenario5_counterfactual_sanity/run.py
 uv run python scenarios/scenario6_local_global_ablation/run.py
 uv run python scenarios/scenario7_counterfactual_sanity_denormalized/run.py
+# Scenario 8 は実験計画ドキュメント（実装前段）
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。
