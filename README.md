@@ -52,6 +52,10 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - A3: raw/Scenario2/Scenario4 を all・stockout・non-stockout で subset 評価
 - `doc/08-scenario8_recovery_subset_diagnosis.md`
   - Scenario8 の実験設計ドキュメント
+- `doc/09-scenario9_common_specific_feature_assignment.md`
+  - Scenario9 の共通/固有一次割り当て実験計画
+- `doc/10-scenario10_stock_extension_for_local_branch.md`
+  - Scenario10 の stock 状態変数 local 拡張実験計画
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
