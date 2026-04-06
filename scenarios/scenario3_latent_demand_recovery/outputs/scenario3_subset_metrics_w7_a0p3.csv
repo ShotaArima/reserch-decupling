@@ -1,0 +1,10 @@
+split,subset,wape,wpe,n_points
+train,non_stockout,0.481863,0.052312,8115717
+train,near_stockout,0.832079,-0.001232,18128519
+train,all,0.789705,-0.001865,22050000
+valid,non_stockout,0.473793,0.110277,1850853
+valid,near_stockout,0.823826,-0.011447,3779045
+valid,all,0.778619,-0.000762,4725000
+test,non_stockout,0.489888,0.121507,1858266
+test,near_stockout,0.828254,0.020429,3789236
+test,all,0.784828,0.028927,4725000
