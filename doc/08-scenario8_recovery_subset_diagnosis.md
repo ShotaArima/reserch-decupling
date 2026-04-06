@@ -92,14 +92,14 @@ mask は **予測対象時点（ラベル側）**で付与する。
 ## 7. 評価指標
 ### 主指標
 - **WAPE**
-  \[
+  $$
   \mathrm{WAPE} = \frac{\sum |y - \hat{y}|}{\sum |y|}
-  \]
+  $$
 
 - **WPE**
-  \[
+  $$
   \mathrm{WPE} = \frac{\sum (\hat{y} - y)}{\sum |y|}
-  \]
+  $$
 
 ### 補助指標
 - subset 別 **MAE**
