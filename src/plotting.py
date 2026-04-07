@@ -119,7 +119,6 @@ def save_sample_series_plot(
     plt.close(fig)
     return output
 
-
 def save_condition_series_examples(
     y_true: np.ndarray,
     pred_map: dict[str, np.ndarray],
@@ -151,7 +150,6 @@ def save_condition_series_examples(
     plt.close(fig)
     return output
 
-
 def save_residual_histogram(
     residual_map: dict[str, np.ndarray],
     out_path: str | Path,
@@ -174,7 +172,6 @@ def save_residual_histogram(
     fig.savefig(output, dpi=150)
     plt.close(fig)
     return output
-
 
 def save_residual_boxplot(
     residual_map: dict[str, np.ndarray],
@@ -229,6 +226,83 @@ def save_residual_scatter(
 
     axes[0].set_ylabel("Residual (y_pred - y_true)")
     fig.suptitle(title)
+    fig.tight_layout()
+    fig.savefig(output, dpi=150)
+    plt.close(fig)
+    return output
+
+def save_probe_heatmap(
+    matrix,
+    row_labels: Sequence[str],
+    col_labels: Sequence[str],
+    out_path: str | Path,
+    *,
+    title: str,
+) -> Path:
+    output = Path(out_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = plt.subplots(figsize=(max(8, len(col_labels) * 0.9), max(4, len(row_labels) * 0.5)))
+    im = ax.imshow(matrix, aspect="auto", cmap="viridis")
+    ax.set_title(title)
+    ax.set_xticks(range(len(col_labels)))
+    ax.set_xticklabels(col_labels, rotation=30, ha="right")
+    ax.set_yticks(range(len(row_labels)))
+    ax.set_yticklabels(row_labels)
+    fig.colorbar(im, ax=ax)
+    fig.tight_layout()
+    fig.savefig(output, dpi=150)
+    plt.close(fig)
+    return output
+
+def save_probe_heatmap(
+    matrix,
+    row_labels: Sequence[str],
+    col_labels: Sequence[str],
+    out_path: str | Path,
+    *,
+    title: str,
+) -> Path:
+    output = Path(out_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    fig, ax = plt.subplots(figsize=(max(8, len(col_labels) * 0.9), max(4, len(row_labels) * 0.5)))
+    im = ax.imshow(matrix, aspect="auto", cmap="viridis")
+    ax.set_title(title)
+    ax.set_xticks(range(len(col_labels)))
+    ax.set_xticklabels(col_labels, rotation=30, ha="right")
+    ax.set_yticks(range(len(row_labels)))
+    ax.set_yticklabels(row_labels)
+    fig.colorbar(im, ax=ax)
+    fig.tight_layout()
+    fig.savefig(output, dpi=150)
+    plt.close(fig)
+    return output
+
+def save_swap_direction_plot(
+    probe_names: Sequence[str],
+    exp1_gap: Sequence[float],
+    exp2_gap: Sequence[float],
+    out_path: str | Path,
+    *,
+    title: str,
+) -> Path:
+    output = Path(out_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    x = list(range(len(probe_names)))
+    width = 0.38
+
+    fig, ax = plt.subplots(figsize=(max(8, len(probe_names) * 0.9), 4.5))
+    ax.bar([i - width / 2 for i in x], exp1_gap, width=width, label="exp1 (common-specific)")
+    ax.bar([i + width / 2 for i in x], exp2_gap, width=width, label="exp2 (common-specific)")
+    ax.axhline(0.0, color="black", linewidth=1)
+    ax.set_xticks(x)
+    ax.set_xticklabels(probe_names, rotation=30, ha="right")
+    ax.set_ylabel("Gap")
+    ax.set_title(title)
+    ax.legend()
+    ax.grid(alpha=0.3, axis="y")
     fig.tight_layout()
     fig.savefig(output, dpi=150)
     plt.close(fig)
