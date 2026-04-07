@@ -50,8 +50,16 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - counterfactual を denormalize 後に再評価して継続可否を判断
 - `scenarios/scenario8_recovery_subset_diagnosis`
   - A3: raw/Scenario2/Scenario4 を all・stockout・non-stockout で subset 評価
+- `scenarios/scenario9_common_specific_feature_assignment`
+  - common/specific 特徴量一次割り当て（Exp-0/1/2 + ablation）
+- `scenarios/scenario10_stock_extension_local_branch`
+  - stock 系特徴を specific 側へ追加する拡張検証（Exp-3 系）
 - `doc/08-scenario8_recovery_subset_diagnosis.md`
   - Scenario8 の実験設計ドキュメント
+- `doc/09-scenario9_common_specific_feature_assignment.md`
+  - Scenario9 の共通/固有一次割り当て実験計画
+- `doc/10-scenario10_stock_extension_for_local_branch.md`
+  - Scenario10 の stock 状態変数 local 拡張実験計画
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
@@ -66,6 +74,8 @@ uv run python scenarios/scenario5_counterfactual_sanity/run.py
 uv run python scenarios/scenario6_local_global_ablation/run.py
 uv run python scenarios/scenario7_counterfactual_sanity_denormalized/run.py
 uv run python scenarios/scenario8_recovery_subset_diagnosis/run.py
+uv run python scenarios/scenario9_common_specific_feature_assignment/run.py
+uv run python scenarios/scenario10_stock_extension_local_branch/run.py
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。
