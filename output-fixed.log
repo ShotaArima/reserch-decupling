@@ -1,0 +1,140 @@
+[progress] Loading dataset...
+
+[progress] arm=A0 common_features=12 specific_features=4
+[progress] arm=A0 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A0_seed42_h8
+[train] A0_seed42_h8: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=1
+[train] A0_seed42_h8: step=1/1 loss=1.004795
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A0_seed42_h8_train_loss.png
+[result] run=A0_seed42_h8 mode=local_only valid_wape=0.9992 valid_wpe=-0.9982 valid_mae=0.9819 test_wape=0.9998 test_wpe=-0.9990 test_mae=0.9915
+[result] run=A0_seed42_h8 mode=common_only valid_wape=0.9503 valid_wpe=-0.9436 valid_mae=0.9339 test_wape=0.9307 test_wpe=-0.9228 test_mae=0.9229
+[result] run=A0_seed42_h8 mode=both valid_wape=0.9290 valid_wpe=-0.9189 valid_mae=0.9129 test_wape=0.9098 test_wpe=-0.8983 test_mae=0.9022
+[probe] A0-seed42-h8-valid-weekday: step=1/1 loss=1.968647
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=weekday accuracy=0.1433 macro_f1=0.0860
+[probe] A0-seed42-h8-valid-month: step=1/1 loss=2.142927
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=month accuracy=0.0680 macro_f1=0.0387
+[probe] A0-seed42-h8-valid-hierarchy: step=1/1 loss=3.448786
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.0909 macro_f1=0.0073
+[probe] A0-seed42-h8-test-weekday: step=1/1 loss=1.955340
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=weekday accuracy=0.1453 macro_f1=0.0963
+[probe] A0-seed42-h8-test-month: step=1/1 loss=1.832015
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=month accuracy=0.3310 macro_f1=0.1105
+[probe] A0-seed42-h8-test-hierarchy: step=1/1 loss=3.520052
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=hierarchy accuracy=0.0010 macro_f1=0.0015
+
+[progress] arm=A1 common_features=21 specific_features=4
+[progress] arm=A1 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A1_seed42_h8
+[train] A1_seed42_h8: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=1
+[train] A1_seed42_h8: step=1/1 loss=1.117630
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A1_seed42_h8_train_loss.png
+[result] run=A1_seed42_h8 mode=local_only valid_wape=1.0791 valid_wpe=-1.0791 valid_mae=1.0604 test_wape=1.0782 test_wpe=-1.0782 test_mae=1.0692
+[result] run=A1_seed42_h8 mode=common_only valid_wape=1.0620 valid_wpe=-1.0620 valid_mae=1.0436 test_wape=1.0818 test_wpe=-1.0818 test_mae=1.0728
+[result] run=A1_seed42_h8 mode=both valid_wape=1.0867 valid_wpe=-1.0867 valid_mae=1.0678 test_wape=1.1076 test_wpe=-1.1076 test_mae=1.0983
+[probe] A1-seed42-h8-valid-weekday: step=1/1 loss=1.963659
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=weekday accuracy=0.1422 macro_f1=0.0649
+[probe] A1-seed42-h8-valid-month: step=1/1 loss=1.975449
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=month accuracy=0.1481 macro_f1=0.0917
+[probe] A1-seed42-h8-valid-hierarchy: step=1/1 loss=3.542770
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.0138 macro_f1=0.0024
+[probe] A1-seed42-h8-test-weekday: step=1/1 loss=1.966477
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=weekday accuracy=0.1250 macro_f1=0.0559
+[probe] A1-seed42-h8-test-month: step=1/1 loss=1.901360
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=month accuracy=0.1405 macro_f1=0.1029
+[probe] A1-seed42-h8-test-hierarchy: step=1/1 loss=3.488547
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=hierarchy accuracy=0.0301 macro_f1=0.0109
+
+[progress] arm=A2 common_features=30 specific_features=4
+[progress] arm=A2 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A2_seed42_h8
+[train] A2_seed42_h8: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=1
+[train] A2_seed42_h8: step=1/1 loss=0.916811
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A2_seed42_h8_train_loss.png
+[result] run=A2_seed42_h8 mode=local_only valid_wape=0.8820 valid_wpe=-0.8623 valid_mae=0.8667 test_wape=0.8816 test_wpe=-0.8639 test_mae=0.8742
+[result] run=A2_seed42_h8 mode=common_only valid_wape=0.8957 valid_wpe=-0.8790 valid_mae=0.8802 test_wape=0.9130 test_wpe=-0.9008 test_mae=0.9054
+[result] run=A2_seed42_h8 mode=both valid_wape=0.8745 valid_wpe=-0.8526 valid_mae=0.8594 test_wape=0.8883 test_wpe=-0.8713 test_mae=0.8809
+[probe] A2-seed42-h8-valid-weekday: step=1/1 loss=1.960538
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=weekday accuracy=0.1299 macro_f1=0.0729
+[probe] A2-seed42-h8-valid-month: step=1/1 loss=2.022803
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=month accuracy=0.0016 macro_f1=0.0031
+[probe] A2-seed42-h8-valid-hierarchy: step=1/1 loss=3.417105
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.0591 macro_f1=0.0135
+[probe] A2-seed42-h8-test-weekday: step=1/1 loss=1.956329
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=weekday accuracy=0.1488 macro_f1=0.0895
+[probe] A2-seed42-h8-test-month: step=1/1 loss=2.041383
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=month accuracy=0.0127 macro_f1=0.0111
+[probe] A2-seed42-h8-test-hierarchy: step=1/1 loss=3.464808
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=hierarchy accuracy=0.0192 macro_f1=0.0081
+
+[progress] arm=A3 common_features=30 specific_features=4
+[progress] arm=A3 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A3_seed42_h4
+[train] A3_seed42_h4: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=4 log_interval=1
+[train] A3_seed42_h4: step=1/1 loss=0.923981
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed42_h4_train_loss.png
+[result] run=A3_seed42_h4 mode=local_only valid_wape=0.9161 valid_wpe=-0.9049 valid_mae=0.9003 test_wape=0.9144 test_wpe=-0.9043 test_mae=0.9067
+[result] run=A3_seed42_h4 mode=common_only valid_wape=0.8925 valid_wpe=-0.8762 valid_mae=0.8770 test_wape=0.8941 test_wpe=-0.8803 test_mae=0.8866
+[result] run=A3_seed42_h4 mode=both valid_wape=0.8879 valid_wpe=-0.8700 valid_mae=0.8725 test_wape=0.8922 test_wpe=-0.8775 test_mae=0.8847
+[probe] A3-seed42-h4-valid-weekday: step=1/1 loss=1.941887
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=weekday accuracy=0.1484 macro_f1=0.0833
+[probe] A3-seed42-h4-valid-month: step=1/1 loss=2.012611
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=month accuracy=0.0565 macro_f1=0.0426
+[probe] A3-seed42-h4-valid-hierarchy: step=1/1 loss=3.471554
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=hierarchy accuracy=0.0138 macro_f1=0.0106
+[probe] A3-seed42-h4-test-weekday: step=1/1 loss=1.960205
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=weekday accuracy=0.1295 macro_f1=0.0596
+[probe] A3-seed42-h4-test-month: step=1/1 loss=1.896062
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=month accuracy=0.3189 macro_f1=0.1541
+[probe] A3-seed42-h4-test-hierarchy: step=1/1 loss=3.524697
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=hierarchy accuracy=0.0086 macro_f1=0.0086
+
+[progress] Training A3_seed42_h8
+[train] A3_seed42_h8: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=1
+[train] A3_seed42_h8: step=1/1 loss=0.916811
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed42_h8_train_loss.png
+[result] run=A3_seed42_h8 mode=local_only valid_wape=0.8820 valid_wpe=-0.8623 valid_mae=0.8667 test_wape=0.8816 test_wpe=-0.8639 test_mae=0.8742
+[result] run=A3_seed42_h8 mode=common_only valid_wape=0.8957 valid_wpe=-0.8790 valid_mae=0.8802 test_wape=0.9130 test_wpe=-0.9008 test_mae=0.9054
+[result] run=A3_seed42_h8 mode=both valid_wape=0.8745 valid_wpe=-0.8526 valid_mae=0.8594 test_wape=0.8883 test_wpe=-0.8713 test_mae=0.8809
+[probe] A3-seed42-h8-valid-weekday: step=1/1 loss=1.960538
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=weekday accuracy=0.1299 macro_f1=0.0729
+[probe] A3-seed42-h8-valid-month: step=1/1 loss=2.022803
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=month accuracy=0.0016 macro_f1=0.0031
+[probe] A3-seed42-h8-valid-hierarchy: step=1/1 loss=3.417105
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.0591 macro_f1=0.0135
+[probe] A3-seed42-h8-test-weekday: step=1/1 loss=1.956329
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=weekday accuracy=0.1488 macro_f1=0.0895
+[probe] A3-seed42-h8-test-month: step=1/1 loss=2.041383
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=month accuracy=0.0127 macro_f1=0.0111
+[probe] A3-seed42-h8-test-hierarchy: step=1/1 loss=3.464808
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=hierarchy accuracy=0.0192 macro_f1=0.0081
+
+[progress] Training A3_seed42_h16
+[train] A3_seed42_h16: steps=1 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=16 log_interval=1
+[train] A3_seed42_h16: step=1/1 loss=1.061221
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed42_h16_train_loss.png
+[result] run=A3_seed42_h16 mode=local_only valid_wape=1.0160 valid_wpe=-1.0155 valid_mae=0.9984 test_wape=1.0145 test_wpe=-1.0141 test_mae=1.0060
+[result] run=A3_seed42_h16 mode=common_only valid_wape=1.0164 valid_wpe=-1.0160 valid_mae=0.9988 test_wape=1.0201 test_wpe=-1.0199 test_mae=1.0116
+[result] run=A3_seed42_h16 mode=both valid_wape=1.0201 valid_wpe=-1.0195 valid_mae=1.0024 test_wape=1.0236 test_wpe=-1.0231 test_mae=1.0150
+[probe] A3-seed42-h16-valid-weekday: step=1/1 loss=1.959017
+[probe-result] arm=A3 seed=42 hdim=16 split=valid target=weekday accuracy=0.1459 macro_f1=0.0875
+[probe] A3-seed42-h16-valid-month: step=1/1 loss=2.001786
+[probe-result] arm=A3 seed=42 hdim=16 split=valid target=month accuracy=0.1557 macro_f1=0.0775
+[probe] A3-seed42-h16-valid-hierarchy: step=1/1 loss=3.506030
+[probe-result] arm=A3 seed=42 hdim=16 split=valid target=hierarchy accuracy=0.0607 macro_f1=0.0235
+[probe] A3-seed42-h16-test-weekday: step=1/1 loss=1.962279
+[probe-result] arm=A3 seed=42 hdim=16 split=test target=weekday accuracy=0.1434 macro_f1=0.0487
+[probe] A3-seed42-h16-test-month: step=1/1 loss=2.004421
+[probe-result] arm=A3 seed=42 hdim=16 split=test target=month accuracy=0.2358 macro_f1=0.1347
+[probe] A3-seed42-h16-test-hierarchy: step=1/1 loss=3.554105
+[probe-result] arm=A3 seed=42 hdim=16 split=test target=hierarchy accuracy=0.0129 macro_f1=0.0028
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/scenario15_metrics.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/scenario15_probe_metrics.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/scenario15_config_results.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/scenario15_valid_wape.png
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/scenario15_test_wape.png
+
+[summary] Scenario15 completed.
