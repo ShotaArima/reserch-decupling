@@ -218,6 +218,39 @@ def _build_categorical_last_step(df: pd.DataFrame, cat_features: Sequence[str], 
     return np.clip(last.astype(np.int64), a_min=0, a_max=None)
 
 
+def _encode_categorical_splits_with_train_vocab(
+    cat_train: np.ndarray,
+    cat_valid: np.ndarray,
+    cat_test: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, list[int]]:
+    if cat_train.ndim != 2 or cat_train.shape[1] == 0:
+        return cat_train, cat_valid, cat_test, []
+
+    encoded_train = np.zeros_like(cat_train, dtype=np.int64)
+    encoded_valid = np.zeros_like(cat_valid, dtype=np.int64)
+    encoded_test = np.zeros_like(cat_test, dtype=np.int64)
+    cardinalities: list[int] = []
+
+    for col_idx in range(cat_train.shape[1]):
+        train_col = cat_train[:, col_idx]
+        valid_col = cat_valid[:, col_idx] if cat_valid.shape[0] else np.array([], dtype=np.int64)
+        test_col = cat_test[:, col_idx] if cat_test.shape[0] else np.array([], dtype=np.int64)
+
+        known_values = sorted({int(v) for v in train_col if int(v) >= 0})
+        value_to_idx = {value: idx + 1 for idx, value in enumerate(known_values)}  # 0 is reserved for UNK/MISSING.
+
+        if train_col.size:
+            encoded_train[:, col_idx] = np.array([value_to_idx.get(int(v), 0) for v in train_col], dtype=np.int64)
+        if valid_col.size:
+            encoded_valid[:, col_idx] = np.array([value_to_idx.get(int(v), 0) for v in valid_col], dtype=np.int64)
+        if test_col.size:
+            encoded_test[:, col_idx] = np.array([value_to_idx.get(int(v), 0) for v in test_col], dtype=np.int64)
+
+        cardinalities.append(max(2, len(known_values) + 1))
+
+    return encoded_train, encoded_valid, encoded_test, cardinalities
+
+
 def _make_probe_target(df: pd.DataFrame, column: str, window_size: int, default: int = 0) -> np.ndarray:
     if column not in df.columns:
         return np.full((len(df),), default, dtype=np.int64)
@@ -262,10 +295,11 @@ def build_splits(
         specific_test_raw,
     )
 
-    cardinalities: list[int] = []
-    for col_idx in range(cat_train.shape[1] if cat_train.ndim == 2 else 0):
-        max_idx = int(np.max(cat_train[:, col_idx])) if cat_train.shape[0] else 0
-        cardinalities.append(max(2, max_idx + 1))
+    cat_train, cat_valid, cat_test, cardinalities = _encode_categorical_splits_with_train_vocab(
+        cat_train,
+        cat_valid,
+        cat_test,
+    )
 
     return DatasetSplits(
         common_train=common_train,
