@@ -1,6 +1,9 @@
 # Scenario 2: Raw Sales Forecast (Experiment 1: Forecast Baseline Block)
 
 ## 目的
+`Forecast baseline block` の実装本体は `baselines/forecast_block` に集約しています。
+詳細な baseline 定義は `doc/11-baseline_forecast_block.md` を参照してください。
+
 現在の `Scenario 2 raw sales forecast` が、
 **本当に意味のある性能なのか** を判断できるようにする。
 
@@ -132,5 +135,7 @@
 
 ## 実行
 ```bash
+uv run python baselines/forecast_block/run.py
+# もしくは後方互換エントリポイント
 uv run python scenarios/scenario2_raw_sales_forecast/run.py
 ```
