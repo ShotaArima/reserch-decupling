@@ -60,12 +60,17 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - Scenario9 の共通/固有一次割り当て実験計画
 - `doc/10-scenario10_stock_extension_for_local_branch.md`
   - Scenario10 の stock 状態変数 local 拡張実験計画
+- `baselines/forecast_block`
+  - 予測ベースライン比較（LastValue / MovingAverage / FlattenLinear / FlattenMLP / Prophet / Scenario2 / Scenario4）
+- `doc/11-baseline_forecast_block.md`
+  - baseline 集約ドキュメント（モデル定義と実行方法）
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
 ## 実行
 
 ```bash
+uv run python baselines/forecast_block/run.py
 uv run python scenarios/scenario1_representation_probe/run.py
 uv run python scenarios/scenario2_raw_sales_forecast/run.py
 uv run python scenarios/scenario3_latent_demand_recovery/run.py
