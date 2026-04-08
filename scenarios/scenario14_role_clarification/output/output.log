@@ -1,0 +1,120 @@
+
+===== Scenario14 seed=42 =====
+[LatentTrain] step=0001/120 loss=1.001329
+[LatentTrain] step=0020/120 loss=0.552816
+[LatentTrain] step=0040/120 loss=0.432318
+[LatentTrain] step=0060/120 loss=0.419703
+[LatentTrain] step=0080/120 loss=0.418011
+[LatentTrain] step=0100/120 loss=0.417271
+[LatentTrain] step=0120/120 loss=0.416742
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_latent_train_loss_seed42.png
+[HeadTrain:common_only] step=0001/120 loss=1.027923
+[HeadTrain:common_only] step=0020/120 loss=0.724733
+[HeadTrain:common_only] step=0040/120 loss=0.477055
+[HeadTrain:common_only] step=0060/120 loss=0.435973
+[HeadTrain:common_only] step=0080/120 loss=0.425179
+[HeadTrain:common_only] step=0100/120 loss=0.421343
+[HeadTrain:common_only] step=0120/120 loss=0.420161
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_common_only_train_loss_seed42.png
+[Eval:common_only] wape=0.4287 wpe=-0.0595 mae=0.4251 mean_error=-0.0590 residual_std=0.8046 diff_corr=-0.3463
+[HeadTrain:specific_only] step=0001/120 loss=1.055080
+[HeadTrain:specific_only] step=0020/120 loss=0.620444
+[HeadTrain:specific_only] step=0040/120 loss=0.435633
+[HeadTrain:specific_only] step=0060/120 loss=0.428649
+[HeadTrain:specific_only] step=0080/120 loss=0.426654
+[HeadTrain:specific_only] step=0100/120 loss=0.425060
+[HeadTrain:specific_only] step=0120/120 loss=0.423890
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_specific_only_train_loss_seed42.png
+[Eval:specific_only] wape=0.4310 wpe=-0.0403 mae=0.4274 mean_error=-0.0400 residual_std=0.7964 diff_corr=-0.3452
+[HeadTrain:both] step=0001/120 loss=0.983481
+[HeadTrain:both] step=0020/120 loss=0.453182
+[HeadTrain:both] step=0040/120 loss=0.428605
+[HeadTrain:both] step=0060/120 loss=0.420888
+[HeadTrain:both] step=0080/120 loss=0.418819
+[HeadTrain:both] step=0100/120 loss=0.418343
+[HeadTrain:both] step=0120/120 loss=0.418089
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_both_train_loss_seed42.png
+[Eval:both] wape=0.4249 wpe=-0.0476 mae=0.4214 mean_error=-0.0472 residual_std=0.8000 diff_corr=-0.3476
+
+===== Scenario14 seed=52 =====
+[LatentTrain] step=0001/120 loss=0.939683
+[LatentTrain] step=0020/120 loss=0.561603
+[LatentTrain] step=0040/120 loss=0.429248
+[LatentTrain] step=0060/120 loss=0.421383
+[LatentTrain] step=0080/120 loss=0.418230
+[LatentTrain] step=0100/120 loss=0.417399
+[LatentTrain] step=0120/120 loss=0.416870
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_latent_train_loss_seed52.png
+[HeadTrain:common_only] step=0001/120 loss=0.895142
+[HeadTrain:common_only] step=0020/120 loss=0.553724
+[HeadTrain:common_only] step=0040/120 loss=0.441524
+[HeadTrain:common_only] step=0060/120 loss=0.427180
+[HeadTrain:common_only] step=0080/120 loss=0.421588
+[HeadTrain:common_only] step=0100/120 loss=0.419778
+[HeadTrain:common_only] step=0120/120 loss=0.418932
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_common_only_train_loss_seed52.png
+[Eval:common_only] wape=0.4266 wpe=-0.0507 mae=0.4231 mean_error=-0.0503 residual_std=0.8018 diff_corr=-0.3455
+[HeadTrain:specific_only] step=0001/120 loss=1.083227
+[HeadTrain:specific_only] step=0020/120 loss=0.605199
+[HeadTrain:specific_only] step=0040/120 loss=0.430298
+[HeadTrain:specific_only] step=0060/120 loss=0.426182
+[HeadTrain:specific_only] step=0080/120 loss=0.422157
+[HeadTrain:specific_only] step=0100/120 loss=0.420228
+[HeadTrain:specific_only] step=0120/120 loss=0.419276
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_specific_only_train_loss_seed52.png
+[Eval:specific_only] wape=0.4260 wpe=-0.0487 mae=0.4224 mean_error=-0.0483 residual_std=0.7936 diff_corr=-0.3507
+[HeadTrain:both] step=0001/120 loss=1.099512
+[HeadTrain:both] step=0020/120 loss=0.449519
+[HeadTrain:both] step=0040/120 loss=0.425569
+[HeadTrain:both] step=0060/120 loss=0.419897
+[HeadTrain:both] step=0080/120 loss=0.418572
+[HeadTrain:both] step=0100/120 loss=0.418178
+[HeadTrain:both] step=0120/120 loss=0.417901
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_both_train_loss_seed52.png
+[Eval:both] wape=0.4245 wpe=-0.0523 mae=0.4210 mean_error=-0.0518 residual_std=0.7981 diff_corr=-0.3505
+
+===== Scenario14 seed=62 =====
+[LatentTrain] step=0001/120 loss=1.130977
+[LatentTrain] step=0020/120 loss=0.580791
+[LatentTrain] step=0040/120 loss=0.430965
+[LatentTrain] step=0060/120 loss=0.421924
+[LatentTrain] step=0080/120 loss=0.418111
+[LatentTrain] step=0100/120 loss=0.416966
+[LatentTrain] step=0120/120 loss=0.416445
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_latent_train_loss_seed62.png
+[HeadTrain:common_only] step=0001/120 loss=0.657239
+[HeadTrain:common_only] step=0020/120 loss=0.451392
+[HeadTrain:common_only] step=0040/120 loss=0.436692
+[HeadTrain:common_only] step=0060/120 loss=0.423185
+[HeadTrain:common_only] step=0080/120 loss=0.419378
+[HeadTrain:common_only] step=0100/120 loss=0.418256
+[HeadTrain:common_only] step=0120/120 loss=0.417681
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_common_only_train_loss_seed62.png
+[Eval:common_only] wape=0.4249 wpe=-0.0511 mae=0.4213 mean_error=-0.0506 residual_std=0.7966 diff_corr=-0.3502
+[HeadTrain:specific_only] step=0001/120 loss=1.083078
+[HeadTrain:specific_only] step=0020/120 loss=0.693387
+[HeadTrain:specific_only] step=0040/120 loss=0.526718
+[HeadTrain:specific_only] step=0060/120 loss=0.470819
+[HeadTrain:specific_only] step=0080/120 loss=0.434586
+[HeadTrain:specific_only] step=0100/120 loss=0.424447
+[HeadTrain:specific_only] step=0120/120 loss=0.421999
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_specific_only_train_loss_seed62.png
+[Eval:specific_only] wape=0.4294 wpe=-0.0547 mae=0.4258 mean_error=-0.0542 residual_std=0.7977 diff_corr=-0.3515
+[HeadTrain:both] step=0001/120 loss=0.952821
+[HeadTrain:both] step=0020/120 loss=0.464617
+[HeadTrain:both] step=0040/120 loss=0.431932
+[HeadTrain:both] step=0060/120 loss=0.422314
+[HeadTrain:both] step=0080/120 loss=0.420082
+[HeadTrain:both] step=0100/120 loss=0.419347
+[HeadTrain:both] step=0120/120 loss=0.418813
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_head_both_train_loss_seed62.png
+[Eval:both] wape=0.4251 wpe=-0.0490 mae=0.4216 mean_error=-0.0486 residual_std=0.7979 diff_corr=-0.3494
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_metrics_overall.csv
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_metrics_summary.csv
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_subset_metrics.csv
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_plot_series_examples.png
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_plot_residual_hist.png
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_plot_residual_box.png
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_plot_residual_scatter.png
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_predictions_sample.csv
+Saved: /Users/shota/project/tcu/reserch-decupling/scenarios/scenario14_role_clarification/output/scenario14_interpretation_notes.md

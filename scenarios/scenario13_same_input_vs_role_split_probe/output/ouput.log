@@ -1,0 +1,264 @@
+[progress] Scenario13 start
+[progress] Loading FreshRetailNet-50K dataframe...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag']
+
+[progress] Running experiment=exp0_same_input
+[progress] Building split tensors for exp0_same_input...
+[progress] Training model for exp0_same_input...
+[train] exp0_same_input: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=294, specific_input_dim=294
+[train] exp0_same_input: step=1/120 loss=1.175984
+[train] exp0_same_input: step=20/120 loss=0.612863
+[train] exp0_same_input: step=40/120 loss=0.440941
+[train] exp0_same_input: step=60/120 loss=0.424752
+[train] exp0_same_input: step=80/120 loss=0.419490
+[train] exp0_same_input: step=100/120 loss=0.415305
+[train] exp0_same_input: step=120/120 loss=0.411837
+[progress] Extracting latents for exp0_same_input...
+[progress] Running probes for exp0_same_input...
+[probe] task=city_id latent=z_common step=1/120 loss=3.101403
+[probe] task=city_id latent=z_common step=20/120 loss=1.355562
+[probe] task=city_id latent=z_common step=40/120 loss=1.127438
+[probe] task=city_id latent=z_common step=60/120 loss=1.019763
+[probe] task=city_id latent=z_common step=80/120 loss=0.937247
+[probe] task=city_id latent=z_common step=100/120 loss=0.873661
+[probe] task=city_id latent=z_common step=120/120 loss=0.822203
+[probe] task=city_id latent=z_specific step=1/120 loss=2.397834
+[probe] task=city_id latent=z_specific step=20/120 loss=1.269117
+[probe] task=city_id latent=z_specific step=40/120 loss=1.071597
+[probe] task=city_id latent=z_specific step=60/120 loss=0.950276
+[probe] task=city_id latent=z_specific step=80/120 loss=0.861672
+[probe] task=city_id latent=z_specific step=100/120 loss=0.795697
+[probe] task=city_id latent=z_specific step=120/120 loss=0.744530
+[probe] task=store_id latent=z_common step=1/120 loss=6.497279
+[probe] task=store_id latent=z_common step=20/120 loss=5.976944
+[probe] task=store_id latent=z_common step=40/120 loss=5.772519
+[probe] task=store_id latent=z_common step=60/120 loss=5.644054
+[probe] task=store_id latent=z_common step=80/120 loss=5.555613
+[probe] task=store_id latent=z_common step=100/120 loss=5.491331
+[probe] task=store_id latent=z_common step=120/120 loss=5.443036
+[probe] task=store_id latent=z_specific step=1/120 loss=6.520900
+[probe] task=store_id latent=z_specific step=20/120 loss=6.029652
+[probe] task=store_id latent=z_specific step=40/120 loss=5.853859
+[probe] task=store_id latent=z_specific step=60/120 loss=5.740172
+[probe] task=store_id latent=z_specific step=80/120 loss=5.660645
+[probe] task=store_id latent=z_specific step=100/120 loss=5.601935
+[probe] task=store_id latent=z_specific step=120/120 loss=5.557037
+[probe] task=first_category_id latent=z_common step=1/120 loss=3.813832
+[probe] task=first_category_id latent=z_common step=20/120 loss=2.426963
+[probe] task=first_category_id latent=z_common step=40/120 loss=2.099432
+[probe] task=first_category_id latent=z_common step=60/120 loss=1.929299
+[probe] task=first_category_id latent=z_common step=80/120 loss=1.819082
+[probe] task=first_category_id latent=z_common step=100/120 loss=1.738665
+[probe] task=first_category_id latent=z_common step=120/120 loss=1.675745
+[probe] task=first_category_id latent=z_specific step=1/120 loss=3.681538
+[probe] task=first_category_id latent=z_specific step=20/120 loss=2.498270
+[probe] task=first_category_id latent=z_specific step=40/120 loss=2.205054
+[probe] task=first_category_id latent=z_specific step=60/120 loss=2.035679
+[probe] task=first_category_id latent=z_specific step=80/120 loss=1.918632
+[probe] task=first_category_id latent=z_specific step=100/120 loss=1.831441
+[probe] task=first_category_id latent=z_specific step=120/120 loss=1.762684
+[probe] task=holiday_flag latent=z_common step=1/120 loss=0.738476
+[probe] task=holiday_flag latent=z_common step=20/120 loss=0.392548
+[probe] task=holiday_flag latent=z_common step=40/120 loss=0.273179
+[probe] task=holiday_flag latent=z_common step=60/120 loss=0.215396
+[probe] task=holiday_flag latent=z_common step=80/120 loss=0.181826
+[probe] task=holiday_flag latent=z_common step=100/120 loss=0.159326
+[probe] task=holiday_flag latent=z_common step=120/120 loss=0.143011
+[probe] task=holiday_flag latent=z_specific step=1/120 loss=0.597172
+[probe] task=holiday_flag latent=z_specific step=20/120 loss=0.386450
+[probe] task=holiday_flag latent=z_specific step=40/120 loss=0.294911
+[probe] task=holiday_flag latent=z_specific step=60/120 loss=0.241725
+[probe] task=holiday_flag latent=z_specific step=80/120 loss=0.208664
+[probe] task=holiday_flag latent=z_specific step=100/120 loss=0.185762
+[probe] task=holiday_flag latent=z_specific step=120/120 loss=0.168806
+[probe] task=next_direction latent=z_common step=1/120 loss=0.760040
+[probe] task=next_direction latent=z_common step=20/120 loss=0.685855
+[probe] task=next_direction latent=z_common step=40/120 loss=0.680373
+[probe] task=next_direction latent=z_common step=60/120 loss=0.678583
+[probe] task=next_direction latent=z_common step=80/120 loss=0.677680
+[probe] task=next_direction latent=z_common step=100/120 loss=0.677190
+[probe] task=next_direction latent=z_common step=120/120 loss=0.676915
+[probe] task=next_direction latent=z_specific step=1/120 loss=0.781126
+[probe] task=next_direction latent=z_specific step=20/120 loss=0.684135
+[probe] task=next_direction latent=z_specific step=40/120 loss=0.676369
+[probe] task=next_direction latent=z_specific step=60/120 loss=0.674803
+[probe] task=next_direction latent=z_specific step=80/120 loss=0.673951
+[probe] task=next_direction latent=z_specific step=100/120 loss=0.673335
+[probe] task=next_direction latent=z_specific step=120/120 loss=0.672841
+[probe] task=recent_volatility_high latent=z_common step=1/120 loss=0.650079
+[probe] task=recent_volatility_high latent=z_common step=20/120 loss=0.534249
+[probe] task=recent_volatility_high latent=z_common step=40/120 loss=0.521323
+[probe] task=recent_volatility_high latent=z_common step=60/120 loss=0.517732
+[probe] task=recent_volatility_high latent=z_common step=80/120 loss=0.515459
+[probe] task=recent_volatility_high latent=z_common step=100/120 loss=0.513860
+[probe] task=recent_volatility_high latent=z_common step=120/120 loss=0.512772
+[probe] task=recent_volatility_high latent=z_specific step=1/120 loss=0.951788
+[probe] task=recent_volatility_high latent=z_specific step=20/120 loss=0.582387
+[probe] task=recent_volatility_high latent=z_specific step=40/120 loss=0.524885
+[probe] task=recent_volatility_high latent=z_specific step=60/120 loss=0.517671
+[probe] task=recent_volatility_high latent=z_specific step=80/120 loss=0.515914
+[probe] task=recent_volatility_high latent=z_specific step=100/120 loss=0.515057
+[probe] task=recent_volatility_high latent=z_specific step=120/120 loss=0.514414
+[probe] task=discount latent=z_common step=1/120 loss=0.764553
+[probe] task=discount latent=z_common step=20/120 loss=0.498010
+[probe] task=discount latent=z_common step=40/120 loss=0.411065
+[probe] task=discount latent=z_common step=60/120 loss=0.379228
+[probe] task=discount latent=z_common step=80/120 loss=0.362174
+[probe] task=discount latent=z_common step=100/120 loss=0.350611
+[probe] task=discount latent=z_common step=120/120 loss=0.341846
+[probe] task=discount latent=z_specific step=1/120 loss=0.649701
+[probe] task=discount latent=z_specific step=20/120 loss=0.467502
+[probe] task=discount latent=z_specific step=40/120 loss=0.404263
+[probe] task=discount latent=z_specific step=60/120 loss=0.372059
+[probe] task=discount latent=z_specific step=80/120 loss=0.353718
+[probe] task=discount latent=z_specific step=100/120 loss=0.342263
+[probe] task=discount latent=z_specific step=120/120 loss=0.334390
+[probe] task=activity_flag latent=z_common step=1/120 loss=1.177815
+[probe] task=activity_flag latent=z_common step=20/120 loss=0.553761
+[probe] task=activity_flag latent=z_common step=40/120 loss=0.363506
+[probe] task=activity_flag latent=z_common step=60/120 loss=0.273267
+[probe] task=activity_flag latent=z_common step=80/120 loss=0.223560
+[probe] task=activity_flag latent=z_common step=100/120 loss=0.191917
+[probe] task=activity_flag latent=z_common step=120/120 loss=0.169779
+[probe] task=activity_flag latent=z_specific step=1/120 loss=0.926274
+[probe] task=activity_flag latent=z_specific step=20/120 loss=0.412058
+[probe] task=activity_flag latent=z_specific step=40/120 loss=0.287432
+[probe] task=activity_flag latent=z_specific step=60/120 loss=0.232978
+[probe] task=activity_flag latent=z_specific step=80/120 loss=0.196840
+[probe] task=activity_flag latent=z_specific step=100/120 loss=0.169767
+[probe] task=activity_flag latent=z_specific step=120/120 loss=0.148755
+[summary] exp0_same_input: cka=0.9226 cosine_mean=0.1704 probe_rows=42
+
+[progress] Running experiment=exp1_role_split
+[progress] Building split tensors for exp1_role_split...
+[progress] Training model for exp1_role_split...
+[train] exp1_role_split: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] exp1_role_split: step=1/120 loss=0.911474
+[train] exp1_role_split: step=20/120 loss=0.530103
+[train] exp1_role_split: step=40/120 loss=0.432851
+[train] exp1_role_split: step=60/120 loss=0.419794
+[train] exp1_role_split: step=80/120 loss=0.416000
+[train] exp1_role_split: step=100/120 loss=0.412996
+[train] exp1_role_split: step=120/120 loss=0.410792
+[progress] Extracting latents for exp1_role_split...
+[progress] Running probes for exp1_role_split...
+[probe] task=city_id latent=z_common step=1/120 loss=2.628970
+[probe] task=city_id latent=z_common step=20/120 loss=1.160030
+[probe] task=city_id latent=z_common step=40/120 loss=0.947233
+[probe] task=city_id latent=z_common step=60/120 loss=0.888707
+[probe] task=city_id latent=z_common step=80/120 loss=0.842099
+[probe] task=city_id latent=z_common step=100/120 loss=0.803235
+[probe] task=city_id latent=z_common step=120/120 loss=0.769199
+[probe] task=city_id latent=z_specific step=1/120 loss=2.762051
+[probe] task=city_id latent=z_specific step=20/120 loss=1.707880
+[probe] task=city_id latent=z_specific step=40/120 loss=1.386273
+[probe] task=city_id latent=z_specific step=60/120 loss=1.252655
+[probe] task=city_id latent=z_specific step=80/120 loss=1.191097
+[probe] task=city_id latent=z_specific step=100/120 loss=1.157894
+[probe] task=city_id latent=z_specific step=120/120 loss=1.138344
+[probe] task=store_id latent=z_common step=1/120 loss=6.391698
+[probe] task=store_id latent=z_common step=20/120 loss=6.019429
+[probe] task=store_id latent=z_common step=40/120 loss=5.884430
+[probe] task=store_id latent=z_common step=60/120 loss=5.792656
+[probe] task=store_id latent=z_common step=80/120 loss=5.724909
+[probe] task=store_id latent=z_common step=100/120 loss=5.673430
+[probe] task=store_id latent=z_common step=120/120 loss=5.633762
+[probe] task=store_id latent=z_specific step=1/120 loss=6.431700
+[probe] task=store_id latent=z_specific step=20/120 loss=6.178375
+[probe] task=store_id latent=z_specific step=40/120 loss=6.153315
+[probe] task=store_id latent=z_specific step=60/120 loss=6.145781
+[probe] task=store_id latent=z_specific step=80/120 loss=6.142165
+[probe] task=store_id latent=z_specific step=100/120 loss=6.139918
+[probe] task=store_id latent=z_specific step=120/120 loss=6.138347
+[probe] task=first_category_id latent=z_common step=1/120 loss=3.494411
+[probe] task=first_category_id latent=z_common step=20/120 loss=2.489426
+[probe] task=first_category_id latent=z_common step=40/120 loss=2.190409
+[probe] task=first_category_id latent=z_common step=60/120 loss=2.013619
+[probe] task=first_category_id latent=z_common step=80/120 loss=1.885837
+[probe] task=first_category_id latent=z_common step=100/120 loss=1.787606
+[probe] task=first_category_id latent=z_common step=120/120 loss=1.709073
+[probe] task=first_category_id latent=z_specific step=1/120 loss=3.637217
+[probe] task=first_category_id latent=z_specific step=20/120 loss=2.802384
+[probe] task=first_category_id latent=z_specific step=40/120 loss=2.621506
+[probe] task=first_category_id latent=z_specific step=60/120 loss=2.558414
+[probe] task=first_category_id latent=z_specific step=80/120 loss=2.529248
+[probe] task=first_category_id latent=z_specific step=100/120 loss=2.511876
+[probe] task=first_category_id latent=z_specific step=120/120 loss=2.500074
+[probe] task=holiday_flag latent=z_common step=1/120 loss=0.652923
+[probe] task=holiday_flag latent=z_common step=20/120 loss=0.524796
+[probe] task=holiday_flag latent=z_common step=40/120 loss=0.445686
+[probe] task=holiday_flag latent=z_common step=60/120 loss=0.397005
+[probe] task=holiday_flag latent=z_common step=80/120 loss=0.363653
+[probe] task=holiday_flag latent=z_common step=100/120 loss=0.338464
+[probe] task=holiday_flag latent=z_common step=120/120 loss=0.318293
+[probe] task=holiday_flag latent=z_specific step=1/120 loss=0.748368
+[probe] task=holiday_flag latent=z_specific step=20/120 loss=0.639677
+[probe] task=holiday_flag latent=z_specific step=40/120 loss=0.639715
+[probe] task=holiday_flag latent=z_specific step=60/120 loss=0.637543
+[probe] task=holiday_flag latent=z_specific step=80/120 loss=0.636752
+[probe] task=holiday_flag latent=z_specific step=100/120 loss=0.636053
+[probe] task=holiday_flag latent=z_specific step=120/120 loss=0.635387
+[probe] task=next_direction latent=z_common step=1/120 loss=0.740516
+[probe] task=next_direction latent=z_common step=20/120 loss=0.690438
+[probe] task=next_direction latent=z_common step=40/120 loss=0.687041
+[probe] task=next_direction latent=z_common step=60/120 loss=0.686127
+[probe] task=next_direction latent=z_common step=80/120 loss=0.685648
+[probe] task=next_direction latent=z_common step=100/120 loss=0.685343
+[probe] task=next_direction latent=z_common step=120/120 loss=0.685129
+[probe] task=next_direction latent=z_specific step=1/120 loss=0.698955
+[probe] task=next_direction latent=z_specific step=20/120 loss=0.676731
+[probe] task=next_direction latent=z_specific step=40/120 loss=0.671477
+[probe] task=next_direction latent=z_specific step=60/120 loss=0.667765
+[probe] task=next_direction latent=z_specific step=80/120 loss=0.665310
+[probe] task=next_direction latent=z_specific step=100/120 loss=0.663668
+[probe] task=next_direction latent=z_specific step=120/120 loss=0.662476
+[probe] task=recent_volatility_high latent=z_common step=1/120 loss=0.630958
+[probe] task=recent_volatility_high latent=z_common step=20/120 loss=0.575990
+[probe] task=recent_volatility_high latent=z_common step=40/120 loss=0.567092
+[probe] task=recent_volatility_high latent=z_common step=60/120 loss=0.563786
+[probe] task=recent_volatility_high latent=z_common step=80/120 loss=0.561828
+[probe] task=recent_volatility_high latent=z_common step=100/120 loss=0.560447
+[probe] task=recent_volatility_high latent=z_common step=120/120 loss=0.559370
+[probe] task=recent_volatility_high latent=z_specific step=1/120 loss=0.641975
+[probe] task=recent_volatility_high latent=z_specific step=20/120 loss=0.517301
+[probe] task=recent_volatility_high latent=z_specific step=40/120 loss=0.510342
+[probe] task=recent_volatility_high latent=z_specific step=60/120 loss=0.508351
+[probe] task=recent_volatility_high latent=z_specific step=80/120 loss=0.507532
+[probe] task=recent_volatility_high latent=z_specific step=100/120 loss=0.507027
+[probe] task=recent_volatility_high latent=z_specific step=120/120 loss=0.506625
+[probe] task=discount latent=z_common step=1/120 loss=0.734097
+[probe] task=discount latent=z_common step=20/120 loss=0.695689
+[probe] task=discount latent=z_common step=40/120 loss=0.690494
+[probe] task=discount latent=z_common step=60/120 loss=0.689333
+[probe] task=discount latent=z_common step=80/120 loss=0.688714
+[probe] task=discount latent=z_common step=100/120 loss=0.688172
+[probe] task=discount latent=z_common step=120/120 loss=0.687731
+[probe] task=discount latent=z_specific step=1/120 loss=0.654965
+[probe] task=discount latent=z_specific step=20/120 loss=0.532298
+[probe] task=discount latent=z_specific step=40/120 loss=0.445585
+[probe] task=discount latent=z_specific step=60/120 loss=0.388052
+[probe] task=discount latent=z_specific step=80/120 loss=0.347730
+[probe] task=discount latent=z_specific step=100/120 loss=0.318150
+[probe] task=discount latent=z_specific step=120/120 loss=0.295666
+[probe] task=activity_flag latent=z_common step=1/120 loss=0.691593
+[probe] task=activity_flag latent=z_common step=20/120 loss=0.663734
+[probe] task=activity_flag latent=z_common step=40/120 loss=0.661278
+[probe] task=activity_flag latent=z_common step=60/120 loss=0.659966
+[probe] task=activity_flag latent=z_common step=80/120 loss=0.659203
+[probe] task=activity_flag latent=z_common step=100/120 loss=0.658659
+[probe] task=activity_flag latent=z_common step=120/120 loss=0.658247
+[probe] task=activity_flag latent=z_specific step=1/120 loss=0.685544
+[probe] task=activity_flag latent=z_specific step=20/120 loss=0.512559
+[probe] task=activity_flag latent=z_specific step=40/120 loss=0.392253
+[probe] task=activity_flag latent=z_specific step=60/120 loss=0.314329
+[probe] task=activity_flag latent=z_specific step=80/120 loss=0.261540
+[probe] task=activity_flag latent=z_specific step=100/120 loss=0.223565
+[probe] task=activity_flag latent=z_specific step=120/120 loss=0.194923
+[summary] exp1_role_split: cka=0.0053 cosine_mean=0.0295 probe_rows=42
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_scores.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_latent_similarity.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_gap_summary.csv
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_score_heatmap.png
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_similarity_bar.png
+[progress] Scenario13 finished.
