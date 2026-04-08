@@ -29,6 +29,14 @@ def parse_args() -> argparse.Namespace:
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--seeds", type=str, default="42,43,44", help="comma-separated probe seeds")
     p.add_argument("--log-interval", type=int, default=20)
+    p.add_argument(
+        "--specific-feature-mode",
+        type=str,
+        default="all",
+        choices=["all", "scenario12_core", "plus_stock_cnt", "plus_stock_status"],
+        help="Feature ablation mode to isolate Scenario11 NaN source.",
+    )
+    p.add_argument("--no-fail-fast", action="store_true", help="Disable finite-value fail-fast checks.")
     return p.parse_args()
 
 
@@ -95,6 +103,8 @@ def main() -> None:
         latent_dim=args.latent_dim,
         seed=args.seed,
         log_interval=args.log_interval,
+        specific_feature_mode=args.specific_feature_mode,
+        fail_fast=not args.no_fail_fast,
     )
 
     print("[scenario11] building latent features and probe tasks")
@@ -109,6 +119,9 @@ def main() -> None:
 
     print("[scenario11] running probe suite")
     result_df = run_probe_suite(latent_by_split, tasks, cfg, seeds)
+    finite_mask = np.isfinite(result_df["value"].to_numpy()) if not result_df.empty else np.array([], dtype=bool)
+    if result_df.empty or not finite_mask.any():
+        raise RuntimeError("[scenario11] no finite probe results were produced; skip aggregation and inspect latent extractor.")
 
     raw_result_path = OUTPUT_DIR / "scenario11_probe_results_raw.csv"
     result_df.to_csv(raw_result_path, index=False)
