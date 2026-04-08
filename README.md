@@ -21,7 +21,7 @@ uv sync
 uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
 ```
 
-2. **ネットワーク経由で Hugging Face にアクセスできるか確認**
+2. **ネットワーク経由で Hugging Face にアクセスできるか確認（初回のみ）**
 
 ```bash
  uv run python -c 'from datasets import load_dataset; dataset = load_dataset("Dingdong-Inc/FreshRetailNet-50K"); print(dataset)' 
@@ -29,8 +29,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
 
 3. 問題なければシナリオを実行
 
-> `load_dataset(...)` は初回実行時にデータを自動ダウンロードしてキャッシュします。  
-> そのため、**別途の手動セットアップは不要**ですが、ネットワーク制限がある環境では失敗する可能性があります。
+> 実験実行時は `data/FreshRetailNet-50K/` を確認し、存在しなければ Hugging Face から取得して保存します。  
+> すでに `data/` 配下にデータがある場合は再取得せず、そのまま実験シナリオに進みます。
 
 ## ディレクトリ構成
 
