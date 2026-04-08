@@ -1,0 +1,193 @@
+[progress] loading dataset
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[features] specific_base=['sale_amount', 'hours_sale', 'discount', 'activity_flag']
+[features] stock_present=['stock_hour6_22_cnt', 'hours_stock_status']
+
+[progress] scenario16 experiment start: baseline_s9_exp1
+[progress] common_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[progress] specific_features=['sale_amount', 'hours_sale', 'discount', 'activity_flag']
+[progress] training exp=baseline_s9_exp1 seed=42
+[train] baseline_s9_exp1_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] baseline_s9_exp1_seed42: step=1/120 loss=0.911474
+[train] baseline_s9_exp1_seed42: step=20/120 loss=0.530103
+[train] baseline_s9_exp1_seed42: step=40/120 loss=0.432851
+[train] baseline_s9_exp1_seed42: step=60/120 loss=0.419794
+[train] baseline_s9_exp1_seed42: step=80/120 loss=0.416000
+[train] baseline_s9_exp1_seed42: step=100/120 loss=0.412996
+[train] baseline_s9_exp1_seed42: step=120/120 loss=0.410792
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/baseline_s9_exp1_seed42_train_loss.png
+[result] exp=baseline_s9_exp1 seed=42 mode=both valid_wape=0.4299 test_wape=0.4351
+[result] exp=baseline_s9_exp1 seed=42 mode=common_only valid_wape=0.6800 test_wape=0.6637
+[result] exp=baseline_s9_exp1 seed=42 mode=specific_only valid_wape=0.5278 test_wape=0.5249
+[probe] exp=baseline_s9_exp1 seed=42 common_acc=0.5650 specific_acc=0.5682
+[progress] training exp=baseline_s9_exp1 seed=52
+[train] baseline_s9_exp1_seed52: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] baseline_s9_exp1_seed52: step=1/120 loss=0.940612
+[train] baseline_s9_exp1_seed52: step=20/120 loss=0.564084
+[train] baseline_s9_exp1_seed52: step=40/120 loss=0.440720
+[train] baseline_s9_exp1_seed52: step=60/120 loss=0.423694
+[train] baseline_s9_exp1_seed52: step=80/120 loss=0.419166
+[train] baseline_s9_exp1_seed52: step=100/120 loss=0.414836
+[train] baseline_s9_exp1_seed52: step=120/120 loss=0.411604
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/baseline_s9_exp1_seed52_train_loss.png
+[result] exp=baseline_s9_exp1 seed=52 mode=both valid_wape=0.4318 test_wape=0.4352
+[result] exp=baseline_s9_exp1 seed=52 mode=common_only valid_wape=0.6950 test_wape=0.6769
+[result] exp=baseline_s9_exp1 seed=52 mode=specific_only valid_wape=0.4949 test_wape=0.4906
+[probe] exp=baseline_s9_exp1 seed=52 common_acc=0.5662 specific_acc=0.5688
+[progress] training exp=baseline_s9_exp1 seed=62
+[train] baseline_s9_exp1_seed62: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] baseline_s9_exp1_seed62: step=1/120 loss=1.041744
+[train] baseline_s9_exp1_seed62: step=20/120 loss=0.563273
+[train] baseline_s9_exp1_seed62: step=40/120 loss=0.441006
+[train] baseline_s9_exp1_seed62: step=60/120 loss=0.424395
+[train] baseline_s9_exp1_seed62: step=80/120 loss=0.418263
+[train] baseline_s9_exp1_seed62: step=100/120 loss=0.414359
+[train] baseline_s9_exp1_seed62: step=120/120 loss=0.411573
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/baseline_s9_exp1_seed62_train_loss.png
+[result] exp=baseline_s9_exp1 seed=62 mode=both valid_wape=0.4284 test_wape=0.4270
+[result] exp=baseline_s9_exp1 seed=62 mode=common_only valid_wape=0.6995 test_wape=0.6878
+[result] exp=baseline_s9_exp1 seed=62 mode=specific_only valid_wape=0.4914 test_wape=0.4872
+[probe] exp=baseline_s9_exp1 seed=62 common_acc=0.5627 specific_acc=0.5698
+
+[progress] scenario16 experiment start: exp16a_specific_stock_cnt_only
+[progress] common_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[progress] specific_features=['activity_flag', 'discount', 'hours_sale', 'sale_amount', 'stock_hour6_22_cnt']
+[progress] training exp=exp16a_specific_stock_cnt_only seed=42
+[train] exp16a_specific_stock_cnt_only_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=70
+[train] exp16a_specific_stock_cnt_only_seed42: step=1/120 loss=0.839112
+[train] exp16a_specific_stock_cnt_only_seed42: step=20/120 loss=0.528892
+[train] exp16a_specific_stock_cnt_only_seed42: step=40/120 loss=0.429351
+[train] exp16a_specific_stock_cnt_only_seed42: step=60/120 loss=0.419720
+[train] exp16a_specific_stock_cnt_only_seed42: step=80/120 loss=0.414181
+[train] exp16a_specific_stock_cnt_only_seed42: step=100/120 loss=0.410372
+[train] exp16a_specific_stock_cnt_only_seed42: step=120/120 loss=0.407520
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16a_specific_stock_cnt_only_seed42_train_loss.png
+[result] exp=exp16a_specific_stock_cnt_only seed=42 mode=both valid_wape=0.4301 test_wape=0.4352
+[result] exp=exp16a_specific_stock_cnt_only seed=42 mode=common_only valid_wape=0.6764 test_wape=0.6619
+[result] exp=exp16a_specific_stock_cnt_only seed=42 mode=specific_only valid_wape=0.4572 test_wape=0.4532
+[probe] exp=exp16a_specific_stock_cnt_only seed=42 common_acc=0.5523 specific_acc=0.6248
+[progress] training exp=exp16a_specific_stock_cnt_only seed=52
+[train] exp16a_specific_stock_cnt_only_seed52: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=70
+[train] exp16a_specific_stock_cnt_only_seed52: step=1/120 loss=0.890283
+[train] exp16a_specific_stock_cnt_only_seed52: step=20/120 loss=0.502564
+[train] exp16a_specific_stock_cnt_only_seed52: step=40/120 loss=0.425684
+[train] exp16a_specific_stock_cnt_only_seed52: step=60/120 loss=0.418637
+[train] exp16a_specific_stock_cnt_only_seed52: step=80/120 loss=0.414419
+[train] exp16a_specific_stock_cnt_only_seed52: step=100/120 loss=0.411511
+[train] exp16a_specific_stock_cnt_only_seed52: step=120/120 loss=0.409178
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16a_specific_stock_cnt_only_seed52_train_loss.png
+[result] exp=exp16a_specific_stock_cnt_only seed=52 mode=both valid_wape=0.4292 test_wape=0.4342
+[result] exp=exp16a_specific_stock_cnt_only seed=52 mode=common_only valid_wape=0.6811 test_wape=0.6640
+[result] exp=exp16a_specific_stock_cnt_only seed=52 mode=specific_only valid_wape=0.4840 test_wape=0.4802
+[probe] exp=exp16a_specific_stock_cnt_only seed=52 common_acc=0.5639 specific_acc=0.6202
+[progress] training exp=exp16a_specific_stock_cnt_only seed=62
+[train] exp16a_specific_stock_cnt_only_seed62: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=70
+[train] exp16a_specific_stock_cnt_only_seed62: step=1/120 loss=0.962576
+[train] exp16a_specific_stock_cnt_only_seed62: step=20/120 loss=0.562016
+[train] exp16a_specific_stock_cnt_only_seed62: step=40/120 loss=0.438072
+[train] exp16a_specific_stock_cnt_only_seed62: step=60/120 loss=0.420104
+[train] exp16a_specific_stock_cnt_only_seed62: step=80/120 loss=0.414600
+[train] exp16a_specific_stock_cnt_only_seed62: step=100/120 loss=0.411070
+[train] exp16a_specific_stock_cnt_only_seed62: step=120/120 loss=0.408577
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16a_specific_stock_cnt_only_seed62_train_loss.png
+[result] exp=exp16a_specific_stock_cnt_only seed=62 mode=both valid_wape=0.4262 test_wape=0.4302
+[result] exp=exp16a_specific_stock_cnt_only seed=62 mode=common_only valid_wape=0.6954 test_wape=0.6728
+[result] exp=exp16a_specific_stock_cnt_only seed=62 mode=specific_only valid_wape=0.4576 test_wape=0.4535
+[probe] exp=exp16a_specific_stock_cnt_only seed=62 common_acc=0.5663 specific_acc=0.6263
+
+[progress] scenario16 experiment start: exp16b_specific_stock_both
+[progress] common_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[progress] specific_features=['activity_flag', 'discount', 'hours_sale', 'hours_stock_status', 'sale_amount', 'stock_hour6_22_cnt']
+[progress] training exp=exp16b_specific_stock_both seed=42
+[train] exp16b_specific_stock_both_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=84
+[train] exp16b_specific_stock_both_seed42: step=1/120 loss=0.837974
+[train] exp16b_specific_stock_both_seed42: step=20/120 loss=0.517095
+[train] exp16b_specific_stock_both_seed42: step=40/120 loss=0.427106
+[train] exp16b_specific_stock_both_seed42: step=60/120 loss=0.414069
+[train] exp16b_specific_stock_both_seed42: step=80/120 loss=0.410025
+[train] exp16b_specific_stock_both_seed42: step=100/120 loss=0.407246
+[train] exp16b_specific_stock_both_seed42: step=120/120 loss=0.405008
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16b_specific_stock_both_seed42_train_loss.png
+[result] exp=exp16b_specific_stock_both seed=42 mode=both valid_wape=0.4259 test_wape=0.4302
+[result] exp=exp16b_specific_stock_both seed=42 mode=common_only valid_wape=0.6586 test_wape=0.6498
+[result] exp=exp16b_specific_stock_both seed=42 mode=specific_only valid_wape=0.5048 test_wape=0.5017
+[probe] exp=exp16b_specific_stock_both seed=42 common_acc=0.5450 specific_acc=0.6290
+[progress] training exp=exp16b_specific_stock_both seed=52
+[train] exp16b_specific_stock_both_seed52: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=84
+[train] exp16b_specific_stock_both_seed52: step=1/120 loss=1.055476
+[train] exp16b_specific_stock_both_seed52: step=20/120 loss=0.580909
+[train] exp16b_specific_stock_both_seed52: step=40/120 loss=0.441780
+[train] exp16b_specific_stock_both_seed52: step=60/120 loss=0.420401
+[train] exp16b_specific_stock_both_seed52: step=80/120 loss=0.414063
+[train] exp16b_specific_stock_both_seed52: step=100/120 loss=0.409857
+[train] exp16b_specific_stock_both_seed52: step=120/120 loss=0.406783
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16b_specific_stock_both_seed52_train_loss.png
+[result] exp=exp16b_specific_stock_both seed=52 mode=both valid_wape=0.4329 test_wape=0.4433
+[result] exp=exp16b_specific_stock_both seed=52 mode=common_only valid_wape=0.6797 test_wape=0.6593
+[result] exp=exp16b_specific_stock_both seed=52 mode=specific_only valid_wape=0.4977 test_wape=0.4949
+[probe] exp=exp16b_specific_stock_both seed=52 common_acc=0.5615 specific_acc=0.6403
+[progress] training exp=exp16b_specific_stock_both seed=62
+[train] exp16b_specific_stock_both_seed62: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=84
+[train] exp16b_specific_stock_both_seed62: step=1/120 loss=0.979974
+[train] exp16b_specific_stock_both_seed62: step=20/120 loss=0.543003
+[train] exp16b_specific_stock_both_seed62: step=40/120 loss=0.433221
+[train] exp16b_specific_stock_both_seed62: step=60/120 loss=0.418759
+[train] exp16b_specific_stock_both_seed62: step=80/120 loss=0.413138
+[train] exp16b_specific_stock_both_seed62: step=100/120 loss=0.408984
+[train] exp16b_specific_stock_both_seed62: step=120/120 loss=0.406121
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16b_specific_stock_both_seed62_train_loss.png
+[result] exp=exp16b_specific_stock_both seed=62 mode=both valid_wape=0.4296 test_wape=0.4369
+[result] exp=exp16b_specific_stock_both seed=62 mode=common_only valid_wape=0.6728 test_wape=0.6554
+[result] exp=exp16b_specific_stock_both seed=62 mode=specific_only valid_wape=0.5063 test_wape=0.5032
+[probe] exp=exp16b_specific_stock_both seed=62 common_acc=0.5609 specific_acc=0.6284
+
+[progress] scenario16 experiment start: exp16c_common_stock_both
+[progress] common_features=['avg_humidity', 'avg_temperature', 'avg_wind_level', 'city_id', 'dt_day', 'dt_is_weekend', 'dt_month', 'dt_weekday', 'dt_weekofyear', 'first_category_id', 'holiday_flag', 'hours_stock_status', 'management_group_id', 'precpt', 'product_id', 'second_category_id', 'stock_hour6_22_cnt', 'store_id', 'third_category_id']
+[progress] specific_features=['sale_amount', 'hours_sale', 'discount', 'activity_flag']
+[progress] training exp=exp16c_common_stock_both seed=42
+[train] exp16c_common_stock_both_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=266, specific_input_dim=56
+[train] exp16c_common_stock_both_seed42: step=1/120 loss=0.882338
+[train] exp16c_common_stock_both_seed42: step=20/120 loss=0.520658
+[train] exp16c_common_stock_both_seed42: step=40/120 loss=0.426093
+[train] exp16c_common_stock_both_seed42: step=60/120 loss=0.416894
+[train] exp16c_common_stock_both_seed42: step=80/120 loss=0.411124
+[train] exp16c_common_stock_both_seed42: step=100/120 loss=0.407418
+[train] exp16c_common_stock_both_seed42: step=120/120 loss=0.404696
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16c_common_stock_both_seed42_train_loss.png
+[result] exp=exp16c_common_stock_both seed=42 mode=both valid_wape=0.4267 test_wape=0.4325
+[result] exp=exp16c_common_stock_both seed=42 mode=common_only valid_wape=0.6539 test_wape=0.6490
+[result] exp=exp16c_common_stock_both seed=42 mode=specific_only valid_wape=0.4981 test_wape=0.4941
+[probe] exp=exp16c_common_stock_both seed=42 common_acc=0.5730 specific_acc=0.5685
+[progress] training exp=exp16c_common_stock_both seed=52
+[train] exp16c_common_stock_both_seed52: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=266, specific_input_dim=56
+[train] exp16c_common_stock_both_seed52: step=1/120 loss=1.033202
+[train] exp16c_common_stock_both_seed52: step=20/120 loss=0.566550
+[train] exp16c_common_stock_both_seed52: step=40/120 loss=0.440641
+[train] exp16c_common_stock_both_seed52: step=60/120 loss=0.423762
+[train] exp16c_common_stock_both_seed52: step=80/120 loss=0.416853
+[train] exp16c_common_stock_both_seed52: step=100/120 loss=0.411263
+[train] exp16c_common_stock_both_seed52: step=120/120 loss=0.407162
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16c_common_stock_both_seed52_train_loss.png
+[result] exp=exp16c_common_stock_both seed=52 mode=both valid_wape=0.4359 test_wape=0.4561
+[result] exp=exp16c_common_stock_both seed=52 mode=common_only valid_wape=0.6515 test_wape=0.6474
+[result] exp=exp16c_common_stock_both seed=52 mode=specific_only valid_wape=0.5626 test_wape=0.5582
+[probe] exp=exp16c_common_stock_both seed=52 common_acc=0.5929 specific_acc=0.5690
+[progress] training exp=exp16c_common_stock_both seed=62
+[train] exp16c_common_stock_both_seed62: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=266, specific_input_dim=56
+[train] exp16c_common_stock_both_seed62: step=1/120 loss=0.960977
+[train] exp16c_common_stock_both_seed62: step=20/120 loss=0.565276
+[train] exp16c_common_stock_both_seed62: step=40/120 loss=0.440803
+[train] exp16c_common_stock_both_seed62: step=60/120 loss=0.421078
+[train] exp16c_common_stock_both_seed62: step=80/120 loss=0.414218
+[train] exp16c_common_stock_both_seed62: step=100/120 loss=0.409517
+[train] exp16c_common_stock_both_seed62: step=120/120 loss=0.406490
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/exp16c_common_stock_both_seed62_train_loss.png
+[result] exp=exp16c_common_stock_both seed=62 mode=both valid_wape=0.4292 test_wape=0.4351
+[result] exp=exp16c_common_stock_both seed=62 mode=common_only valid_wape=0.6829 test_wape=0.6636
+[result] exp=exp16c_common_stock_both seed=62 mode=specific_only valid_wape=0.4966 test_wape=0.4926
+[probe] exp=exp16c_common_stock_both seed=62 common_acc=0.6136 specific_acc=0.5690
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/scenario16_metrics_overall.csv
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/scenario16_metrics_by_subset.csv
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/scenario16_probe_scores.csv
+[saved] /Users/shota/Documents/projects/research_codes/decoupling/scenarios/scenario16_stock_common_vs_specific/output/scenario16_summary.md
+[summary] scenario16 completed
