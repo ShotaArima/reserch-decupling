@@ -1,0 +1,7 @@
+experiment,mode,valid_wape,valid_wpe,valid_mae,test_wape,test_wpe,test_mae
+exp1_role_split_baseline,both,0.429899,-0.019098,0.422450,0.435064,0.029729,0.431419
+exp1_role_split_baseline,common_only,0.680029,-0.538347,0.668246,0.663724,-0.492939,0.658163
+exp1_role_split_baseline,specific_only,0.527844,-0.390919,0.518698,0.524862,-0.391564,0.520465
+exp3a_stock_to_specific,both,0.425941,-0.010333,0.418560,0.430178,0.040077,0.426574
+exp3a_stock_to_specific,common_only,0.658594,-0.461497,0.647182,0.649800,-0.418655,0.644355
+exp3a_stock_to_specific,specific_only,0.504765,-0.349725,0.496019,0.501667,-0.349193,0.497464

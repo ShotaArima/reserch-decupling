@@ -1,0 +1,15 @@
+[progress] Loading dataset...
+
+[progress] arm=A0 common_features=12 specific_features=4
+[progress] arm=A0 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A0_seed42_h8
+[train] A0_seed42_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A0_seed42_h8: step=1/120 loss=0.938896
+[train] A0_seed42_h8: step=20/120 loss=0.509625
+[train] A0_seed42_h8: step=40/120 loss=0.427281
+[train] A0_seed42_h8: step=60/120 loss=0.419564
+[train] A0_seed42_h8: step=80/120 loss=0.414413
+[train] A0_seed42_h8: step=100/120 loss=0.410651
+[train] A0_seed42_h8: step=120/120 loss=0.407178
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A0_seed42_h8_train_loss.png

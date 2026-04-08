@@ -1,0 +1,2097 @@
+==================================================
+[2026-04-07 10:03:23] Experiment 11 を開始
+branch: codex/implement-experiment-plan-for-scenario-a
+command: uv run scenarios/scenario11_latent_probe/run.py
+==================================================
+branch 'codex/implement-experiment-plan-for-scenario-a' set up to track 'origin/codex/implement-experiment-plan-for-scenario-a'.
+[scenario11] start window_size=14 steps=120 probe_lr=0.005 latent_dim=16 hidden_dim=64 seeds=[42, 43, 44]
+[scenario11] loading dataset
+[scenario11] building latent features and probe tasks
+[scenario11] common_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[scenario11] specific_features=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[train] scenario11_latent_extractor: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=84
+[train] scenario11_latent_extractor: step=1/120 loss=nan
+[train] scenario11_latent_extractor: step=20/120 loss=nan
+[train] scenario11_latent_extractor: step=40/120 loss=nan
+[train] scenario11_latent_extractor: step=60/120 loss=nan
+[train] scenario11_latent_extractor: step=80/120 loss=nan
+[train] scenario11_latent_extractor: step=100/120 loss=nan
+[train] scenario11_latent_extractor: step=120/120 loss=nan
+[scenario11] saved /Users/shota/project/tcu/reserch-decupling/scenarios/scenario11_latent_probe/output/latent_probe_features.csv
+[scenario11] saved /Users/shota/project/tcu/reserch-decupling/scenarios/scenario11_latent_probe/output/latent_probe_labels.csv
+[scenario11] running probe suite
+
+[scenario11] probe_seed=42
+[scenario11] task=city_id group=common n_classes=18
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=2.853160
+[probe-train] step=20/120 loss=2.616672
+[probe-train] step=40/120 loss=2.456606
+[probe-train] step=60/120 loss=2.331440
+[probe-train] step=80/120 loss=2.206263
+[probe-train] step=100/120 loss=2.085510
+[probe-train] step=120/120 loss=1.990677
+[scenario11] task=store_id group=common n_classes=898
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=6.973073
+[probe-train] step=20/120 loss=6.827358
+[probe-train] step=40/120 loss=6.750722
+[probe-train] step=60/120 loss=6.671407
+[probe-train] step=80/120 loss=6.620618
+[probe-train] step=100/120 loss=6.544713
+[probe-train] step=120/120 loss=6.505638
+[scenario11] task=first_category_id group=common n_classes=32
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=3.558496
+[probe-train] step=20/120 loss=3.397993
+[probe-train] step=40/120 loss=3.257126
+[probe-train] step=60/120 loss=3.172163
+[probe-train] step=80/120 loss=3.086615
+[probe-train] step=100/120 loss=3.023315
+[probe-train] step=120/120 loss=2.970108
+[scenario11] task=product_id group=common n_classes=865
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=6.925982
+[probe-train] step=20/120 loss=6.755980
+[probe-train] step=40/120 loss=6.628324
+[probe-train] step=60/120 loss=6.494050
+[probe-train] step=80/120 loss=6.399489
+[probe-train] step=100/120 loss=6.329436
+[probe-train] step=120/120 loss=6.244476
+[scenario11] task=dt_weekday group=common n_classes=7
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=2.080410
+[probe-train] step=20/120 loss=1.999278
+[probe-train] step=40/120 loss=1.948851
+[probe-train] step=60/120 loss=1.946536
+[probe-train] step=80/120 loss=1.947659
+[probe-train] step=100/120 loss=1.944673
+[probe-train] step=120/120 loss=1.946174
+[scenario11] task=holiday_flag group=common n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.743196
+[probe-train] step=20/120 loss=0.671574
+[probe-train] step=40/120 loss=0.644129
+[probe-train] step=60/120 loss=0.644914
+[probe-train] step=80/120 loss=0.639423
+[probe-train] step=100/120 loss=0.646931
+[probe-train] step=120/120 loss=0.639370
+[scenario11] task=dt_month group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.482558
+[probe-train] step=20/120 loss=1.381131
+[probe-train] step=40/120 loss=1.326826
+[probe-train] step=60/120 loss=1.310586
+[probe-train] step=80/120 loss=1.290165
+[probe-train] step=100/120 loss=1.274175
+[probe-train] step=120/120 loss=1.266243
+[scenario11] task=long_term_sales_band group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.463858
+[probe-train] step=20/120 loss=1.396415
+[probe-train] step=40/120 loss=1.383200
+[probe-train] step=60/120 loss=1.382083
+[probe-train] step=80/120 loss=1.380252
+[probe-train] step=100/120 loss=1.381849
+[probe-train] step=120/120 loss=1.381930
+[scenario11] task=next_delta_sign group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.161495
+[probe-train] step=20/120 loss=1.056700
+[probe-train] step=40/120 loss=1.029015
+[probe-train] step=60/120 loss=1.011473
+[probe-train] step=80/120 loss=0.991661
+[probe-train] step=100/120 loss=0.976564
+[probe-train] step=120/120 loss=0.974973
+[scenario11] task=recent_volatility_band group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.191865
+[probe-train] step=20/120 loss=1.115754
+[probe-train] step=40/120 loss=1.102105
+[probe-train] step=60/120 loss=1.098154
+[probe-train] step=80/120 loss=1.097605
+[probe-train] step=100/120 loss=1.100916
+[probe-train] step=120/120 loss=1.098732
+[scenario11] task=is_discount group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.831051
+[probe-train] step=20/120 loss=0.686740
+[probe-train] step=40/120 loss=0.585682
+[probe-train] step=60/120 loss=0.509063
+[probe-train] step=80/120 loss=0.441974
+[probe-train] step=100/120 loss=0.387496
+[probe-train] step=120/120 loss=0.341091
+[scenario11] task=is_activity group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.744016
+[probe-train] step=20/120 loss=0.683046
+[probe-train] step=40/120 loss=0.673929
+[probe-train] step=60/120 loss=0.671979
+[probe-train] step=80/120 loss=0.667235
+[probe-train] step=100/120 loss=0.668896
+[probe-train] step=120/120 loss=0.667341
+[scenario11] task=is_stockout group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.777803
+[probe-train] step=20/120 loss=0.709047
+[probe-train] step=40/120 loss=0.679856
+[probe-train] step=60/120 loss=0.680424
+[probe-train] step=80/120 loss=0.680302
+[probe-train] step=100/120 loss=0.674873
+[probe-train] step=120/120 loss=0.673339
+
+[scenario11] probe_seed=43
+[scenario11] task=city_id group=common n_classes=18
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=3.105024
+[probe-train] step=20/120 loss=2.860146
+[probe-train] step=40/120 loss=2.687937
+[probe-train] step=60/120 loss=2.566737
+[probe-train] step=80/120 loss=2.428852
+[probe-train] step=100/120 loss=2.307336
+[probe-train] step=120/120 loss=2.193254
+[scenario11] task=store_id group=common n_classes=898
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=6.982859
+[probe-train] step=20/120 loss=6.836469
+[probe-train] step=40/120 loss=6.716135
+[probe-train] step=60/120 loss=6.673952
+[probe-train] step=80/120 loss=6.609280
+[probe-train] step=100/120 loss=6.546256
+[probe-train] step=120/120 loss=6.496311
+[scenario11] task=first_category_id group=common n_classes=32
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=3.634538
+[probe-train] step=20/120 loss=3.443874
+[probe-train] step=40/120 loss=3.303869
+[probe-train] step=60/120 loss=3.224361
+[probe-train] step=80/120 loss=3.151735
+[probe-train] step=100/120 loss=3.085373
+[probe-train] step=120/120 loss=3.031154
+[scenario11] task=product_id group=common n_classes=865
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=6.965127
+[probe-train] step=20/120 loss=6.747416
+[probe-train] step=40/120 loss=6.625281
+[probe-train] step=60/120 loss=6.532930
+[probe-train] step=80/120 loss=6.419487
+[probe-train] step=100/120 loss=6.319977
+[probe-train] step=120/120 loss=6.255390
+[scenario11] task=dt_weekday group=common n_classes=7
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=2.094605
+[probe-train] step=20/120 loss=1.988002
+[probe-train] step=40/120 loss=1.956494
+[probe-train] step=60/120 loss=1.945877
+[probe-train] step=80/120 loss=1.947526
+[probe-train] step=100/120 loss=1.946271
+[probe-train] step=120/120 loss=1.946634
+[scenario11] task=holiday_flag group=common n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.755996
+[probe-train] step=20/120 loss=0.681447
+[probe-train] step=40/120 loss=0.658991
+[probe-train] step=60/120 loss=0.653729
+[probe-train] step=80/120 loss=0.651332
+[probe-train] step=100/120 loss=0.638979
+[probe-train] step=120/120 loss=0.644106
+[scenario11] task=dt_month group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.522528
+[probe-train] step=20/120 loss=1.397437
+[probe-train] step=40/120 loss=1.348171
+[probe-train] step=60/120 loss=1.321441
+[probe-train] step=80/120 loss=1.306317
+[probe-train] step=100/120 loss=1.289940
+[probe-train] step=120/120 loss=1.269537
+[scenario11] task=long_term_sales_band group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.506748
+[probe-train] step=20/120 loss=1.412762
+[probe-train] step=40/120 loss=1.384870
+[probe-train] step=60/120 loss=1.383348
+[probe-train] step=80/120 loss=1.380187
+[probe-train] step=100/120 loss=1.381173
+[probe-train] step=120/120 loss=1.379160
+[scenario11] task=next_delta_sign group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.243108
+[probe-train] step=20/120 loss=1.129203
+[probe-train] step=40/120 loss=1.072045
+[probe-train] step=60/120 loss=1.048769
+[probe-train] step=80/120 loss=1.018678
+[probe-train] step=100/120 loss=1.004533
+[probe-train] step=120/120 loss=0.987078
+[scenario11] task=recent_volatility_band group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.193283
+[probe-train] step=20/120 loss=1.112485
+[probe-train] step=40/120 loss=1.099884
+[probe-train] step=60/120 loss=1.099157
+[probe-train] step=80/120 loss=1.099814
+[probe-train] step=100/120 loss=1.098600
+[probe-train] step=120/120 loss=1.098570
+[scenario11] task=is_discount group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.756441
+[probe-train] step=20/120 loss=0.611561
+[probe-train] step=40/120 loss=0.516286
+[probe-train] step=60/120 loss=0.447504
+[probe-train] step=80/120 loss=0.389566
+[probe-train] step=100/120 loss=0.339393
+[probe-train] step=120/120 loss=0.299312
+[scenario11] task=is_activity group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.770347
+[probe-train] step=20/120 loss=0.685348
+[probe-train] step=40/120 loss=0.663537
+[probe-train] step=60/120 loss=0.666956
+[probe-train] step=80/120 loss=0.669188
+[probe-train] step=100/120 loss=0.670400
+[probe-train] step=120/120 loss=0.675124
+[scenario11] task=is_stockout group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.761129
+[probe-train] step=20/120 loss=0.695327
+[probe-train] step=40/120 loss=0.674007
+[probe-train] step=60/120 loss=0.685480
+[probe-train] step=80/120 loss=0.685426
+[probe-train] step=100/120 loss=0.675258
+[probe-train] step=120/120 loss=0.677283
+
+[scenario11] probe_seed=44
+[scenario11] task=city_id group=common n_classes=18
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=18 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=18 steps=120
+[probe-train] step=1/120 loss=3.181449
+[probe-train] step=20/120 loss=2.921502
+[probe-train] step=40/120 loss=2.770961
+[probe-train] step=60/120 loss=2.624341
+[probe-train] step=80/120 loss=2.502538
+[probe-train] step=100/120 loss=2.365065
+[probe-train] step=120/120 loss=2.263591
+[scenario11] task=store_id group=common n_classes=898
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=898 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=898 steps=120
+[probe-train] step=1/120 loss=6.990072
+[probe-train] step=20/120 loss=6.834510
+[probe-train] step=40/120 loss=6.746284
+[probe-train] step=60/120 loss=6.659734
+[probe-train] step=80/120 loss=6.604738
+[probe-train] step=100/120 loss=6.534844
+[probe-train] step=120/120 loss=6.507990
+[scenario11] task=first_category_id group=common n_classes=32
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=32 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=32 steps=120
+[probe-train] step=1/120 loss=3.549523
+[probe-train] step=20/120 loss=3.389508
+[probe-train] step=40/120 loss=3.259417
+[probe-train] step=60/120 loss=3.168283
+[probe-train] step=80/120 loss=3.098050
+[probe-train] step=100/120 loss=3.019113
+[probe-train] step=120/120 loss=2.968136
+[scenario11] task=product_id group=common n_classes=865
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=865 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=865 steps=120
+[probe-train] step=1/120 loss=6.929585
+[probe-train] step=20/120 loss=6.755635
+[probe-train] step=40/120 loss=6.640509
+[probe-train] step=60/120 loss=6.519252
+[probe-train] step=80/120 loss=6.429126
+[probe-train] step=100/120 loss=6.318781
+[probe-train] step=120/120 loss=6.242175
+[scenario11] task=dt_weekday group=common n_classes=7
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=7 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=7 steps=120
+[probe-train] step=1/120 loss=2.103013
+[probe-train] step=20/120 loss=1.990706
+[probe-train] step=40/120 loss=1.949983
+[probe-train] step=60/120 loss=1.947806
+[probe-train] step=80/120 loss=1.945443
+[probe-train] step=100/120 loss=1.946425
+[probe-train] step=120/120 loss=1.945334
+[scenario11] task=holiday_flag group=common n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.756595
+[probe-train] step=20/120 loss=0.681524
+[probe-train] step=40/120 loss=0.642710
+[probe-train] step=60/120 loss=0.645040
+[probe-train] step=80/120 loss=0.640744
+[probe-train] step=100/120 loss=0.648185
+[probe-train] step=120/120 loss=0.652646
+[scenario11] task=dt_month group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.557929
+[probe-train] step=20/120 loss=1.432545
+[probe-train] step=40/120 loss=1.360939
+[probe-train] step=60/120 loss=1.331256
+[probe-train] step=80/120 loss=1.310334
+[probe-train] step=100/120 loss=1.291398
+[probe-train] step=120/120 loss=1.279257
+[scenario11] task=long_term_sales_band group=common n_classes=4
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=4 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=4 steps=120
+[probe-train] step=1/120 loss=1.535712
+[probe-train] step=20/120 loss=1.423836
+[probe-train] step=40/120 loss=1.383370
+[probe-train] step=60/120 loss=1.380752
+[probe-train] step=80/120 loss=1.383056
+[probe-train] step=100/120 loss=1.377082
+[probe-train] step=120/120 loss=1.381941
+[scenario11] task=next_delta_sign group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.284841
+[probe-train] step=20/120 loss=1.137656
+[probe-train] step=40/120 loss=1.081519
+[probe-train] step=60/120 loss=1.042924
+[probe-train] step=80/120 loss=1.025547
+[probe-train] step=100/120 loss=1.002750
+[probe-train] step=120/120 loss=0.992693
+[scenario11] task=recent_volatility_band group=specific n_classes=3
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=3 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=3 steps=120
+[probe-train] step=1/120 loss=1.190401
+[probe-train] step=20/120 loss=1.130274
+[probe-train] step=40/120 loss=1.104918
+[probe-train] step=60/120 loss=1.098049
+[probe-train] step=80/120 loss=1.099607
+[probe-train] step=100/120 loss=1.098502
+[probe-train] step=120/120 loss=1.099260
+[scenario11] task=is_discount group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.787963
+[probe-train] step=20/120 loss=0.648957
+[probe-train] step=40/120 loss=0.551669
+[probe-train] step=60/120 loss=0.477538
+[probe-train] step=80/120 loss=0.414601
+[probe-train] step=100/120 loss=0.364708
+[probe-train] step=120/120 loss=0.318263
+[scenario11] task=is_activity group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.765147
+[probe-train] step=20/120 loss=0.685659
+[probe-train] step=40/120 loss=0.666511
+[probe-train] step=60/120 loss=0.668252
+[probe-train] step=80/120 loss=0.666194
+[probe-train] step=100/120 loss=0.669746
+[probe-train] step=120/120 loss=0.666491
+[scenario11] task=is_stockout group=specific n_classes=2
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=32 n_classes=2 steps=120
+[probe-train] step=1/120 loss=nan
+[probe-train] step=20/120 loss=nan
+[probe-train] step=40/120 loss=nan
+[probe-train] step=60/120 loss=nan
+[probe-train] step=80/120 loss=nan
+[probe-train] step=100/120 loss=nan
+[probe-train] step=120/120 loss=nan
+[probe-train] n_train=3149999 n_valid=674999 n_test=674999 in_dim=16 n_classes=2 steps=120
+[probe-train] step=1/120 loss=0.771934
+[probe-train] step=20/120 loss=0.700451
+[probe-train] step=40/120 loss=0.684835
+[probe-train] step=60/120 loss=0.668170
+[probe-train] step=80/120 loss=0.674400
+[probe-train] step=100/120 loss=0.678190
+[probe-train] step=120/120 loss=0.680533
+[scenario11] saved /Users/shota/project/tcu/reserch-decupling/scenarios/scenario11_latent_probe/output/scenario11_probe_results_raw.csv
+[2026-04-07 10:23:47] Experiment 11 失敗: exit code=1
+
+==================================================
+[2026-04-07 10:23:47] Experiment 12 を開始
+branch: codex/create-experiment-plan-for-scenario-12
+command: uv run scenarios/scenario12_input_assignment_role_swap_probe/run.py
+==================================================
+branch 'codex/create-experiment-plan-for-scenario-12' set up to track 'origin/codex/create-experiment-plan-for-scenario-12'.
+[progress] Loading FreshRetailNet-50K...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'precpt', 'avg_temperature', 'avg_humidity', 'avg_wind_level', 'dt_weekday', 'dt_month', 'dt_day', 'dt_weekofyear', 'dt_is_weekend']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag']
+
+[progress] Seed 42 started
+
+[progress] Train backbone exp1_role_split (seed=42)
+[train] scenario12_exp1_role_split_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] scenario12_exp1_role_split_seed42: step=1/120 loss=0.911474
+[train] scenario12_exp1_role_split_seed42: step=20/120 loss=0.530103
+[train] scenario12_exp1_role_split_seed42: step=40/120 loss=0.432851
+[train] scenario12_exp1_role_split_seed42: step=60/120 loss=0.419794
+[train] scenario12_exp1_role_split_seed42: step=80/120 loss=0.416000
+[train] scenario12_exp1_role_split_seed42: step=100/120 loss=0.412996
+[train] scenario12_exp1_role_split_seed42: step=120/120 loss=0.410792
+[progress] Probe store_id on exp1_role_split (seed=42)
+[probe-train] store_id / common: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / common: step=1/120 loss=5.552498
+[probe-train] store_id / common: step=20/120 loss=5.509239
+[probe-train] store_id / common: step=40/120 loss=5.509148
+[probe-train] store_id / common: step=60/120 loss=5.509094
+[probe-train] store_id / common: step=80/120 loss=5.509233
+[probe-train] store_id / common: step=100/120 loss=5.509223
+[probe-train] store_id / common: step=120/120 loss=5.509194
+[result] exp=exp1_role_split probe=store_id latent=common split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=common split=test acc=0.0000 macro_f1=0.0000
+[probe-train] store_id / specific: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / specific: step=1/120 loss=6.171382
+[probe-train] store_id / specific: step=20/120 loss=6.167537
+[probe-train] store_id / specific: step=40/120 loss=6.167457
+[probe-train] store_id / specific: step=60/120 loss=6.167519
+[probe-train] store_id / specific: step=80/120 loss=6.167459
+[probe-train] store_id / specific: step=100/120 loss=6.167718
+[probe-train] store_id / specific: step=120/120 loss=6.167516
+[result] exp=exp1_role_split probe=store_id latent=specific split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=specific split=test acc=0.0000 macro_f1=0.0000
+[progress] Probe first_category_id on exp1_role_split (seed=42)
+[probe-train] first_category_id / common: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / common: step=1/120 loss=1.044462
+[probe-train] first_category_id / common: step=20/120 loss=0.928493
+[probe-train] first_category_id / common: step=40/120 loss=0.928440
+[probe-train] first_category_id / common: step=60/120 loss=0.928583
+[probe-train] first_category_id / common: step=80/120 loss=0.928484
+[probe-train] first_category_id / common: step=100/120 loss=0.928430
+[probe-train] first_category_id / common: step=120/120 loss=0.928525
+[result] exp=exp1_role_split probe=first_category_id latent=common split=valid acc=0.5706 macro_f1=0.2520
+[result] exp=exp1_role_split probe=first_category_id latent=common split=test acc=0.4689 macro_f1=0.1791
+[probe-train] first_category_id / specific: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / specific: step=1/120 loss=2.446785
+[probe-train] first_category_id / specific: step=20/120 loss=2.431259
+[probe-train] first_category_id / specific: step=40/120 loss=2.431245
+[probe-train] first_category_id / specific: step=60/120 loss=2.431251
+[probe-train] first_category_id / specific: step=80/120 loss=2.431221
+[probe-train] first_category_id / specific: step=100/120 loss=2.431273
+[probe-train] first_category_id / specific: step=120/120 loss=2.431326
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=valid acc=0.2078 macro_f1=0.0314
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=test acc=0.2093 macro_f1=0.0324
+[progress] Probe holiday_flag on exp1_role_split (seed=42)
+[probe-train] holiday_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / common: step=1/120 loss=0.167354
+[probe-train] holiday_flag / common: step=20/120 loss=0.153997
+[probe-train] holiday_flag / common: step=40/120 loss=0.154015
+[probe-train] holiday_flag / common: step=60/120 loss=0.153975
+[probe-train] holiday_flag / common: step=80/120 loss=0.153972
+[probe-train] holiday_flag / common: step=100/120 loss=0.153945
+[probe-train] holiday_flag / common: step=120/120 loss=0.154007
+[result] exp=exp1_role_split probe=holiday_flag latent=common split=valid acc=0.8292 macro_f1=0.7783
+[result] exp=exp1_role_split probe=holiday_flag latent=common split=test acc=0.7562 macro_f1=0.6485
+[probe-train] holiday_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / specific: step=1/120 loss=0.630366
+[probe-train] holiday_flag / specific: step=20/120 loss=0.629273
+[probe-train] holiday_flag / specific: step=40/120 loss=0.629471
+[probe-train] holiday_flag / specific: step=60/120 loss=0.629350
+[probe-train] holiday_flag / specific: step=80/120 loss=0.629419
+[probe-train] holiday_flag / specific: step=100/120 loss=0.629473
+[probe-train] holiday_flag / specific: step=120/120 loss=0.629451
+[result] exp=exp1_role_split probe=holiday_flag latent=specific split=valid acc=0.6673 macro_f1=0.4709
+[result] exp=exp1_role_split probe=holiday_flag latent=specific split=test acc=0.6689 macro_f1=0.4760
+[progress] Probe dt_weekday on exp1_role_split (seed=42)
+[probe-train] dt_weekday / common: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / common: step=1/120 loss=1.538160
+[probe-train] dt_weekday / common: step=20/120 loss=1.523946
+[probe-train] dt_weekday / common: step=40/120 loss=1.523959
+[probe-train] dt_weekday / common: step=60/120 loss=1.523965
+[probe-train] dt_weekday / common: step=80/120 loss=1.523963
+[probe-train] dt_weekday / common: step=100/120 loss=1.523857
+[probe-train] dt_weekday / common: step=120/120 loss=1.523861
+[result] exp=exp1_role_split probe=dt_weekday latent=common split=valid acc=0.2897 macro_f1=0.2757
+[result] exp=exp1_role_split probe=dt_weekday latent=common split=test acc=0.2551 macro_f1=0.2511
+[probe-train] dt_weekday / specific: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / specific: step=1/120 loss=1.935744
+[probe-train] dt_weekday / specific: step=20/120 loss=1.933563
+[probe-train] dt_weekday / specific: step=40/120 loss=1.933603
+[probe-train] dt_weekday / specific: step=60/120 loss=1.933548
+[probe-train] dt_weekday / specific: step=80/120 loss=1.933556
+[probe-train] dt_weekday / specific: step=100/120 loss=1.933577
+[probe-train] dt_weekday / specific: step=120/120 loss=1.933680
+[result] exp=exp1_role_split probe=dt_weekday latent=specific split=valid acc=0.1734 macro_f1=0.1408
+[result] exp=exp1_role_split probe=dt_weekday latent=specific split=test acc=0.1735 macro_f1=0.1416
+[progress] Probe next_sale_up on exp1_role_split (seed=42)
+[probe-train] next_sale_up / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / common: step=1/120 loss=0.685462
+[probe-train] next_sale_up / common: step=20/120 loss=0.685384
+[probe-train] next_sale_up / common: step=40/120 loss=0.685383
+[probe-train] next_sale_up / common: step=60/120 loss=0.685372
+[probe-train] next_sale_up / common: step=80/120 loss=0.685449
+[probe-train] next_sale_up / common: step=100/120 loss=0.685344
+[probe-train] next_sale_up / common: step=120/120 loss=0.685401
+[result] exp=exp1_role_split probe=next_sale_up latent=common split=valid acc=0.5384 macro_f1=0.5280
+[result] exp=exp1_role_split probe=next_sale_up latent=common split=test acc=0.5003 macro_f1=0.4852
+[probe-train] next_sale_up / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / specific: step=1/120 loss=0.657875
+[probe-train] next_sale_up / specific: step=20/120 loss=0.656094
+[probe-train] next_sale_up / specific: step=40/120 loss=0.656177
+[probe-train] next_sale_up / specific: step=60/120 loss=0.656098
+[probe-train] next_sale_up / specific: step=80/120 loss=0.656123
+[probe-train] next_sale_up / specific: step=100/120 loss=0.656120
+[probe-train] next_sale_up / specific: step=120/120 loss=0.656141
+[result] exp=exp1_role_split probe=next_sale_up latent=specific split=valid acc=0.6364 macro_f1=0.6250
+[result] exp=exp1_role_split probe=next_sale_up latent=specific split=test acc=0.6376 macro_f1=0.6262
+[progress] Probe sale_diff_bin on exp1_role_split (seed=42)
+[probe-train] sale_diff_bin / common: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / common: step=1/120 loss=1.374426
+[probe-train] sale_diff_bin / common: step=20/120 loss=1.374041
+[probe-train] sale_diff_bin / common: step=40/120 loss=1.374085
+[probe-train] sale_diff_bin / common: step=60/120 loss=1.374074
+[probe-train] sale_diff_bin / common: step=80/120 loss=1.374063
+[probe-train] sale_diff_bin / common: step=100/120 loss=1.374061
+[probe-train] sale_diff_bin / common: step=120/120 loss=1.373988
+[result] exp=exp1_role_split probe=sale_diff_bin latent=common split=valid acc=0.2814 macro_f1=0.2054
+[result] exp=exp1_role_split probe=sale_diff_bin latent=common split=test acc=0.2609 macro_f1=0.1661
+[probe-train] sale_diff_bin / specific: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / specific: step=1/120 loss=1.309691
+[probe-train] sale_diff_bin / specific: step=20/120 loss=1.308314
+[probe-train] sale_diff_bin / specific: step=40/120 loss=1.308256
+[probe-train] sale_diff_bin / specific: step=60/120 loss=1.308268
+[probe-train] sale_diff_bin / specific: step=80/120 loss=1.308287
+[probe-train] sale_diff_bin / specific: step=100/120 loss=1.308265
+[probe-train] sale_diff_bin / specific: step=120/120 loss=1.308219
+[result] exp=exp1_role_split probe=sale_diff_bin latent=specific split=valid acc=0.3745 macro_f1=0.3637
+[result] exp=exp1_role_split probe=sale_diff_bin latent=specific split=test acc=0.3735 macro_f1=0.3649
+[progress] Probe discount_flag on exp1_role_split (seed=42)
+[probe-train] discount_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / common: step=1/120 loss=0.012446
+[probe-train] discount_flag / common: step=20/120 loss=0.009550
+[probe-train] discount_flag / common: step=40/120 loss=0.009551
+[probe-train] discount_flag / common: step=60/120 loss=0.009549
+[probe-train] discount_flag / common: step=80/120 loss=0.009553
+[probe-train] discount_flag / common: step=100/120 loss=0.009550
+[probe-train] discount_flag / common: step=120/120 loss=0.009557
+[result] exp=exp1_role_split probe=discount_flag latent=common split=valid acc=0.9931 macro_f1=0.4983
+[result] exp=exp1_role_split probe=discount_flag latent=common split=test acc=0.9928 macro_f1=0.4982
+[probe-train] discount_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / specific: step=1/120 loss=0.008153
+[probe-train] discount_flag / specific: step=20/120 loss=0.000992
+[probe-train] discount_flag / specific: step=40/120 loss=0.000963
+[probe-train] discount_flag / specific: step=60/120 loss=0.000989
+[probe-train] discount_flag / specific: step=80/120 loss=0.000951
+[probe-train] discount_flag / specific: step=100/120 loss=0.000954
+[probe-train] discount_flag / specific: step=120/120 loss=0.000962
+[result] exp=exp1_role_split probe=discount_flag latent=specific split=valid acc=1.0000 macro_f1=0.9988
+[result] exp=exp1_role_split probe=discount_flag latent=specific split=test acc=1.0000 macro_f1=0.9988
+[progress] Probe activity_flag on exp1_role_split (seed=42)
+[probe-train] activity_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / common: step=1/120 loss=0.657975
+[probe-train] activity_flag / common: step=20/120 loss=0.657798
+[probe-train] activity_flag / common: step=40/120 loss=0.657791
+[probe-train] activity_flag / common: step=60/120 loss=0.657860
+[probe-train] activity_flag / common: step=80/120 loss=0.657786
+[probe-train] activity_flag / common: step=100/120 loss=0.657825
+[probe-train] activity_flag / common: step=120/120 loss=0.657805
+[result] exp=exp1_role_split probe=activity_flag latent=common split=valid acc=0.6672 macro_f1=0.4118
+[result] exp=exp1_role_split probe=activity_flag latent=common split=test acc=0.6308 macro_f1=0.4004
+[probe-train] activity_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / specific: step=1/120 loss=0.035883
+[probe-train] activity_flag / specific: step=20/120 loss=0.015136
+[probe-train] activity_flag / specific: step=40/120 loss=0.015168
+[probe-train] activity_flag / specific: step=60/120 loss=0.015144
+[probe-train] activity_flag / specific: step=80/120 loss=0.015081
+[probe-train] activity_flag / specific: step=100/120 loss=0.015128
+[probe-train] activity_flag / specific: step=120/120 loss=0.015113
+[result] exp=exp1_role_split probe=activity_flag latent=specific split=valid acc=0.9980 macro_f1=0.9978
+[result] exp=exp1_role_split probe=activity_flag latent=specific split=test acc=0.9980 macro_f1=0.9978
+
+[progress] Train backbone exp2_swapped_split (seed=42)
+[train] scenario12_exp2_swapped_split_seed42: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=56, specific_input_dim=238
+[train] scenario12_exp2_swapped_split_seed42: step=1/120 loss=1.009329
+[train] scenario12_exp2_swapped_split_seed42: step=20/120 loss=0.586296
+[train] scenario12_exp2_swapped_split_seed42: step=40/120 loss=0.442070
+[train] scenario12_exp2_swapped_split_seed42: step=60/120 loss=0.422334
+[train] scenario12_exp2_swapped_split_seed42: step=80/120 loss=0.417724
+[train] scenario12_exp2_swapped_split_seed42: step=100/120 loss=0.414372
+[train] scenario12_exp2_swapped_split_seed42: step=120/120 loss=0.411760
+[progress] Probe store_id on exp2_swapped_split (seed=42)
+[probe-train] store_id / common: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / common: step=1/120 loss=6.166047
+[probe-train] store_id / common: step=20/120 loss=6.162299
+[probe-train] store_id / common: step=40/120 loss=6.162201
+[probe-train] store_id / common: step=60/120 loss=6.162225
+[probe-train] store_id / common: step=80/120 loss=6.162204
+[probe-train] store_id / common: step=100/120 loss=6.162391
+[probe-train] store_id / common: step=120/120 loss=6.162238
+[result] exp=exp2_swapped_split probe=store_id latent=common split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp2_swapped_split probe=store_id latent=common split=test acc=0.0000 macro_f1=0.0000
+[probe-train] store_id / specific: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / specific: step=1/120 loss=5.474864
+[probe-train] store_id / specific: step=20/120 loss=5.427002
+[probe-train] store_id / specific: step=40/120 loss=5.426900
+[probe-train] store_id / specific: step=60/120 loss=5.426916
+[probe-train] store_id / specific: step=80/120 loss=5.427020
+[probe-train] store_id / specific: step=100/120 loss=5.426956
+[probe-train] store_id / specific: step=120/120 loss=5.426945
+[result] exp=exp2_swapped_split probe=store_id latent=specific split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp2_swapped_split probe=store_id latent=specific split=test acc=0.0000 macro_f1=0.0000
+[progress] Probe first_category_id on exp2_swapped_split (seed=42)
+[probe-train] first_category_id / common: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / common: step=1/120 loss=2.440488
+[probe-train] first_category_id / common: step=20/120 loss=2.426902
+[probe-train] first_category_id / common: step=40/120 loss=2.426879
+[probe-train] first_category_id / common: step=60/120 loss=2.426880
+[probe-train] first_category_id / common: step=80/120 loss=2.426908
+[probe-train] first_category_id / common: step=100/120 loss=2.426902
+[probe-train] first_category_id / common: step=120/120 loss=2.426987
+[result] exp=exp2_swapped_split probe=first_category_id latent=common split=valid acc=0.2081 macro_f1=0.0300
+[result] exp=exp2_swapped_split probe=first_category_id latent=common split=test acc=0.2098 macro_f1=0.0310
+[probe-train] first_category_id / specific: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / specific: step=1/120 loss=1.118687
+[probe-train] first_category_id / specific: step=20/120 loss=1.014743
+[probe-train] first_category_id / specific: step=40/120 loss=1.014772
+[probe-train] first_category_id / specific: step=60/120 loss=1.014861
+[probe-train] first_category_id / specific: step=80/120 loss=1.014726
+[probe-train] first_category_id / specific: step=100/120 loss=1.014720
+[probe-train] first_category_id / specific: step=120/120 loss=1.014784
+[result] exp=exp2_swapped_split probe=first_category_id latent=specific split=valid acc=0.5031 macro_f1=0.1844
+[result] exp=exp2_swapped_split probe=first_category_id latent=specific split=test acc=0.4038 macro_f1=0.1453
+[progress] Probe holiday_flag on exp2_swapped_split (seed=42)
+[probe-train] holiday_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / common: step=1/120 loss=0.627427
+[probe-train] holiday_flag / common: step=20/120 loss=0.626947
+[probe-train] holiday_flag / common: step=40/120 loss=0.627074
+[probe-train] holiday_flag / common: step=60/120 loss=0.627058
+[probe-train] holiday_flag / common: step=80/120 loss=0.627021
+[probe-train] holiday_flag / common: step=100/120 loss=0.627069
+[probe-train] holiday_flag / common: step=120/120 loss=0.627065
+[result] exp=exp2_swapped_split probe=holiday_flag latent=common split=valid acc=0.6680 macro_f1=0.4851
+[result] exp=exp2_swapped_split probe=holiday_flag latent=common split=test acc=0.6699 macro_f1=0.4910
+[probe-train] holiday_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / specific: step=1/120 loss=0.040971
+[probe-train] holiday_flag / specific: step=20/120 loss=0.021246
+[probe-train] holiday_flag / specific: step=40/120 loss=0.021236
+[probe-train] holiday_flag / specific: step=60/120 loss=0.021252
+[probe-train] holiday_flag / specific: step=80/120 loss=0.021263
+[probe-train] holiday_flag / specific: step=100/120 loss=0.021239
+[probe-train] holiday_flag / specific: step=120/120 loss=0.021239
+[result] exp=exp2_swapped_split probe=holiday_flag latent=specific split=valid acc=0.9229 macro_f1=0.9093
+[result] exp=exp2_swapped_split probe=holiday_flag latent=specific split=test acc=0.8132 macro_f1=0.7515
+[progress] Probe dt_weekday on exp2_swapped_split (seed=42)
+[probe-train] dt_weekday / common: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / common: step=1/120 loss=1.932276
+[probe-train] dt_weekday / common: step=20/120 loss=1.931165
+[probe-train] dt_weekday / common: step=40/120 loss=1.931211
+[probe-train] dt_weekday / common: step=60/120 loss=1.931161
+[probe-train] dt_weekday / common: step=80/120 loss=1.931177
+[probe-train] dt_weekday / common: step=100/120 loss=1.931153
+[probe-train] dt_weekday / common: step=120/120 loss=1.931243
+[result] exp=exp2_swapped_split probe=dt_weekday latent=common split=valid acc=0.1741 macro_f1=0.1353
+[result] exp=exp2_swapped_split probe=dt_weekday latent=common split=test acc=0.1752 macro_f1=0.1367
+[probe-train] dt_weekday / specific: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / specific: step=1/120 loss=1.486489
+[probe-train] dt_weekday / specific: step=20/120 loss=1.469573
+[probe-train] dt_weekday / specific: step=40/120 loss=1.469594
+[probe-train] dt_weekday / specific: step=60/120 loss=1.469587
+[probe-train] dt_weekday / specific: step=80/120 loss=1.469653
+[probe-train] dt_weekday / specific: step=100/120 loss=1.469461
+[probe-train] dt_weekday / specific: step=120/120 loss=1.469466
+[result] exp=exp2_swapped_split probe=dt_weekday latent=specific split=valid acc=0.2883 macro_f1=0.2614
+[result] exp=exp2_swapped_split probe=dt_weekday latent=specific split=test acc=0.2800 macro_f1=0.2387
+[progress] Probe next_sale_up on exp2_swapped_split (seed=42)
+[probe-train] next_sale_up / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / common: step=1/120 loss=0.654577
+[probe-train] next_sale_up / common: step=20/120 loss=0.653937
+[probe-train] next_sale_up / common: step=40/120 loss=0.653957
+[probe-train] next_sale_up / common: step=60/120 loss=0.653896
+[probe-train] next_sale_up / common: step=80/120 loss=0.653941
+[probe-train] next_sale_up / common: step=100/120 loss=0.653892
+[probe-train] next_sale_up / common: step=120/120 loss=0.653965
+[result] exp=exp2_swapped_split probe=next_sale_up latent=common split=valid acc=0.6438 macro_f1=0.6319
+[result] exp=exp2_swapped_split probe=next_sale_up latent=common split=test acc=0.6438 macro_f1=0.6319
+[probe-train] next_sale_up / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / specific: step=1/120 loss=0.685115
+[probe-train] next_sale_up / specific: step=20/120 loss=0.685057
+[probe-train] next_sale_up / specific: step=40/120 loss=0.685052
+[probe-train] next_sale_up / specific: step=60/120 loss=0.685053
+[probe-train] next_sale_up / specific: step=80/120 loss=0.685124
+[probe-train] next_sale_up / specific: step=100/120 loss=0.685027
+[probe-train] next_sale_up / specific: step=120/120 loss=0.685078
+[result] exp=exp2_swapped_split probe=next_sale_up latent=specific split=valid acc=0.5478 macro_f1=0.5098
+[result] exp=exp2_swapped_split probe=next_sale_up latent=specific split=test acc=0.5343 macro_f1=0.5217
+[progress] Probe sale_diff_bin on exp2_swapped_split (seed=42)
+[probe-train] sale_diff_bin / common: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / common: step=1/120 loss=1.308553
+[probe-train] sale_diff_bin / common: step=20/120 loss=1.307455
+[probe-train] sale_diff_bin / common: step=40/120 loss=1.307401
+[probe-train] sale_diff_bin / common: step=60/120 loss=1.307432
+[probe-train] sale_diff_bin / common: step=80/120 loss=1.307423
+[probe-train] sale_diff_bin / common: step=100/120 loss=1.307416
+[probe-train] sale_diff_bin / common: step=120/120 loss=1.307369
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=common split=valid acc=0.3782 macro_f1=0.3715
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=common split=test acc=0.3763 macro_f1=0.3720
+[probe-train] sale_diff_bin / specific: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / specific: step=1/120 loss=1.373897
+[probe-train] sale_diff_bin / specific: step=20/120 loss=1.373651
+[probe-train] sale_diff_bin / specific: step=40/120 loss=1.373668
+[probe-train] sale_diff_bin / specific: step=60/120 loss=1.373693
+[probe-train] sale_diff_bin / specific: step=80/120 loss=1.373686
+[probe-train] sale_diff_bin / specific: step=100/120 loss=1.373662
+[probe-train] sale_diff_bin / specific: step=120/120 loss=1.373605
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=specific split=valid acc=0.2723 macro_f1=0.1811
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=specific split=test acc=0.2510 macro_f1=0.1166
+[progress] Probe discount_flag on exp2_swapped_split (seed=42)
+[probe-train] discount_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / common: step=1/120 loss=0.010723
+[probe-train] discount_flag / common: step=20/120 loss=0.001149
+[probe-train] discount_flag / common: step=40/120 loss=0.001110
+[probe-train] discount_flag / common: step=60/120 loss=0.001112
+[probe-train] discount_flag / common: step=80/120 loss=0.001103
+[probe-train] discount_flag / common: step=100/120 loss=0.001089
+[probe-train] discount_flag / common: step=120/120 loss=0.001124
+[result] exp=exp2_swapped_split probe=discount_flag latent=common split=valid acc=0.9999 macro_f1=0.9980
+[result] exp=exp2_swapped_split probe=discount_flag latent=common split=test acc=0.9999 macro_f1=0.9959
+[probe-train] discount_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / specific: step=1/120 loss=0.011461
+[probe-train] discount_flag / specific: step=20/120 loss=0.010095
+[probe-train] discount_flag / specific: step=40/120 loss=0.010099
+[probe-train] discount_flag / specific: step=60/120 loss=0.010097
+[probe-train] discount_flag / specific: step=80/120 loss=0.010094
+[probe-train] discount_flag / specific: step=100/120 loss=0.010096
+[probe-train] discount_flag / specific: step=120/120 loss=0.010102
+[result] exp=exp2_swapped_split probe=discount_flag latent=specific split=valid acc=0.9931 macro_f1=0.4983
+[result] exp=exp2_swapped_split probe=discount_flag latent=specific split=test acc=0.9928 macro_f1=0.4982
+[progress] Probe activity_flag on exp2_swapped_split (seed=42)
+[probe-train] activity_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / common: step=1/120 loss=0.031064
+[probe-train] activity_flag / common: step=20/120 loss=0.012974
+[probe-train] activity_flag / common: step=40/120 loss=0.013016
+[probe-train] activity_flag / common: step=60/120 loss=0.012947
+[probe-train] activity_flag / common: step=80/120 loss=0.012989
+[probe-train] activity_flag / common: step=100/120 loss=0.012964
+[probe-train] activity_flag / common: step=120/120 loss=0.012981
+[result] exp=exp2_swapped_split probe=activity_flag latent=common split=valid acc=0.9969 macro_f1=0.9965
+[result] exp=exp2_swapped_split probe=activity_flag latent=common split=test acc=0.9966 macro_f1=0.9963
+[probe-train] activity_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / specific: step=1/120 loss=0.658288
+[probe-train] activity_flag / specific: step=20/120 loss=0.658025
+[probe-train] activity_flag / specific: step=40/120 loss=0.658036
+[probe-train] activity_flag / specific: step=60/120 loss=0.658100
+[probe-train] activity_flag / specific: step=80/120 loss=0.658068
+[probe-train] activity_flag / specific: step=100/120 loss=0.658083
+[probe-train] activity_flag / specific: step=120/120 loss=0.658053
+[result] exp=exp2_swapped_split probe=activity_flag latent=specific split=valid acc=0.6677 macro_f1=0.4123
+[result] exp=exp2_swapped_split probe=activity_flag latent=specific split=test acc=0.6315 macro_f1=0.3898
+
+[progress] Seed 43 started
+
+[progress] Train backbone exp1_role_split (seed=43)
+[train] scenario12_exp1_role_split_seed43: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] scenario12_exp1_role_split_seed43: step=1/120 loss=0.999956
+[train] scenario12_exp1_role_split_seed43: step=20/120 loss=0.562914
+[train] scenario12_exp1_role_split_seed43: step=40/120 loss=0.441689
+[train] scenario12_exp1_role_split_seed43: step=60/120 loss=0.423718
+[train] scenario12_exp1_role_split_seed43: step=80/120 loss=0.418819
+[train] scenario12_exp1_role_split_seed43: step=100/120 loss=0.415021
+[train] scenario12_exp1_role_split_seed43: step=120/120 loss=0.412240
+[progress] Probe store_id on exp1_role_split (seed=43)
+[probe-train] store_id / common: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / common: step=1/120 loss=5.305807
+[probe-train] store_id / common: step=20/120 loss=5.260513
+[probe-train] store_id / common: step=40/120 loss=5.260536
+[probe-train] store_id / common: step=60/120 loss=5.260529
+[probe-train] store_id / common: step=80/120 loss=5.260489
+[probe-train] store_id / common: step=100/120 loss=5.260496
+[probe-train] store_id / common: step=120/120 loss=5.260477
+[result] exp=exp1_role_split probe=store_id latent=common split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=common split=test acc=0.0000 macro_f1=0.0000
+[probe-train] store_id / specific: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / specific: step=1/120 loss=6.175305
+[probe-train] store_id / specific: step=20/120 loss=6.171305
+[probe-train] store_id / specific: step=40/120 loss=6.170964
+[probe-train] store_id / specific: step=60/120 loss=6.170873
+[probe-train] store_id / specific: step=80/120 loss=6.171033
+[probe-train] store_id / specific: step=100/120 loss=6.171159
+[probe-train] store_id / specific: step=120/120 loss=6.170971
+[result] exp=exp1_role_split probe=store_id latent=specific split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=specific split=test acc=0.0000 macro_f1=0.0000
+[progress] Probe first_category_id on exp1_role_split (seed=43)
+[probe-train] first_category_id / common: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / common: step=1/120 loss=1.043668
+[probe-train] first_category_id / common: step=20/120 loss=0.941587
+[probe-train] first_category_id / common: step=40/120 loss=0.941594
+[probe-train] first_category_id / common: step=60/120 loss=0.941591
+[probe-train] first_category_id / common: step=80/120 loss=0.941644
+[probe-train] first_category_id / common: step=100/120 loss=0.941497
+[probe-train] first_category_id / common: step=120/120 loss=0.941590
+[result] exp=exp1_role_split probe=first_category_id latent=common split=valid acc=0.4567 macro_f1=0.1761
+[result] exp=exp1_role_split probe=first_category_id latent=common split=test acc=0.3336 macro_f1=0.1047
+[probe-train] first_category_id / specific: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / specific: step=1/120 loss=2.437864
+[probe-train] first_category_id / specific: step=20/120 loss=2.423219
+[probe-train] first_category_id / specific: step=40/120 loss=2.423260
+[probe-train] first_category_id / specific: step=60/120 loss=2.423230
+[probe-train] first_category_id / specific: step=80/120 loss=2.423178
+[probe-train] first_category_id / specific: step=100/120 loss=2.423190
+[probe-train] first_category_id / specific: step=120/120 loss=2.423129
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=valid acc=0.2164 macro_f1=0.0385
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=test acc=0.2175 macro_f1=0.0394
+[progress] Probe holiday_flag on exp1_role_split (seed=43)
+[probe-train] holiday_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / common: step=1/120 loss=0.029647
+[probe-train] holiday_flag / common: step=20/120 loss=0.018001
+[probe-train] holiday_flag / common: step=40/120 loss=0.018001
+[probe-train] holiday_flag / common: step=60/120 loss=0.017999
+[probe-train] holiday_flag / common: step=80/120 loss=0.018005
+[probe-train] holiday_flag / common: step=100/120 loss=0.017999
+[probe-train] holiday_flag / common: step=120/120 loss=0.018005
+[result] exp=exp1_role_split probe=holiday_flag latent=common split=valid acc=0.9804 macro_f1=0.9780
+[result] exp=exp1_role_split probe=holiday_flag latent=common split=test acc=0.9520 macro_f1=0.9449
+[probe-train] holiday_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / specific: step=1/120 loss=0.637027
+[probe-train] holiday_flag / specific: step=20/120 loss=0.636399
+[probe-train] holiday_flag / specific: step=40/120 loss=0.636321
+[probe-train] holiday_flag / specific: step=60/120 loss=0.636352
+[probe-train] holiday_flag / specific: step=80/120 loss=0.636463
+[probe-train] holiday_flag / specific: step=100/120 loss=0.636398
+[probe-train] holiday_flag / specific: step=120/120 loss=0.636310
+[result] exp=exp1_role_split probe=holiday_flag latent=specific split=valid acc=0.6621 macro_f1=0.4438
+[result] exp=exp1_role_split probe=holiday_flag latent=specific split=test acc=0.6624 macro_f1=0.4464
+[progress] Probe dt_weekday on exp1_role_split (seed=43)
+[probe-train] dt_weekday / common: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / common: step=1/120 loss=1.526907
+[probe-train] dt_weekday / common: step=20/120 loss=1.512420
+[probe-train] dt_weekday / common: step=40/120 loss=1.512371
+[probe-train] dt_weekday / common: step=60/120 loss=1.512535
+[probe-train] dt_weekday / common: step=80/120 loss=1.512432
+[probe-train] dt_weekday / common: step=100/120 loss=1.512478
+[probe-train] dt_weekday / common: step=120/120 loss=1.512389
+[result] exp=exp1_role_split probe=dt_weekday latent=common split=valid acc=0.2665 macro_f1=0.2058
+[result] exp=exp1_role_split probe=dt_weekday latent=common split=test acc=0.2329 macro_f1=0.1459
+[probe-train] dt_weekday / specific: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / specific: step=1/120 loss=1.940463
+[probe-train] dt_weekday / specific: step=20/120 loss=1.939554
+[probe-train] dt_weekday / specific: step=40/120 loss=1.939502
+[probe-train] dt_weekday / specific: step=60/120 loss=1.939486
+[probe-train] dt_weekday / specific: step=80/120 loss=1.939410
+[probe-train] dt_weekday / specific: step=100/120 loss=1.939612
+[probe-train] dt_weekday / specific: step=120/120 loss=1.939490
+[result] exp=exp1_role_split probe=dt_weekday latent=specific split=valid acc=0.1670 macro_f1=0.1190
+[result] exp=exp1_role_split probe=dt_weekday latent=specific split=test acc=0.1673 macro_f1=0.1189
+[progress] Probe next_sale_up on exp1_role_split (seed=43)
+[probe-train] next_sale_up / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / common: step=1/120 loss=0.685591
+[probe-train] next_sale_up / common: step=20/120 loss=0.685478
+[probe-train] next_sale_up / common: step=40/120 loss=0.685494
+[probe-train] next_sale_up / common: step=60/120 loss=0.685494
+[probe-train] next_sale_up / common: step=80/120 loss=0.685461
+[probe-train] next_sale_up / common: step=100/120 loss=0.685524
+[probe-train] next_sale_up / common: step=120/120 loss=0.685545
+[result] exp=exp1_role_split probe=next_sale_up latent=common split=valid acc=0.5588 macro_f1=0.4830
+[result] exp=exp1_role_split probe=next_sale_up latent=common split=test acc=0.5379 macro_f1=0.5378
+[probe-train] next_sale_up / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / specific: step=1/120 loss=0.670819
+[probe-train] next_sale_up / specific: step=20/120 loss=0.669884
+[probe-train] next_sale_up / specific: step=40/120 loss=0.669746
+[probe-train] next_sale_up / specific: step=60/120 loss=0.669725
+[probe-train] next_sale_up / specific: step=80/120 loss=0.669784
+[probe-train] next_sale_up / specific: step=100/120 loss=0.669797
+[probe-train] next_sale_up / specific: step=120/120 loss=0.669740
+[result] exp=exp1_role_split probe=next_sale_up latent=specific split=valid acc=0.6038 macro_f1=0.5925
+[result] exp=exp1_role_split probe=next_sale_up latent=specific split=test acc=0.6040 macro_f1=0.5910
+[progress] Probe sale_diff_bin on exp1_role_split (seed=43)
+[probe-train] sale_diff_bin / common: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / common: step=1/120 loss=1.372584
+[probe-train] sale_diff_bin / common: step=20/120 loss=1.372065
+[probe-train] sale_diff_bin / common: step=40/120 loss=1.372142
+[probe-train] sale_diff_bin / common: step=60/120 loss=1.372120
+[probe-train] sale_diff_bin / common: step=80/120 loss=1.372077
+[probe-train] sale_diff_bin / common: step=100/120 loss=1.372162
+[probe-train] sale_diff_bin / common: step=120/120 loss=1.372205
+[result] exp=exp1_role_split probe=sale_diff_bin latent=common split=valid acc=0.2798 macro_f1=0.2061
+[result] exp=exp1_role_split probe=sale_diff_bin latent=common split=test acc=0.2530 macro_f1=0.1491
+[probe-train] sale_diff_bin / specific: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / specific: step=1/120 loss=1.314868
+[probe-train] sale_diff_bin / specific: step=20/120 loss=1.312601
+[probe-train] sale_diff_bin / specific: step=40/120 loss=1.312653
+[probe-train] sale_diff_bin / specific: step=60/120 loss=1.312596
+[probe-train] sale_diff_bin / specific: step=80/120 loss=1.312677
+[probe-train] sale_diff_bin / specific: step=100/120 loss=1.312685
+[probe-train] sale_diff_bin / specific: step=120/120 loss=1.312692
+[result] exp=exp1_role_split probe=sale_diff_bin latent=specific split=valid acc=0.3699 macro_f1=0.3399
+[result] exp=exp1_role_split probe=sale_diff_bin latent=specific split=test acc=0.3695 macro_f1=0.3401
+[progress] Probe discount_flag on exp1_role_split (seed=43)
+[probe-train] discount_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / common: step=1/120 loss=0.012735
+[probe-train] discount_flag / common: step=20/120 loss=0.010099
+[probe-train] discount_flag / common: step=40/120 loss=0.010107
+[probe-train] discount_flag / common: step=60/120 loss=0.010109
+[probe-train] discount_flag / common: step=80/120 loss=0.010111
+[probe-train] discount_flag / common: step=100/120 loss=0.010107
+[probe-train] discount_flag / common: step=120/120 loss=0.010113
+[result] exp=exp1_role_split probe=discount_flag latent=common split=valid acc=0.9931 macro_f1=0.4983
+[result] exp=exp1_role_split probe=discount_flag latent=common split=test acc=0.9928 macro_f1=0.4982
+[probe-train] discount_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / specific: step=1/120 loss=0.006204
+[probe-train] discount_flag / specific: step=20/120 loss=0.000826
+[probe-train] discount_flag / specific: step=40/120 loss=0.000795
+[probe-train] discount_flag / specific: step=60/120 loss=0.000788
+[probe-train] discount_flag / specific: step=80/120 loss=0.000803
+[probe-train] discount_flag / specific: step=100/120 loss=0.000774
+[probe-train] discount_flag / specific: step=120/120 loss=0.000775
+[result] exp=exp1_role_split probe=discount_flag latent=specific split=valid acc=0.9998 macro_f1=0.9940
+[result] exp=exp1_role_split probe=discount_flag latent=specific split=test acc=0.9998 macro_f1=0.9922
+[progress] Probe activity_flag on exp1_role_split (seed=43)
+[probe-train] activity_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / common: step=1/120 loss=0.662102
+[probe-train] activity_flag / common: step=20/120 loss=0.661980
+[probe-train] activity_flag / common: step=40/120 loss=0.662027
+[probe-train] activity_flag / common: step=60/120 loss=0.661992
+[probe-train] activity_flag / common: step=80/120 loss=0.662008
+[probe-train] activity_flag / common: step=100/120 loss=0.662028
+[probe-train] activity_flag / common: step=120/120 loss=0.662039
+[result] exp=exp1_role_split probe=activity_flag latent=common split=valid acc=0.6676 macro_f1=0.4003
+[result] exp=exp1_role_split probe=activity_flag latent=common split=test acc=0.6320 macro_f1=0.3872
+[probe-train] activity_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / specific: step=1/120 loss=0.014921
+[probe-train] activity_flag / specific: step=20/120 loss=0.003343
+[probe-train] activity_flag / specific: step=40/120 loss=0.003383
+[probe-train] activity_flag / specific: step=60/120 loss=0.003341
+[probe-train] activity_flag / specific: step=80/120 loss=0.003326
+[probe-train] activity_flag / specific: step=100/120 loss=0.003315
+[probe-train] activity_flag / specific: step=120/120 loss=0.003354
+[result] exp=exp1_role_split probe=activity_flag latent=specific split=valid acc=0.9999 macro_f1=0.9999
+[result] exp=exp1_role_split probe=activity_flag latent=specific split=test acc=0.9998 macro_f1=0.9998
+
+[progress] Train backbone exp2_swapped_split (seed=43)
+[train] scenario12_exp2_swapped_split_seed43: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=56, specific_input_dim=238
+[train] scenario12_exp2_swapped_split_seed43: step=1/120 loss=0.974589
+[train] scenario12_exp2_swapped_split_seed43: step=20/120 loss=0.584517
+[train] scenario12_exp2_swapped_split_seed43: step=40/120 loss=0.441392
+[train] scenario12_exp2_swapped_split_seed43: step=60/120 loss=0.421837
+[train] scenario12_exp2_swapped_split_seed43: step=80/120 loss=0.417378
+[train] scenario12_exp2_swapped_split_seed43: step=100/120 loss=0.414180
+[train] scenario12_exp2_swapped_split_seed43: step=120/120 loss=0.412006
+[progress] Probe store_id on exp2_swapped_split (seed=43)
+[probe-train] store_id / common: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / common: step=1/120 loss=6.178393
+[probe-train] store_id / common: step=20/120 loss=6.174645
+[probe-train] store_id / common: step=40/120 loss=6.174386
+[probe-train] store_id / common: step=60/120 loss=6.174234
+[probe-train] store_id / common: step=80/120 loss=6.174363
+[probe-train] store_id / common: step=100/120 loss=6.174463
+[probe-train] store_id / common: step=120/120 loss=6.174359
+[result] exp=exp2_swapped_split probe=store_id latent=common split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp2_swapped_split probe=store_id latent=common split=test acc=0.0000 macro_f1=0.0000
+[probe-train] store_id / specific: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / specific: step=1/120 loss=5.384680
+[probe-train] store_id / specific: step=20/120 loss=5.330324
+[probe-train] store_id / specific: step=40/120 loss=5.330355
+[probe-train] store_id / specific: step=60/120 loss=5.330333
+[probe-train] store_id / specific: step=80/120 loss=5.330280
+[probe-train] store_id / specific: step=100/120 loss=5.330340
+[probe-train] store_id / specific: step=120/120 loss=5.330354
+[result] exp=exp2_swapped_split probe=store_id latent=specific split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp2_swapped_split probe=store_id latent=specific split=test acc=0.0000 macro_f1=0.0000
+[progress] Probe first_category_id on exp2_swapped_split (seed=43)
+[probe-train] first_category_id / common: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / common: step=1/120 loss=2.441104
+[probe-train] first_category_id / common: step=20/120 loss=2.428184
+[probe-train] first_category_id / common: step=40/120 loss=2.428353
+[probe-train] first_category_id / common: step=60/120 loss=2.428180
+[probe-train] first_category_id / common: step=80/120 loss=2.428173
+[probe-train] first_category_id / common: step=100/120 loss=2.428192
+[probe-train] first_category_id / common: step=120/120 loss=2.428130
+[result] exp=exp2_swapped_split probe=first_category_id latent=common split=valid acc=0.2122 macro_f1=0.0336
+[result] exp=exp2_swapped_split probe=first_category_id latent=common split=test acc=0.2143 macro_f1=0.0343
+[probe-train] first_category_id / specific: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / specific: step=1/120 loss=1.217541
+[probe-train] first_category_id / specific: step=20/120 loss=1.106556
+[probe-train] first_category_id / specific: step=40/120 loss=1.106529
+[probe-train] first_category_id / specific: step=60/120 loss=1.106468
+[probe-train] first_category_id / specific: step=80/120 loss=1.106595
+[probe-train] first_category_id / specific: step=100/120 loss=1.106494
+[probe-train] first_category_id / specific: step=120/120 loss=1.106512
+[result] exp=exp2_swapped_split probe=first_category_id latent=specific split=valid acc=0.3859 macro_f1=0.1217
+[result] exp=exp2_swapped_split probe=first_category_id latent=specific split=test acc=0.2369 macro_f1=0.0684
+[progress] Probe holiday_flag on exp2_swapped_split (seed=43)
+[probe-train] holiday_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / common: step=1/120 loss=0.629905
+[probe-train] holiday_flag / common: step=20/120 loss=0.628592
+[probe-train] holiday_flag / common: step=40/120 loss=0.628560
+[probe-train] holiday_flag / common: step=60/120 loss=0.628606
+[probe-train] holiday_flag / common: step=80/120 loss=0.628585
+[probe-train] holiday_flag / common: step=100/120 loss=0.628568
+[probe-train] holiday_flag / common: step=120/120 loss=0.628498
+[result] exp=exp2_swapped_split probe=holiday_flag latent=common split=valid acc=0.6680 macro_f1=0.4826
+[result] exp=exp2_swapped_split probe=holiday_flag latent=common split=test acc=0.6696 macro_f1=0.4887
+[probe-train] holiday_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] holiday_flag / specific: step=1/120 loss=0.058259
+[probe-train] holiday_flag / specific: step=20/120 loss=0.040233
+[probe-train] holiday_flag / specific: step=40/120 loss=0.040211
+[probe-train] holiday_flag / specific: step=60/120 loss=0.040226
+[probe-train] holiday_flag / specific: step=80/120 loss=0.040217
+[probe-train] holiday_flag / specific: step=100/120 loss=0.040214
+[probe-train] holiday_flag / specific: step=120/120 loss=0.040230
+[result] exp=exp2_swapped_split probe=holiday_flag latent=specific split=valid acc=0.9444 macro_f1=0.9358
+[result] exp=exp2_swapped_split probe=holiday_flag latent=specific split=test acc=0.8443 macro_f1=0.8008
+[progress] Probe dt_weekday on exp2_swapped_split (seed=43)
+[probe-train] dt_weekday / common: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / common: step=1/120 loss=1.935093
+[probe-train] dt_weekday / common: step=20/120 loss=1.933083
+[probe-train] dt_weekday / common: step=40/120 loss=1.933076
+[probe-train] dt_weekday / common: step=60/120 loss=1.933107
+[probe-train] dt_weekday / common: step=80/120 loss=1.932977
+[probe-train] dt_weekday / common: step=100/120 loss=1.933212
+[probe-train] dt_weekday / common: step=120/120 loss=1.933021
+[result] exp=exp2_swapped_split probe=dt_weekday latent=common split=valid acc=0.1745 macro_f1=0.1413
+[result] exp=exp2_swapped_split probe=dt_weekday latent=common split=test acc=0.1745 macro_f1=0.1416
+[probe-train] dt_weekday / specific: steps=120, lr=0.01, batch_size=512, classes=7, n_train=3149999
+[probe-train] dt_weekday / specific: step=1/120 loss=1.515825
+[probe-train] dt_weekday / specific: step=20/120 loss=1.490246
+[probe-train] dt_weekday / specific: step=40/120 loss=1.490181
+[probe-train] dt_weekday / specific: step=60/120 loss=1.490275
+[probe-train] dt_weekday / specific: step=80/120 loss=1.490201
+[probe-train] dt_weekday / specific: step=100/120 loss=1.490187
+[probe-train] dt_weekday / specific: step=120/120 loss=1.490182
+[result] exp=exp2_swapped_split probe=dt_weekday latent=specific split=valid acc=0.2986 macro_f1=0.2682
+[result] exp=exp2_swapped_split probe=dt_weekday latent=specific split=test acc=0.2491 macro_f1=0.2048
+[progress] Probe next_sale_up on exp2_swapped_split (seed=43)
+[probe-train] next_sale_up / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / common: step=1/120 loss=0.657777
+[probe-train] next_sale_up / common: step=20/120 loss=0.656608
+[probe-train] next_sale_up / common: step=40/120 loss=0.656446
+[probe-train] next_sale_up / common: step=60/120 loss=0.656409
+[probe-train] next_sale_up / common: step=80/120 loss=0.656397
+[probe-train] next_sale_up / common: step=100/120 loss=0.656536
+[probe-train] next_sale_up / common: step=120/120 loss=0.656385
+[result] exp=exp2_swapped_split probe=next_sale_up latent=common split=valid acc=0.6332 macro_f1=0.6237
+[result] exp=exp2_swapped_split probe=next_sale_up latent=common split=test acc=0.6339 macro_f1=0.6240
+[probe-train] next_sale_up / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] next_sale_up / specific: step=1/120 loss=0.685328
+[probe-train] next_sale_up / specific: step=20/120 loss=0.685235
+[probe-train] next_sale_up / specific: step=40/120 loss=0.685242
+[probe-train] next_sale_up / specific: step=60/120 loss=0.685277
+[probe-train] next_sale_up / specific: step=80/120 loss=0.685230
+[probe-train] next_sale_up / specific: step=100/120 loss=0.685291
+[probe-train] next_sale_up / specific: step=120/120 loss=0.685307
+[result] exp=exp2_swapped_split probe=next_sale_up latent=specific split=valid acc=0.5557 macro_f1=0.4462
+[result] exp=exp2_swapped_split probe=next_sale_up latent=specific split=test acc=0.5464 macro_f1=0.5195
+[progress] Probe sale_diff_bin on exp2_swapped_split (seed=43)
+[probe-train] sale_diff_bin / common: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / common: step=1/120 loss=1.309384
+[probe-train] sale_diff_bin / common: step=20/120 loss=1.307310
+[probe-train] sale_diff_bin / common: step=40/120 loss=1.307348
+[probe-train] sale_diff_bin / common: step=60/120 loss=1.307276
+[probe-train] sale_diff_bin / common: step=80/120 loss=1.307367
+[probe-train] sale_diff_bin / common: step=100/120 loss=1.307408
+[probe-train] sale_diff_bin / common: step=120/120 loss=1.307384
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=common split=valid acc=0.3711 macro_f1=0.3393
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=common split=test acc=0.3705 macro_f1=0.3392
+[probe-train] sale_diff_bin / specific: steps=120, lr=0.01, batch_size=512, classes=4, n_train=3149999
+[probe-train] sale_diff_bin / specific: step=1/120 loss=1.374230
+[probe-train] sale_diff_bin / specific: step=20/120 loss=1.373905
+[probe-train] sale_diff_bin / specific: step=40/120 loss=1.373958
+[probe-train] sale_diff_bin / specific: step=60/120 loss=1.373964
+[probe-train] sale_diff_bin / specific: step=80/120 loss=1.373863
+[probe-train] sale_diff_bin / specific: step=100/120 loss=1.373991
+[probe-train] sale_diff_bin / specific: step=120/120 loss=1.374024
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=specific split=valid acc=0.2802 macro_f1=0.2040
+[result] exp=exp2_swapped_split probe=sale_diff_bin latent=specific split=test acc=0.2732 macro_f1=0.1822
+[progress] Probe discount_flag on exp2_swapped_split (seed=43)
+[probe-train] discount_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / common: step=1/120 loss=0.005651
+[probe-train] discount_flag / common: step=20/120 loss=0.000945
+[probe-train] discount_flag / common: step=40/120 loss=0.000977
+[probe-train] discount_flag / common: step=60/120 loss=0.000943
+[probe-train] discount_flag / common: step=80/120 loss=0.000927
+[probe-train] discount_flag / common: step=100/120 loss=0.000929
+[probe-train] discount_flag / common: step=120/120 loss=0.000947
+[result] exp=exp2_swapped_split probe=discount_flag latent=common split=valid acc=1.0000 macro_f1=0.9990
+[result] exp=exp2_swapped_split probe=discount_flag latent=common split=test acc=0.9999 macro_f1=0.9976
+[probe-train] discount_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] discount_flag / specific: step=1/120 loss=0.014216
+[probe-train] discount_flag / specific: step=20/120 loss=0.011727
+[probe-train] discount_flag / specific: step=40/120 loss=0.011738
+[probe-train] discount_flag / specific: step=60/120 loss=0.011743
+[probe-train] discount_flag / specific: step=80/120 loss=0.011746
+[probe-train] discount_flag / specific: step=100/120 loss=0.011743
+[probe-train] discount_flag / specific: step=120/120 loss=0.011748
+[result] exp=exp2_swapped_split probe=discount_flag latent=specific split=valid acc=0.9931 macro_f1=0.4983
+[result] exp=exp2_swapped_split probe=discount_flag latent=specific split=test acc=0.9928 macro_f1=0.4982
+[progress] Probe activity_flag on exp2_swapped_split (seed=43)
+[probe-train] activity_flag / common: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / common: step=1/120 loss=0.029935
+[probe-train] activity_flag / common: step=20/120 loss=0.008500
+[probe-train] activity_flag / common: step=40/120 loss=0.008499
+[probe-train] activity_flag / common: step=60/120 loss=0.008529
+[probe-train] activity_flag / common: step=80/120 loss=0.008534
+[probe-train] activity_flag / common: step=100/120 loss=0.008479
+[probe-train] activity_flag / common: step=120/120 loss=0.008516
+[result] exp=exp2_swapped_split probe=activity_flag latent=common split=valid acc=0.9981 macro_f1=0.9978
+[result] exp=exp2_swapped_split probe=activity_flag latent=common split=test acc=0.9975 macro_f1=0.9973
+[probe-train] activity_flag / specific: steps=120, lr=0.01, batch_size=512, classes=2, n_train=3149999
+[probe-train] activity_flag / specific: step=1/120 loss=0.659620
+[probe-train] activity_flag / specific: step=20/120 loss=0.659281
+[probe-train] activity_flag / specific: step=40/120 loss=0.659340
+[probe-train] activity_flag / specific: step=60/120 loss=0.659369
+[probe-train] activity_flag / specific: step=80/120 loss=0.659378
+[probe-train] activity_flag / specific: step=100/120 loss=0.659361
+[probe-train] activity_flag / specific: step=120/120 loss=0.659391
+[result] exp=exp2_swapped_split probe=activity_flag latent=specific split=valid acc=0.6676 macro_f1=0.4005
+[result] exp=exp2_swapped_split probe=activity_flag latent=specific split=test acc=0.6320 macro_f1=0.3873
+
+[progress] Seed 44 started
+
+[progress] Train backbone exp1_role_split (seed=44)
+[train] scenario12_exp1_role_split_seed44: steps=120, lr=0.001, hidden_dim=64, latent_dim=16, common_input_dim=238, specific_input_dim=56
+[train] scenario12_exp1_role_split_seed44: step=1/120 loss=0.939399
+[train] scenario12_exp1_role_split_seed44: step=20/120 loss=0.511969
+[train] scenario12_exp1_role_split_seed44: step=40/120 loss=0.430584
+[train] scenario12_exp1_role_split_seed44: step=60/120 loss=0.421875
+[train] scenario12_exp1_role_split_seed44: step=80/120 loss=0.417820
+[train] scenario12_exp1_role_split_seed44: step=100/120 loss=0.414672
+[train] scenario12_exp1_role_split_seed44: step=120/120 loss=0.412283
+[progress] Probe store_id on exp1_role_split (seed=44)
+[probe-train] store_id / common: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / common: step=1/120 loss=5.338273
+[probe-train] store_id / common: step=20/120 loss=5.293385
+[probe-train] store_id / common: step=40/120 loss=5.293508
+[probe-train] store_id / common: step=60/120 loss=5.293327
+[probe-train] store_id / common: step=80/120 loss=5.293371
+[probe-train] store_id / common: step=100/120 loss=5.293434
+[probe-train] store_id / common: step=120/120 loss=5.293468
+[result] exp=exp1_role_split probe=store_id latent=common split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=common split=test acc=0.0000 macro_f1=0.0000
+[probe-train] store_id / specific: steps=120, lr=0.01, batch_size=512, classes=551, n_train=3149999
+[probe-train] store_id / specific: step=1/120 loss=6.167108
+[probe-train] store_id / specific: step=20/120 loss=6.163247
+[probe-train] store_id / specific: step=40/120 loss=6.163244
+[probe-train] store_id / specific: step=60/120 loss=6.163325
+[probe-train] store_id / specific: step=80/120 loss=6.163027
+[probe-train] store_id / specific: step=100/120 loss=6.163309
+[probe-train] store_id / specific: step=120/120 loss=6.163335
+[result] exp=exp1_role_split probe=store_id latent=specific split=valid acc=0.0000 macro_f1=0.0000
+[result] exp=exp1_role_split probe=store_id latent=specific split=test acc=0.0000 macro_f1=0.0000
+[progress] Probe first_category_id on exp1_role_split (seed=44)
+[probe-train] first_category_id / common: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / common: step=1/120 loss=0.892311
+[probe-train] first_category_id / common: step=20/120 loss=0.778845
+[probe-train] first_category_id / common: step=40/120 loss=0.778876
+[probe-train] first_category_id / common: step=60/120 loss=0.778852
+[probe-train] first_category_id / common: step=80/120 loss=0.778869
+[probe-train] first_category_id / common: step=100/120 loss=0.778862
+[probe-train] first_category_id / common: step=120/120 loss=0.778864
+[result] exp=exp1_role_split probe=first_category_id latent=common split=valid acc=0.5923 macro_f1=0.2554
+[result] exp=exp1_role_split probe=first_category_id latent=common split=test acc=0.4872 macro_f1=0.2012
+[probe-train] first_category_id / specific: steps=120, lr=0.01, batch_size=512, classes=32, n_train=3149999
+[probe-train] first_category_id / specific: step=1/120 loss=2.438127
+[probe-train] first_category_id / specific: step=20/120 loss=2.420224
+[probe-train] first_category_id / specific: step=40/120 loss=2.420179
+[probe-train] first_category_id / specific: step=60/120 loss=2.420189
+[probe-train] first_category_id / specific: step=80/120 loss=2.420187
+[probe-train] first_category_id / specific: step=100/120 loss=2.420291
+[probe-train] first_category_id / specific: step=120/120 loss=2.420294
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=valid acc=0.2139 macro_f1=0.0364
+[result] exp=exp1_role_split probe=first_category_id latent=specific split=test acc=0.2157 macro_f1=0.0371
