@@ -1,0 +1,19 @@
+Selected MovingAverage k=14
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/flatten_linear_train_loss.png
+Selected FlattenMLP hidden_dims=[128, 64, 32]
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/flatten_mlp_train_loss.png
+Skipped Prophet baseline: prophet is not installed. Install with `uv add prophet`.
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/scenario2_train_loss.png
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/scenario4_stage1_train_loss.png
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/scenario4_stage2_train_loss.png
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/forecast_baseline_results.csv
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/valid_wape_comparison.png
+Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/test_wape_comparison.png
+
+=== Result Summary ===
+LastValue      valid_wape=0.4636 valid_wpe=-0.0000 test_wape=0.4584 test_wpe=0.0000
+MovingAverage  valid_wape=0.4636 valid_wpe=-0.0000 test_wape=0.4584 test_wpe=-0.0000
+FlattenLinear  valid_wape=0.8703 valid_wpe=-0.8592 test_wape=0.8696 test_wpe=-0.8596
+FlattenMLP     valid_wape=0.4287 valid_wpe=-0.0479 test_wape=0.4237 test_wpe=-0.0496
+Scenario2      valid_wape=0.4287 valid_wpe=-0.0524 test_wape=0.4237 test_wpe=-0.0539
+Scenario4      valid_wape=0.4284 valid_wpe=-0.0536 test_wape=0.4242 test_wpe=-0.0554
