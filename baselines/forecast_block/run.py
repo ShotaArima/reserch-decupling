@@ -176,11 +176,12 @@ def main() -> None:
     print(f"Saved: {mlp_curve}")
 
     # 5) Prophet (per-sample univariate forecast)
+    print("Running Prophet baseline...")
     try:
         prophet_valid = predict_prophet_next_step_per_sample(valid_raw[:-1], target_feature_index=TARGET_FEATURE_INDEX)
         prophet_test = predict_prophet_next_step_per_sample(test_raw[:-1], target_feature_index=TARGET_FEATURE_INDEX)
         results.append(_score("Prophet", y_valid_np, prophet_valid, y_test_np, prophet_test))
-    except RuntimeError as exc:
+    except Exception as exc:
         print(f"Skipped Prophet baseline: {exc}")
 
     # 6) Scenario 2
