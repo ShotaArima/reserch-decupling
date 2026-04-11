@@ -163,3 +163,42 @@ def train_scenario4_pipeline(
         stage2_losses.append(float(stage2_loss.item()))
 
     return recovery, forecaster, stage1_losses, stage2_losses
+
+
+def predict_prophet_next_step_per_sample(
+    x_raw: np.ndarray,
+    *,
+    target_feature_index: int = 0,
+    seasonality_mode: str = "additive",
+) -> np.ndarray:
+    """Fit Prophet on each window and predict the next step.
+
+    Returns shape [N]. If prophet is unavailable, this function raises RuntimeError.
+    """
+    import importlib
+    import importlib.util
+    import pandas as pd
+
+    if importlib.util.find_spec("prophet") is None:
+        raise RuntimeError("prophet is not installed. Install with `uv add prophet`.")
+
+    Prophet = importlib.import_module("prophet").Prophet
+
+    preds: list[float] = []
+    for row in x_raw:
+        y = row[:, target_feature_index].astype(float)
+        ds = pd.date_range("2020-01-01", periods=len(y), freq="D")
+        fit_df = pd.DataFrame({"ds": ds, "y": y})
+
+        model = Prophet(
+            yearly_seasonality=False,
+            weekly_seasonality=False,
+            daily_seasonality=False,
+            seasonality_mode=seasonality_mode,
+        )
+        model.fit(fit_df)
+        future = model.make_future_dataframe(periods=1, freq="D", include_history=False)
+        forecast = model.predict(future)
+        preds.append(float(forecast["yhat"].iloc[-1]))
+
+    return np.asarray(preds, dtype=np.float64)

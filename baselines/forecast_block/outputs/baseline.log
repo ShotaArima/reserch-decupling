@@ -10,7 +10,6 @@ Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outpu
 Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/valid_wape_comparison.png
 Saved: /Users/shota/project/tcu/reserch-decupling/baselines/forecast_block/outputs/test_wape_comparison.png
 
-
 === Result Summary ===
 LastValue      valid_wape=0.4636 valid_wpe=-0.0000 test_wape=0.4584 test_wpe=0.0000
 MovingAverage  valid_wape=0.4636 valid_wpe=-0.0000 test_wape=0.4584 test_wpe=-0.0000
