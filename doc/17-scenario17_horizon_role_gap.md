@@ -204,3 +204,17 @@ uv run python scenarios/scenario17_horizon_role_gap/run.py \
 
 ## 一文まとめ
 **Scenario17 は、予測 horizon（1/3/7-step）を操作して common/specific branch の相対寄与を比較し、役割差が時系列先読み長に依存することを定量的に示すための実装可能な実験計画である。**
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../scenarios/scenario17_horizon_role_gap/output/output.log)
+- 集計:
+  - [summary_by_horizon.csv](../scenarios/scenario17_horizon_role_gap/output/summary_by_horizon.csv)
+  - [relative_contribution.csv](../scenarios/scenario17_horizon_role_gap/output/relative_contribution.csv)
+- 要約（seed=42）:
+  - h=1: `specific_only` test WAPE=`0.4281`, `both`=`0.4351`, `common_only`=`0.6670`
+  - h=3: `specific_only` test WAPE=`0.4742`, `both`=`0.4756`, `common_only`=`0.6627`
+  - h=7: `specific_only` test WAPE=`0.4676`, `both`=`0.4730`, `common_only`=`0.6617`

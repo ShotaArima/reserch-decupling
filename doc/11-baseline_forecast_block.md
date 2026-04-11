@@ -43,3 +43,19 @@ uv run python scenarios/scenario2_raw_sales_forecast/run.py
 - `baselines/forecast_block/outputs/forecast_baseline_results.csv`
 - 各学習曲線 PNG
 - valid/test WAPE 比較棒グラフ
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../baselines/forecast_block/outputs/output.log)
+  - [baseline.log](../baselines/forecast_block/outputs/baseline.log)
+- 主要結果（`output.log` の Result Summary）:
+  - LastValue: valid/test WAPE = `0.4636 / 0.4584`
+  - MovingAverage: valid/test WAPE = `0.4636 / 0.4584`
+  - FlattenMLP: valid/test WAPE = `0.4287 / 0.4237`
+  - Scenario2: valid/test WAPE = `0.4287 / 0.4237`
+  - Scenario4: valid/test WAPE = `0.4284 / 0.4242`
+
+> 補足: `forecast_baseline_results.csv` はこの環境では未配置でしたが、同内容の結果要約は `output.log` / `baseline.log` に記録されています。

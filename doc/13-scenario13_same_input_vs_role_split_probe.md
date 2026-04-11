@@ -209,3 +209,19 @@ python scenarios/scenario13_same_input_vs_role_split_probe/run.py --seed 44
 ## 一文まとめ
 
 **Scenario13 は、`exp0_same_input` と `exp1_role_split` の probe 比較により、branch 分割だけでは latent 分離が起きにくく、分離には特徴量設計が必要であることを実装可能な形で実証する計画である。**
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [ouput.log](../scenarios/scenario13_same_input_vs_role_split_probe/output/ouput.log)
+- 出力:
+  - [scenario13_probe_scores.csv](../scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_scores.csv)
+  - [scenario13_latent_similarity.csv](../scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_latent_similarity.csv)
+  - [scenario13_probe_gap_summary.csv](../scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_gap_summary.csv)
+  - [scenario13_probe_score_heatmap.png](../scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_probe_score_heatmap.png)
+  - [scenario13_similarity_bar.png](../scenarios/scenario13_same_input_vs_role_split_probe/output/scenario13_similarity_bar.png)
+- 要約:
+  - `RSI_total`: exp0=`0.1434` → exp1=`0.2399`（role split で上昇）
+  - `CKA`: exp0=`0.9226` → exp1=`0.0053`（role split で latent 類似度が大幅低下）

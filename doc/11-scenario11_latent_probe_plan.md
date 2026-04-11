@@ -240,3 +240,16 @@
 4. test の Macro-F1 表を 1 枚出す
 
 この MVP で分離傾向が確認できたら、Scenario11 フル版（全 13 タスク）へ拡張する。
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../scenarios/scenario11_latent_probe/output/output.log)
+  - [run_experiments.log](../run_experiments.log)
+- 出力:
+  - [scenario11_probe_results_raw.csv](../scenarios/scenario11_latent_probe/output/scenario11_probe_results_raw.csv)
+- 結果メモ:
+  - `run_experiments.log` では latent 学習・probe 学習の loss が `nan` になるケースが多く記録されている。
+  - `scenario11_probe_results_raw.csv` でも多くの probe 指標が `0.0` で、今回実行分は安定した判定に使いにくい。
