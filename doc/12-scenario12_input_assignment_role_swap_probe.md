@@ -200,3 +200,18 @@ uv run python scenarios/scenario12_input_assignment_role_swap_probe/run.py \
 
 ## 一文まとめ
 **Scenario12 は、exp1_role_split と exp2_swapped_split に同一 probe 群を適用し、latent の情報保持先が branch 名ではなく入力特徴量割り当てに追従して入れ替わることを、実装可能な手順と判定基準で示す検証計画である。**
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../scenarios/scenario12_input_assignment_role_swap_probe/output/output.log)
+- レポート/図:
+  - [scenario12_report.md](../scenarios/scenario12_input_assignment_role_swap_probe/output/scenario12_report.md)
+  - [fig_probe_heatmap.png](../scenarios/scenario12_input_assignment_role_swap_probe/output/fig_probe_heatmap.png)
+  - [fig_swap_direction.png](../scenarios/scenario12_input_assignment_role_swap_probe/output/fig_swap_direction.png)
+- 要約（`scenario12_report.md`）:
+  - total_probes: `8`
+  - swapped_probes: `7`
+  - `store_id` を除くタスクで swap が確認され、入力割り当て追従の傾向が出ている。

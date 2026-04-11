@@ -235,3 +235,17 @@
   （feature 投入 vs 融合アーキテクチャ改修）。
 
 これにより、common branch の改善方向を実装レベルで決定できる。
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../scenarios/scenario15_common_branch_strengthening/output/output.log)
+  - [fixed-output.log](../scenarios/scenario15_common_branch_strengthening/output/fixed-output.log)
+- 図:
+  - [scenario15_valid_wape.png](../scenarios/scenario15_common_branch_strengthening/output/scenario15_valid_wape.png)
+  - [scenario15_test_wape.png](../scenarios/scenario15_common_branch_strengthening/output/scenario15_test_wape.png)
+- 結果メモ（`fixed-output.log`）:
+  - A3（seed42, hdim=8）で `both` test WAPE=`0.4193`、`common_only` test WAPE=`0.6489`
+  - probe（test）では `month accuracy=0.4567`、`weekday accuracy=0.3074`、`hierarchy accuracy=0.2844` を確認

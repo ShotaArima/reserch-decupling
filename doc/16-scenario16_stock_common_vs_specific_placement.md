@@ -195,3 +195,19 @@ experiment_configs = {
 ## 13. 一文まとめ
 
 **Scenario16 は、stock 系特徴を specific へ段階追加する条件と common へ置く対照条件を同一設定で比較し、stock 系が short-term state として specific latent に載ることを性能・ablation・probe で検証する実装実験である。**
+
+---
+
+## 実験結果（記録済みログ）
+
+- ログ:
+  - [output.log](../scenarios/scenario16_stock_common_vs_specific/output/output.log)
+- 出力:
+  - [scenario16_summary.md](../scenarios/scenario16_stock_common_vs_specific/output/scenario16_summary.md)
+  - [scenario16_metrics_overall.csv](../scenarios/scenario16_stock_common_vs_specific/output/scenario16_metrics_overall.csv)
+  - [scenario16_metrics_by_subset.csv](../scenarios/scenario16_stock_common_vs_specific/output/scenario16_metrics_by_subset.csv)
+  - [scenario16_probe_scores.csv](../scenarios/scenario16_stock_common_vs_specific/output/scenario16_probe_scores.csv)
+- 結果メモ（test WAPE の例）:
+  - `baseline_s9_exp1 / both`（seed平均）: おおむね `0.43` 付近
+  - `exp16a_specific_stock_cnt_only / specific_only`: seed42=`0.4532`, seed62=`0.4535` まで改善
+  - `exp16c_common_stock_both / both` は seed52 で `0.4561` と悪化ケースあり
