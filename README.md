@@ -11,6 +11,12 @@ source .venv/bin/activate
 uv sync
 ```
 
+Prophet を使った forecast baseline も実行する場合は、追加依存をインストールしてください。
+
+```bash
+uv sync --extra forecast
+```
+
 ## まず実行前に確認すること
 
 いきなりシナリオスクリプトを実行しても動く設計ですが、初回は以下の順序を推奨します。
