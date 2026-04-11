@@ -1,21 +1,57 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Iterable
 
 import numpy as np
 import pandas as pd
-from datasets import load_dataset
+from datasets import Dataset, DatasetDict, load_dataset, load_from_disk
 
 
 @dataclass
 class FreshRetailConfig:
     dataset_name: str = "Dingdong-Inc/FreshRetailNet-50K"
     split: str = "train"
+    local_data_dir: Path = Path("data")
+
+
+def _dataset_disk_path(config: FreshRetailConfig) -> Path:
+    dataset_slug = config.dataset_name.split("/")[-1]
+    return config.local_data_dir / dataset_slug
+
+
+def _ensure_dataset_on_disk(config: FreshRetailConfig) -> Path:
+    dataset_path = _dataset_disk_path(config)
+    if dataset_path.exists():
+        return dataset_path
+
+    dataset_path.parent.mkdir(parents=True, exist_ok=True)
+    ds = load_dataset(config.dataset_name)
+    ds.save_to_disk(str(dataset_path))
+    return dataset_path
+
+
+def _extract_split_from_saved_dataset(saved: Dataset | DatasetDict, split: str) -> Dataset:
+    if isinstance(saved, Dataset):
+        if split != "train":
+            raise ValueError(
+                f"Saved dataset contains a single split only. Requested split='{split}'."
+            )
+        return saved
+
+    if split not in saved:
+        available_splits = ", ".join(saved.keys())
+        raise ValueError(
+            f"Split '{split}' not found in saved dataset. Available splits: {available_splits}."
+        )
+    return saved[split]
 
 
 def load_freshretail_dataframe(config: FreshRetailConfig) -> pd.DataFrame:
-    ds = load_dataset(config.dataset_name, split=config.split)
+    dataset_path = _ensure_dataset_on_disk(config)
+    saved_ds = load_from_disk(str(dataset_path))
+    ds = _extract_split_from_saved_dataset(saved_ds, config.split)
     return ds.to_pandas()
 
 

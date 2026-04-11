@@ -1,0 +1,2 @@
+horizon,mode,seed,valid_wape,valid_wpe,valid_mae,test_wape,test_wpe,test_mae
+7,both,42,0.469900,-0.046655,0.461759,0.472996,-0.008042,0.469034

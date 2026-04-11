@@ -11,6 +11,12 @@ source .venv/bin/activate
 uv sync
 ```
 
+Prophet を使った forecast baseline も実行する場合は、追加依存をインストールしてください。
+
+```bash
+uv sync --extra forecast
+```
+
 ## まず実行前に確認すること
 
 いきなりシナリオスクリプトを実行しても動く設計ですが、初回は以下の順序を推奨します。
@@ -21,7 +27,7 @@ uv sync
 uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
 ```
 
-2. **ネットワーク経由で Hugging Face にアクセスできるか確認**
+2. **ネットワーク経由で Hugging Face にアクセスできるか確認（初回のみ）**
 
 ```bash
  uv run python -c 'from datasets import load_dataset; dataset = load_dataset("Dingdong-Inc/FreshRetailNet-50K"); print(dataset)' 
@@ -29,8 +35,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
 
 3. 問題なければシナリオを実行
 
-> `load_dataset(...)` は初回実行時にデータを自動ダウンロードしてキャッシュします。  
-> そのため、**別途の手動セットアップは不要**ですが、ネットワーク制限がある環境では失敗する可能性があります。
+> 実験実行時は `data/FreshRetailNet-50K/` を確認し、存在しなければ Hugging Face から取得して保存します。  
+> すでに `data/` 配下にデータがある場合は再取得せず、そのまま実験シナリオに進みます。
 
 ## ディレクトリ構成
 
@@ -54,23 +60,22 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - common/specific 特徴量一次割り当て（Exp-0/1/2 + ablation）
 - `scenarios/scenario10_stock_extension_local_branch`
   - stock 系特徴を specific 側へ追加する拡張検証（Exp-3 系）
+- `scenarios/scenario17_horizon_role_gap`
+  - 予測 horizon（1/3/7-step）で common/specific の寄与差を比較
 - `doc/08-scenario8_recovery_subset_diagnosis.md`
   - Scenario8 の実験設計ドキュメント
 - `doc/09-scenario9_common_specific_feature_assignment.md`
   - Scenario9 の共通/固有一次割り当て実験計画
 - `doc/10-scenario10_stock_extension_for_local_branch.md`
   - Scenario10 の stock 状態変数 local 拡張実験計画
-- `baselines/forecast_block`
-  - 予測ベースライン比較（LastValue / MovingAverage / FlattenLinear / FlattenMLP / Prophet / Scenario2 / Scenario4）
-- `doc/11-baseline_forecast_block.md`
-  - baseline 集約ドキュメント（モデル定義と実行方法）
+- `doc/17-scenario17_horizon_role_gap.md`
+  - Scenario17 の horizon 依存役割差実験計画
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
 ## 実行
 
 ```bash
-uv run python baselines/forecast_block/run.py
 uv run python scenarios/scenario1_representation_probe/run.py
 uv run python scenarios/scenario2_raw_sales_forecast/run.py
 uv run python scenarios/scenario3_latent_demand_recovery/run.py
@@ -81,6 +86,7 @@ uv run python scenarios/scenario7_counterfactual_sanity_denormalized/run.py
 uv run python scenarios/scenario8_recovery_subset_diagnosis/run.py
 uv run python scenarios/scenario9_common_specific_feature_assignment/run.py
 uv run python scenarios/scenario10_stock_extension_local_branch/run.py
+uv run python scenarios/scenario17_horizon_role_gap/run.py
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。

@@ -1,0 +1,849 @@
+[progress] Loading dataset...
+
+[progress] arm=A0 common_features=12 specific_features=4
+[progress] arm=A0 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A0_seed42_h8
+[train] A0_seed42_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A0_seed42_h8: step=1/120 loss=1.004795
+[train] A0_seed42_h8: step=20/120 loss=0.557118
+[train] A0_seed42_h8: step=40/120 loss=0.437834
+[train] A0_seed42_h8: step=60/120 loss=0.419511
+[train] A0_seed42_h8: step=80/120 loss=0.415073
+[train] A0_seed42_h8: step=100/120 loss=0.411274
+[train] A0_seed42_h8: step=120/120 loss=0.408006
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A0_seed42_h8_train_loss.png
+[result] run=A0_seed42_h8 mode=local_only valid_wape=0.5793 valid_wpe=-0.4667 valid_mae=0.5692 test_wape=0.5764 test_wpe=-0.4667 test_mae=0.5716
+[result] run=A0_seed42_h8 mode=common_only valid_wape=0.6677 valid_wpe=-0.5179 valid_mae=0.6562 test_wape=0.6533 test_wpe=-0.4743 test_mae=0.6479
+[result] run=A0_seed42_h8 mode=both valid_wape=0.4288 valid_wpe=-0.0209 valid_mae=0.4214 test_wape=0.4334 test_wpe=0.0285 test_mae=0.4298
+[probe] A0-seed42-h8-valid-weekday: step=1/120 loss=2.034624
+[probe] A0-seed42-h8-valid-weekday: step=20/120 loss=1.890733
+[probe] A0-seed42-h8-valid-weekday: step=40/120 loss=1.813985
+[probe] A0-seed42-h8-valid-weekday: step=60/120 loss=1.768094
+[probe] A0-seed42-h8-valid-weekday: step=80/120 loss=1.738425
+[probe] A0-seed42-h8-valid-weekday: step=100/120 loss=1.718014
+[probe] A0-seed42-h8-valid-weekday: step=120/120 loss=1.702956
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=weekday accuracy=0.2540 macro_f1=0.1959
+[probe] A0-seed42-h8-valid-month: step=1/120 loss=2.200170
+[probe] A0-seed42-h8-valid-month: step=20/120 loss=1.488209
+[probe] A0-seed42-h8-valid-month: step=40/120 loss=1.274276
+[probe] A0-seed42-h8-valid-month: step=60/120 loss=1.199719
+[probe] A0-seed42-h8-valid-month: step=80/120 loss=1.153822
+[probe] A0-seed42-h8-valid-month: step=100/120 loss=1.121206
+[probe] A0-seed42-h8-valid-month: step=120/120 loss=1.096154
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=month accuracy=0.4838 macro_f1=0.3422
+[probe] A0-seed42-h8-valid-hierarchy: step=1/120 loss=3.338735
+[probe] A0-seed42-h8-valid-hierarchy: step=20/120 loss=2.627365
+[probe] A0-seed42-h8-valid-hierarchy: step=40/120 loss=2.344899
+[probe] A0-seed42-h8-valid-hierarchy: step=60/120 loss=2.184875
+[probe] A0-seed42-h8-valid-hierarchy: step=80/120 loss=2.063548
+[probe] A0-seed42-h8-valid-hierarchy: step=100/120 loss=1.964671
+[probe] A0-seed42-h8-valid-hierarchy: step=120/120 loss=1.881107
+[probe-result] arm=A0 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.4084 macro_f1=0.1138
+[probe] A0-seed42-h8-test-weekday: step=1/120 loss=2.011250
+[probe] A0-seed42-h8-test-weekday: step=20/120 loss=1.857962
+[probe] A0-seed42-h8-test-weekday: step=40/120 loss=1.789610
+[probe] A0-seed42-h8-test-weekday: step=60/120 loss=1.749880
+[probe] A0-seed42-h8-test-weekday: step=80/120 loss=1.724308
+[probe] A0-seed42-h8-test-weekday: step=100/120 loss=1.706353
+[probe] A0-seed42-h8-test-weekday: step=120/120 loss=1.692892
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=weekday accuracy=0.2535 macro_f1=0.1895
+[probe] A0-seed42-h8-test-month: step=1/120 loss=1.985362
+[probe] A0-seed42-h8-test-month: step=20/120 loss=1.427185
+[probe] A0-seed42-h8-test-month: step=40/120 loss=1.276208
+[probe] A0-seed42-h8-test-month: step=60/120 loss=1.217062
+[probe] A0-seed42-h8-test-month: step=80/120 loss=1.175199
+[probe] A0-seed42-h8-test-month: step=100/120 loss=1.142233
+[probe] A0-seed42-h8-test-month: step=120/120 loss=1.114885
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=month accuracy=0.4539 macro_f1=0.2984
+[probe] A0-seed42-h8-test-hierarchy: step=1/120 loss=3.682725
+[probe] A0-seed42-h8-test-hierarchy: step=20/120 loss=2.812039
+[probe] A0-seed42-h8-test-hierarchy: step=40/120 loss=2.451852
+[probe] A0-seed42-h8-test-hierarchy: step=60/120 loss=2.266121
+[probe] A0-seed42-h8-test-hierarchy: step=80/120 loss=2.132968
+[probe] A0-seed42-h8-test-hierarchy: step=100/120 loss=2.026442
+[probe] A0-seed42-h8-test-hierarchy: step=120/120 loss=1.937148
+[probe-result] arm=A0 seed=42 hdim=8 split=test target=hierarchy accuracy=0.3573 macro_f1=0.0860
+
+[progress] Training A0_seed52_h8
+[train] A0_seed52_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A0_seed52_h8: step=1/120 loss=1.060189
+[train] A0_seed52_h8: step=20/120 loss=0.613051
+[train] A0_seed52_h8: step=40/120 loss=0.434854
+[train] A0_seed52_h8: step=60/120 loss=0.422758
+[train] A0_seed52_h8: step=80/120 loss=0.416976
+[train] A0_seed52_h8: step=100/120 loss=0.412784
+[train] A0_seed52_h8: step=120/120 loss=0.409394
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A0_seed52_h8_train_loss.png
+[result] run=A0_seed52_h8 mode=local_only valid_wape=0.5630 valid_wpe=-0.4395 valid_mae=0.5532 test_wape=0.5601 test_wpe=-0.4396 test_mae=0.5554
+[result] run=A0_seed52_h8 mode=common_only valid_wape=0.6614 valid_wpe=-0.4986 valid_mae=0.6500 test_wape=0.6419 test_wpe=-0.4028 test_mae=0.6365
+[result] run=A0_seed52_h8 mode=both valid_wape=0.4359 valid_wpe=-0.0041 valid_mae=0.4284 test_wape=0.4582 test_wpe=0.0926 test_mae=0.4544
+[probe] A0-seed52-h8-valid-weekday: step=1/120 loss=2.073350
+[probe] A0-seed52-h8-valid-weekday: step=20/120 loss=1.936039
+[probe] A0-seed52-h8-valid-weekday: step=40/120 loss=1.896883
+[probe] A0-seed52-h8-valid-weekday: step=60/120 loss=1.870072
+[probe] A0-seed52-h8-valid-weekday: step=80/120 loss=1.849696
+[probe] A0-seed52-h8-valid-weekday: step=100/120 loss=1.833553
+[probe] A0-seed52-h8-valid-weekday: step=120/120 loss=1.820389
+[probe-result] arm=A0 seed=52 hdim=8 split=valid target=weekday accuracy=0.1836 macro_f1=0.1536
+[probe] A0-seed52-h8-valid-month: step=1/120 loss=2.190589
+[probe] A0-seed52-h8-valid-month: step=20/120 loss=1.504423
+[probe] A0-seed52-h8-valid-month: step=40/120 loss=1.302043
+[probe] A0-seed52-h8-valid-month: step=60/120 loss=1.234073
+[probe] A0-seed52-h8-valid-month: step=80/120 loss=1.193914
+[probe] A0-seed52-h8-valid-month: step=100/120 loss=1.165307
+[probe] A0-seed52-h8-valid-month: step=120/120 loss=1.143426
+[probe-result] arm=A0 seed=52 hdim=8 split=valid target=month accuracy=0.4381 macro_f1=0.3311
+[probe] A0-seed52-h8-valid-hierarchy: step=1/120 loss=3.718123
+[probe] A0-seed52-h8-valid-hierarchy: step=20/120 loss=2.826984
+[probe] A0-seed52-h8-valid-hierarchy: step=40/120 loss=2.373215
+[probe] A0-seed52-h8-valid-hierarchy: step=60/120 loss=2.163122
+[probe] A0-seed52-h8-valid-hierarchy: step=80/120 loss=2.022903
+[probe] A0-seed52-h8-valid-hierarchy: step=100/120 loss=1.911995
+[probe] A0-seed52-h8-valid-hierarchy: step=120/120 loss=1.819190
+[probe-result] arm=A0 seed=52 hdim=8 split=valid target=hierarchy accuracy=0.2824 macro_f1=0.0689
+[probe] A0-seed52-h8-test-weekday: step=1/120 loss=2.056285
+[probe] A0-seed52-h8-test-weekday: step=20/120 loss=1.952485
+[probe] A0-seed52-h8-test-weekday: step=40/120 loss=1.905940
+[probe] A0-seed52-h8-test-weekday: step=60/120 loss=1.873827
+[probe] A0-seed52-h8-test-weekday: step=80/120 loss=1.850342
+[probe] A0-seed52-h8-test-weekday: step=100/120 loss=1.832476
+[probe] A0-seed52-h8-test-weekday: step=120/120 loss=1.818413
+[probe-result] arm=A0 seed=52 hdim=8 split=test target=weekday accuracy=0.1718 macro_f1=0.1170
+[probe] A0-seed52-h8-test-month: step=1/120 loss=2.100131
+[probe] A0-seed52-h8-test-month: step=20/120 loss=1.490030
+[probe] A0-seed52-h8-test-month: step=40/120 loss=1.324577
+[probe] A0-seed52-h8-test-month: step=60/120 loss=1.254656
+[probe] A0-seed52-h8-test-month: step=80/120 loss=1.211224
+[probe] A0-seed52-h8-test-month: step=100/120 loss=1.180722
+[probe] A0-seed52-h8-test-month: step=120/120 loss=1.157465
+[probe-result] arm=A0 seed=52 hdim=8 split=test target=month accuracy=0.3735 macro_f1=0.2523
+[probe] A0-seed52-h8-test-hierarchy: step=1/120 loss=3.560678
+[probe] A0-seed52-h8-test-hierarchy: step=20/120 loss=2.721963
+[probe] A0-seed52-h8-test-hierarchy: step=40/120 loss=2.337016
+[probe] A0-seed52-h8-test-hierarchy: step=60/120 loss=2.146497
+[probe] A0-seed52-h8-test-hierarchy: step=80/120 loss=2.009329
+[probe] A0-seed52-h8-test-hierarchy: step=100/120 loss=1.898268
+[probe] A0-seed52-h8-test-hierarchy: step=120/120 loss=1.804641
+[probe-result] arm=A0 seed=52 hdim=8 split=test target=hierarchy accuracy=0.2509 macro_f1=0.0621
+
+[progress] Training A0_seed62_h8
+[train] A0_seed62_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A0_seed62_h8: step=1/120 loss=0.924275
+[train] A0_seed62_h8: step=20/120 loss=0.507951
+[train] A0_seed62_h8: step=40/120 loss=0.423900
+[train] A0_seed62_h8: step=60/120 loss=0.417599
+[train] A0_seed62_h8: step=80/120 loss=0.412337
+[train] A0_seed62_h8: step=100/120 loss=0.408529
+[train] A0_seed62_h8: step=120/120 loss=0.405165
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A0_seed62_h8_train_loss.png
+[result] run=A0_seed62_h8 mode=local_only valid_wape=0.5134 valid_wpe=-0.3664 valid_mae=0.5045 test_wape=0.5092 test_wpe=-0.3654 test_mae=0.5049
+[result] run=A0_seed62_h8 mode=common_only valid_wape=0.6372 valid_wpe=-0.3757 valid_mae=0.6262 test_wape=0.6384 test_wpe=-0.2849 test_mae=0.6330
+[result] run=A0_seed62_h8 mode=both valid_wape=0.4290 valid_wpe=-0.0071 valid_mae=0.4215 test_wape=0.4439 test_wpe=0.0742 test_mae=0.4402
+[probe] A0-seed62-h8-valid-weekday: step=1/120 loss=2.006703
+[probe] A0-seed62-h8-valid-weekday: step=20/120 loss=1.908081
+[probe] A0-seed62-h8-valid-weekday: step=40/120 loss=1.849553
+[probe] A0-seed62-h8-valid-weekday: step=60/120 loss=1.807508
+[probe] A0-seed62-h8-valid-weekday: step=80/120 loss=1.776253
+[probe] A0-seed62-h8-valid-weekday: step=100/120 loss=1.752485
+[probe] A0-seed62-h8-valid-weekday: step=120/120 loss=1.734030
+[probe-result] arm=A0 seed=62 hdim=8 split=valid target=weekday accuracy=0.2098 macro_f1=0.1058
+[probe] A0-seed62-h8-valid-month: step=1/120 loss=2.044535
+[probe] A0-seed62-h8-valid-month: step=20/120 loss=1.536409
+[probe] A0-seed62-h8-valid-month: step=40/120 loss=1.337138
+[probe] A0-seed62-h8-valid-month: step=60/120 loss=1.252506
+[probe] A0-seed62-h8-valid-month: step=80/120 loss=1.200075
+[probe] A0-seed62-h8-valid-month: step=100/120 loss=1.161464
+[probe] A0-seed62-h8-valid-month: step=120/120 loss=1.131099
+[probe-result] arm=A0 seed=62 hdim=8 split=valid target=month accuracy=0.4979 macro_f1=0.3749
+[probe] A0-seed62-h8-valid-hierarchy: step=1/120 loss=3.422654
+[probe] A0-seed62-h8-valid-hierarchy: step=20/120 loss=2.786554
+[probe] A0-seed62-h8-valid-hierarchy: step=40/120 loss=2.387806
+[probe] A0-seed62-h8-valid-hierarchy: step=60/120 loss=2.152120
+[probe] A0-seed62-h8-valid-hierarchy: step=80/120 loss=1.992308
+[probe] A0-seed62-h8-valid-hierarchy: step=100/120 loss=1.870195
+[probe] A0-seed62-h8-valid-hierarchy: step=120/120 loss=1.771084
+[probe-result] arm=A0 seed=62 hdim=8 split=valid target=hierarchy accuracy=0.3182 macro_f1=0.0996
+[probe] A0-seed62-h8-test-weekday: step=1/120 loss=1.963073
+[probe] A0-seed62-h8-test-weekday: step=20/120 loss=1.875665
+[probe] A0-seed62-h8-test-weekday: step=40/120 loss=1.818958
+[probe] A0-seed62-h8-test-weekday: step=60/120 loss=1.779642
+[probe] A0-seed62-h8-test-weekday: step=80/120 loss=1.751371
+[probe] A0-seed62-h8-test-weekday: step=100/120 loss=1.730567
+[probe] A0-seed62-h8-test-weekday: step=120/120 loss=1.714878
+[probe-result] arm=A0 seed=62 hdim=8 split=test target=weekday accuracy=0.1961 macro_f1=0.1378
+[probe] A0-seed62-h8-test-month: step=1/120 loss=1.780653
+[probe] A0-seed62-h8-test-month: step=20/120 loss=1.447368
+[probe] A0-seed62-h8-test-month: step=40/120 loss=1.306362
+[probe] A0-seed62-h8-test-month: step=60/120 loss=1.230841
+[probe] A0-seed62-h8-test-month: step=80/120 loss=1.177704
+[probe] A0-seed62-h8-test-month: step=100/120 loss=1.137508
+[probe] A0-seed62-h8-test-month: step=120/120 loss=1.105893
+[probe-result] arm=A0 seed=62 hdim=8 split=test target=month accuracy=0.4815 macro_f1=0.3603
+[probe] A0-seed62-h8-test-hierarchy: step=1/120 loss=3.383238
+[probe] A0-seed62-h8-test-hierarchy: step=20/120 loss=2.760358
+[probe] A0-seed62-h8-test-hierarchy: step=40/120 loss=2.364978
+[probe] A0-seed62-h8-test-hierarchy: step=60/120 loss=2.130515
+[probe] A0-seed62-h8-test-hierarchy: step=80/120 loss=1.969273
+[probe] A0-seed62-h8-test-hierarchy: step=100/120 loss=1.846691
+[probe] A0-seed62-h8-test-hierarchy: step=120/120 loss=1.748245
+[probe-result] arm=A0 seed=62 hdim=8 split=test target=hierarchy accuracy=0.2651 macro_f1=0.0752
+
+[progress] arm=A1 common_features=21 specific_features=4
+[progress] arm=A1 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A1_seed42_h8
+[train] A1_seed42_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A1_seed42_h8: step=1/120 loss=1.117630
+[train] A1_seed42_h8: step=20/120 loss=0.628709
+[train] A1_seed42_h8: step=40/120 loss=0.433114
+[train] A1_seed42_h8: step=60/120 loss=0.423253
+[train] A1_seed42_h8: step=80/120 loss=0.414203
+[train] A1_seed42_h8: step=100/120 loss=0.409215
+[train] A1_seed42_h8: step=120/120 loss=0.404746
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A1_seed42_h8_train_loss.png
+[result] run=A1_seed42_h8 mode=local_only valid_wape=0.5623 valid_wpe=-0.4422 valid_mae=0.5525 test_wape=0.5592 test_wpe=-0.4421 test_mae=0.5545
+[result] run=A1_seed42_h8 mode=common_only valid_wape=0.6906 valid_wpe=-0.5809 valid_mae=0.6786 test_wape=0.6692 test_wpe=-0.5344 test_mae=0.6636
+[result] run=A1_seed42_h8 mode=both valid_wape=0.4241 valid_wpe=-0.0402 valid_mae=0.4168 test_wape=0.4257 test_wpe=0.0050 test_mae=0.4221
+[probe] A1-seed42-h8-valid-weekday: step=1/120 loss=1.987089
+[probe] A1-seed42-h8-valid-weekday: step=20/120 loss=1.877254
+[probe] A1-seed42-h8-valid-weekday: step=40/120 loss=1.804232
+[probe] A1-seed42-h8-valid-weekday: step=60/120 loss=1.753349
+[probe] A1-seed42-h8-valid-weekday: step=80/120 loss=1.715428
+[probe] A1-seed42-h8-valid-weekday: step=100/120 loss=1.685145
+[probe] A1-seed42-h8-valid-weekday: step=120/120 loss=1.659737
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=weekday accuracy=0.2127 macro_f1=0.1533
+[probe] A1-seed42-h8-valid-month: step=1/120 loss=2.023959
+[probe] A1-seed42-h8-valid-month: step=20/120 loss=1.460180
+[probe] A1-seed42-h8-valid-month: step=40/120 loss=1.302949
+[probe] A1-seed42-h8-valid-month: step=60/120 loss=1.233552
+[probe] A1-seed42-h8-valid-month: step=80/120 loss=1.188995
+[probe] A1-seed42-h8-valid-month: step=100/120 loss=1.154928
+[probe] A1-seed42-h8-valid-month: step=120/120 loss=1.126871
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=month accuracy=0.4789 macro_f1=0.3470
+[probe] A1-seed42-h8-valid-hierarchy: step=1/120 loss=3.879188
+[probe] A1-seed42-h8-valid-hierarchy: step=20/120 loss=2.936781
+[probe] A1-seed42-h8-valid-hierarchy: step=40/120 loss=2.422876
+[probe] A1-seed42-h8-valid-hierarchy: step=60/120 loss=2.155841
+[probe] A1-seed42-h8-valid-hierarchy: step=80/120 loss=2.002477
+[probe] A1-seed42-h8-valid-hierarchy: step=100/120 loss=1.892818
+[probe] A1-seed42-h8-valid-hierarchy: step=120/120 loss=1.804817
+[probe-result] arm=A1 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.4302 macro_f1=0.1008
+[probe] A1-seed42-h8-test-weekday: step=1/120 loss=1.975511
+[probe] A1-seed42-h8-test-weekday: step=20/120 loss=1.866727
+[probe] A1-seed42-h8-test-weekday: step=40/120 loss=1.800160
+[probe] A1-seed42-h8-test-weekday: step=60/120 loss=1.751489
+[probe] A1-seed42-h8-test-weekday: step=80/120 loss=1.714110
+[probe] A1-seed42-h8-test-weekday: step=100/120 loss=1.683935
+[probe] A1-seed42-h8-test-weekday: step=120/120 loss=1.658679
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=weekday accuracy=0.1998 macro_f1=0.1404
+[probe] A1-seed42-h8-test-month: step=1/120 loss=2.002913
+[probe] A1-seed42-h8-test-month: step=20/120 loss=1.427136
+[probe] A1-seed42-h8-test-month: step=40/120 loss=1.278180
+[probe] A1-seed42-h8-test-month: step=60/120 loss=1.216500
+[probe] A1-seed42-h8-test-month: step=80/120 loss=1.175856
+[probe] A1-seed42-h8-test-month: step=100/120 loss=1.144986
+[probe] A1-seed42-h8-test-month: step=120/120 loss=1.119627
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=month accuracy=0.3937 macro_f1=0.2623
+[probe] A1-seed42-h8-test-hierarchy: step=1/120 loss=3.602367
+[probe] A1-seed42-h8-test-hierarchy: step=20/120 loss=2.727238
+[probe] A1-seed42-h8-test-hierarchy: step=40/120 loss=2.296447
+[probe] A1-seed42-h8-test-hierarchy: step=60/120 loss=2.085905
+[probe] A1-seed42-h8-test-hierarchy: step=80/120 loss=1.950634
+[probe] A1-seed42-h8-test-hierarchy: step=100/120 loss=1.845439
+[probe] A1-seed42-h8-test-hierarchy: step=120/120 loss=1.758505
+[probe-result] arm=A1 seed=42 hdim=8 split=test target=hierarchy accuracy=0.3526 macro_f1=0.0876
+
+[progress] Training A1_seed52_h8
+[train] A1_seed52_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A1_seed52_h8: step=1/120 loss=0.933305
+[train] A1_seed52_h8: step=20/120 loss=0.545763
+[train] A1_seed52_h8: step=40/120 loss=0.432121
+[train] A1_seed52_h8: step=60/120 loss=0.415258
+[train] A1_seed52_h8: step=80/120 loss=0.409140
+[train] A1_seed52_h8: step=100/120 loss=0.403063
+[train] A1_seed52_h8: step=120/120 loss=0.397078
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A1_seed52_h8_train_loss.png
+[result] run=A1_seed52_h8 mode=local_only valid_wape=0.5034 valid_wpe=-0.3448 valid_mae=0.4946 test_wape=0.4998 test_wpe=-0.3464 test_mae=0.4956
+[result] run=A1_seed52_h8 mode=common_only valid_wape=0.6429 valid_wpe=-0.4406 valid_mae=0.6317 test_wape=0.6325 test_wpe=-0.3852 test_mae=0.6272
+[result] run=A1_seed52_h8 mode=both valid_wape=0.4235 valid_wpe=0.0010 valid_mae=0.4161 test_wape=0.4316 test_wpe=0.0617 test_mae=0.4280
+[probe] A1-seed52-h8-valid-weekday: step=1/120 loss=2.038695
+[probe] A1-seed52-h8-valid-weekday: step=20/120 loss=1.882138
+[probe] A1-seed52-h8-valid-weekday: step=40/120 loss=1.778987
+[probe] A1-seed52-h8-valid-weekday: step=60/120 loss=1.707210
+[probe] A1-seed52-h8-valid-weekday: step=80/120 loss=1.654171
+[probe] A1-seed52-h8-valid-weekday: step=100/120 loss=1.613572
+[probe] A1-seed52-h8-valid-weekday: step=120/120 loss=1.581640
+[probe-result] arm=A1 seed=52 hdim=8 split=valid target=weekday accuracy=0.2358 macro_f1=0.1482
+[probe] A1-seed52-h8-valid-month: step=1/120 loss=1.845428
+[probe] A1-seed52-h8-valid-month: step=20/120 loss=1.447094
+[probe] A1-seed52-h8-valid-month: step=40/120 loss=1.304905
+[probe] A1-seed52-h8-valid-month: step=60/120 loss=1.240740
+[probe] A1-seed52-h8-valid-month: step=80/120 loss=1.197943
+[probe] A1-seed52-h8-valid-month: step=100/120 loss=1.164906
+[probe] A1-seed52-h8-valid-month: step=120/120 loss=1.137856
+[probe-result] arm=A1 seed=52 hdim=8 split=valid target=month accuracy=0.3932 macro_f1=0.2173
+[probe] A1-seed52-h8-valid-hierarchy: step=1/120 loss=3.688251
+[probe] A1-seed52-h8-valid-hierarchy: step=20/120 loss=2.907012
+[probe] A1-seed52-h8-valid-hierarchy: step=40/120 loss=2.411551
+[probe] A1-seed52-h8-valid-hierarchy: step=60/120 loss=2.157218
+[probe] A1-seed52-h8-valid-hierarchy: step=80/120 loss=2.008101
+[probe] A1-seed52-h8-valid-hierarchy: step=100/120 loss=1.903153
+[probe] A1-seed52-h8-valid-hierarchy: step=120/120 loss=1.821356
+[probe-result] arm=A1 seed=52 hdim=8 split=valid target=hierarchy accuracy=0.3139 macro_f1=0.0619
+[probe] A1-seed52-h8-test-weekday: step=1/120 loss=2.060248
+[probe] A1-seed52-h8-test-weekday: step=20/120 loss=1.843990
+[probe] A1-seed52-h8-test-weekday: step=40/120 loss=1.756453
+[probe] A1-seed52-h8-test-weekday: step=60/120 loss=1.693962
+[probe] A1-seed52-h8-test-weekday: step=80/120 loss=1.646752
+[probe] A1-seed52-h8-test-weekday: step=100/120 loss=1.609252
+[probe] A1-seed52-h8-test-weekday: step=120/120 loss=1.578853
+[probe-result] arm=A1 seed=52 hdim=8 split=test target=weekday accuracy=0.2702 macro_f1=0.1804
+[probe] A1-seed52-h8-test-month: step=1/120 loss=1.950499
+[probe] A1-seed52-h8-test-month: step=20/120 loss=1.491598
+[probe] A1-seed52-h8-test-month: step=40/120 loss=1.326408
+[probe] A1-seed52-h8-test-month: step=60/120 loss=1.252631
+[probe] A1-seed52-h8-test-month: step=80/120 loss=1.204069
+[probe] A1-seed52-h8-test-month: step=100/120 loss=1.166749
+[probe] A1-seed52-h8-test-month: step=120/120 loss=1.136662
+[probe-result] arm=A1 seed=52 hdim=8 split=test target=month accuracy=0.3688 macro_f1=0.1722
+[probe] A1-seed52-h8-test-hierarchy: step=1/120 loss=3.634632
+[probe] A1-seed52-h8-test-hierarchy: step=20/120 loss=2.884554
+[probe] A1-seed52-h8-test-hierarchy: step=40/120 loss=2.412271
+[probe] A1-seed52-h8-test-hierarchy: step=60/120 loss=2.151835
+[probe] A1-seed52-h8-test-hierarchy: step=80/120 loss=2.000867
+[probe] A1-seed52-h8-test-hierarchy: step=100/120 loss=1.896792
+[probe] A1-seed52-h8-test-hierarchy: step=120/120 loss=1.816343
+[probe-result] arm=A1 seed=52 hdim=8 split=test target=hierarchy accuracy=0.3452 macro_f1=0.0661
+
+[progress] Training A1_seed62_h8
+[train] A1_seed62_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A1_seed62_h8: step=1/120 loss=0.948002
+[train] A1_seed62_h8: step=20/120 loss=0.563994
+[train] A1_seed62_h8: step=40/120 loss=0.436316
+[train] A1_seed62_h8: step=60/120 loss=0.416753
+[train] A1_seed62_h8: step=80/120 loss=0.410769
+[train] A1_seed62_h8: step=100/120 loss=0.405472
+[train] A1_seed62_h8: step=120/120 loss=0.400233
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A1_seed62_h8_train_loss.png
+[result] run=A1_seed62_h8 mode=local_only valid_wape=0.4985 valid_wpe=-0.3369 valid_mae=0.4899 test_wape=0.4945 test_wpe=-0.3372 test_mae=0.4903
+[result] run=A1_seed62_h8 mode=common_only valid_wape=0.6660 valid_wpe=-0.5267 valid_mae=0.6545 test_wape=0.6508 test_wpe=-0.4893 test_mae=0.6454
+[result] run=A1_seed62_h8 mode=both valid_wape=0.4205 valid_wpe=-0.0366 valid_mae=0.4132 test_wape=0.4217 test_wpe=0.0014 test_mae=0.4182
+[probe] A1-seed62-h8-valid-weekday: step=1/120 loss=2.038461
+[probe] A1-seed62-h8-valid-weekday: step=20/120 loss=1.920644
+[probe] A1-seed62-h8-valid-weekday: step=40/120 loss=1.857355
+[probe] A1-seed62-h8-valid-weekday: step=60/120 loss=1.808984
+[probe] A1-seed62-h8-valid-weekday: step=80/120 loss=1.770426
+[probe] A1-seed62-h8-valid-weekday: step=100/120 loss=1.738969
+[probe] A1-seed62-h8-valid-weekday: step=120/120 loss=1.712865
+[probe-result] arm=A1 seed=62 hdim=8 split=valid target=weekday accuracy=0.2818 macro_f1=0.1968
+[probe] A1-seed62-h8-valid-month: step=1/120 loss=2.043581
+[probe] A1-seed62-h8-valid-month: step=20/120 loss=1.533009
+[probe] A1-seed62-h8-valid-month: step=40/120 loss=1.329350
+[probe] A1-seed62-h8-valid-month: step=60/120 loss=1.229009
+[probe] A1-seed62-h8-valid-month: step=80/120 loss=1.160895
+[probe] A1-seed62-h8-valid-month: step=100/120 loss=1.109654
+[probe] A1-seed62-h8-valid-month: step=120/120 loss=1.068862
+[probe-result] arm=A1 seed=62 hdim=8 split=valid target=month accuracy=0.5541 macro_f1=0.4285
+[probe] A1-seed62-h8-valid-hierarchy: step=1/120 loss=3.465233
+[probe] A1-seed62-h8-valid-hierarchy: step=20/120 loss=2.802375
+[probe] A1-seed62-h8-valid-hierarchy: step=40/120 loss=2.407011
+[probe] A1-seed62-h8-valid-hierarchy: step=60/120 loss=2.201489
+[probe] A1-seed62-h8-valid-hierarchy: step=80/120 loss=2.068445
+[probe] A1-seed62-h8-valid-hierarchy: step=100/120 loss=1.967122
+[probe] A1-seed62-h8-valid-hierarchy: step=120/120 loss=1.883407
+[probe-result] arm=A1 seed=62 hdim=8 split=valid target=hierarchy accuracy=0.3176 macro_f1=0.0782
+[probe] A1-seed62-h8-test-weekday: step=1/120 loss=1.993451
+[probe] A1-seed62-h8-test-weekday: step=20/120 loss=1.883022
+[probe] A1-seed62-h8-test-weekday: step=40/120 loss=1.825460
+[probe] A1-seed62-h8-test-weekday: step=60/120 loss=1.782379
+[probe] A1-seed62-h8-test-weekday: step=80/120 loss=1.748284
+[probe] A1-seed62-h8-test-weekday: step=100/120 loss=1.720712
+[probe] A1-seed62-h8-test-weekday: step=120/120 loss=1.697940
+[probe-result] arm=A1 seed=62 hdim=8 split=test target=weekday accuracy=0.2781 macro_f1=0.2005
+[probe] A1-seed62-h8-test-month: step=1/120 loss=1.904740
+[probe] A1-seed62-h8-test-month: step=20/120 loss=1.433766
+[probe] A1-seed62-h8-test-month: step=40/120 loss=1.256807
+[probe] A1-seed62-h8-test-month: step=60/120 loss=1.176115
+[probe] A1-seed62-h8-test-month: step=80/120 loss=1.120925
+[probe] A1-seed62-h8-test-month: step=100/120 loss=1.077740
+[probe] A1-seed62-h8-test-month: step=120/120 loss=1.042187
+[probe-result] arm=A1 seed=62 hdim=8 split=test target=month accuracy=0.5536 macro_f1=0.4315
+[probe] A1-seed62-h8-test-hierarchy: step=1/120 loss=3.376405
+[probe] A1-seed62-h8-test-hierarchy: step=20/120 loss=2.724082
+[probe] A1-seed62-h8-test-hierarchy: step=40/120 loss=2.366001
+[probe] A1-seed62-h8-test-hierarchy: step=60/120 loss=2.177176
+[probe] A1-seed62-h8-test-hierarchy: step=80/120 loss=2.050167
+[probe] A1-seed62-h8-test-hierarchy: step=100/120 loss=1.951829
+[probe] A1-seed62-h8-test-hierarchy: step=120/120 loss=1.870440
+[probe-result] arm=A1 seed=62 hdim=8 split=test target=hierarchy accuracy=0.3519 macro_f1=0.0831
+
+[progress] arm=A2 common_features=30 specific_features=4
+[progress] arm=A2 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A2_seed42_h8
+[train] A2_seed42_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A2_seed42_h8: step=1/120 loss=0.916811
+[train] A2_seed42_h8: step=20/120 loss=0.541148
+[train] A2_seed42_h8: step=40/120 loss=0.431387
+[train] A2_seed42_h8: step=60/120 loss=0.416229
+[train] A2_seed42_h8: step=80/120 loss=0.410527
+[train] A2_seed42_h8: step=100/120 loss=0.405387
+[train] A2_seed42_h8: step=120/120 loss=0.400656
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A2_seed42_h8_train_loss.png
+[result] run=A2_seed42_h8 mode=local_only valid_wape=0.4944 valid_wpe=-0.3232 valid_mae=0.4859 test_wape=0.4902 test_wpe=-0.3231 test_mae=0.4861
+[result] run=A2_seed42_h8 mode=common_only valid_wape=0.6593 valid_wpe=-0.4998 valid_mae=0.6479 test_wape=0.6489 test_wpe=-0.4723 test_mae=0.6435
+[result] run=A2_seed42_h8 mode=both valid_wape=0.4193 valid_wpe=-0.0571 valid_mae=0.4120 test_wape=0.4193 test_wpe=-0.0237 test_mae=0.4158
+[probe] A2-seed42-h8-valid-weekday: step=1/120 loss=1.949048
+[probe] A2-seed42-h8-valid-weekday: step=20/120 loss=1.847871
+[probe] A2-seed42-h8-valid-weekday: step=40/120 loss=1.797252
+[probe] A2-seed42-h8-valid-weekday: step=60/120 loss=1.759185
+[probe] A2-seed42-h8-valid-weekday: step=80/120 loss=1.727515
+[probe] A2-seed42-h8-valid-weekday: step=100/120 loss=1.700665
+[probe] A2-seed42-h8-valid-weekday: step=120/120 loss=1.677727
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=weekday accuracy=0.3610 macro_f1=0.3195
+[probe] A2-seed42-h8-valid-month: step=1/120 loss=2.060256
+[probe] A2-seed42-h8-valid-month: step=20/120 loss=1.557738
+[probe] A2-seed42-h8-valid-month: step=40/120 loss=1.338997
+[probe] A2-seed42-h8-valid-month: step=60/120 loss=1.246857
+[probe] A2-seed42-h8-valid-month: step=80/120 loss=1.193325
+[probe] A2-seed42-h8-valid-month: step=100/120 loss=1.155676
+[probe] A2-seed42-h8-valid-month: step=120/120 loss=1.126681
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=month accuracy=0.4488 macro_f1=0.3252
+[probe] A2-seed42-h8-valid-hierarchy: step=1/120 loss=3.555822
+[probe] A2-seed42-h8-valid-hierarchy: step=20/120 loss=2.866895
+[probe] A2-seed42-h8-valid-hierarchy: step=40/120 loss=2.430172
+[probe] A2-seed42-h8-valid-hierarchy: step=60/120 loss=2.173156
+[probe] A2-seed42-h8-valid-hierarchy: step=80/120 loss=1.998327
+[probe] A2-seed42-h8-valid-hierarchy: step=100/120 loss=1.867734
+[probe] A2-seed42-h8-valid-hierarchy: step=120/120 loss=1.764610
+[probe-result] arm=A2 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.3539 macro_f1=0.0925
+[probe] A2-seed42-h8-test-weekday: step=1/120 loss=2.062501
+[probe] A2-seed42-h8-test-weekday: step=20/120 loss=1.913367
+[probe] A2-seed42-h8-test-weekday: step=40/120 loss=1.851229
+[probe] A2-seed42-h8-test-weekday: step=60/120 loss=1.804781
+[probe] A2-seed42-h8-test-weekday: step=80/120 loss=1.767188
+[probe] A2-seed42-h8-test-weekday: step=100/120 loss=1.735881
+[probe] A2-seed42-h8-test-weekday: step=120/120 loss=1.709395
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=weekday accuracy=0.3074 macro_f1=0.2480
+[probe] A2-seed42-h8-test-month: step=1/120 loss=2.051746
+[probe] A2-seed42-h8-test-month: step=20/120 loss=1.562706
+[probe] A2-seed42-h8-test-month: step=40/120 loss=1.346536
+[probe] A2-seed42-h8-test-month: step=60/120 loss=1.246771
+[probe] A2-seed42-h8-test-month: step=80/120 loss=1.188233
+[probe] A2-seed42-h8-test-month: step=100/120 loss=1.147408
+[probe] A2-seed42-h8-test-month: step=120/120 loss=1.116510
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=month accuracy=0.4567 macro_f1=0.3065
+[probe] A2-seed42-h8-test-hierarchy: step=1/120 loss=3.466717
+[probe] A2-seed42-h8-test-hierarchy: step=20/120 loss=2.781811
+[probe] A2-seed42-h8-test-hierarchy: step=40/120 loss=2.357804
+[probe] A2-seed42-h8-test-hierarchy: step=60/120 loss=2.115975
+[probe] A2-seed42-h8-test-hierarchy: step=80/120 loss=1.956972
+[probe] A2-seed42-h8-test-hierarchy: step=100/120 loss=1.838554
+[probe] A2-seed42-h8-test-hierarchy: step=120/120 loss=1.743994
+[probe-result] arm=A2 seed=42 hdim=8 split=test target=hierarchy accuracy=0.2844 macro_f1=0.0682
+
+[progress] Training A2_seed52_h8
+[train] A2_seed52_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A2_seed52_h8: step=1/120 loss=1.065300
+[train] A2_seed52_h8: step=20/120 loss=0.586370
+[train] A2_seed52_h8: step=40/120 loss=0.437611
+[train] A2_seed52_h8: step=60/120 loss=0.416891
+[train] A2_seed52_h8: step=80/120 loss=0.410272
+[train] A2_seed52_h8: step=100/120 loss=0.404961
+[train] A2_seed52_h8: step=120/120 loss=0.399837
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A2_seed52_h8_train_loss.png
+[result] run=A2_seed52_h8 mode=local_only valid_wape=0.5987 valid_wpe=-0.4948 valid_mae=0.5884 test_wape=0.5943 test_wpe=-0.4918 test_mae=0.5893
+[result] run=A2_seed52_h8 mode=common_only valid_wape=0.6668 valid_wpe=-0.5256 valid_mae=0.6552 test_wape=0.6460 test_wpe=-0.4595 test_mae=0.6406
+[result] run=A2_seed52_h8 mode=both valid_wape=0.4232 valid_wpe=-0.0244 valid_mae=0.4159 test_wape=0.4318 test_wpe=0.0440 test_mae=0.4281
+[probe] A2-seed52-h8-valid-weekday: step=1/120 loss=2.051345
+[probe] A2-seed52-h8-valid-weekday: step=20/120 loss=1.847853
+[probe] A2-seed52-h8-valid-weekday: step=40/120 loss=1.761758
+[probe] A2-seed52-h8-valid-weekday: step=60/120 loss=1.702327
+[probe] A2-seed52-h8-valid-weekday: step=80/120 loss=1.659778
+[probe] A2-seed52-h8-valid-weekday: step=100/120 loss=1.628036
+[probe] A2-seed52-h8-valid-weekday: step=120/120 loss=1.603595
+[probe-result] arm=A2 seed=52 hdim=8 split=valid target=weekday accuracy=0.3333 macro_f1=0.2653
+[probe] A2-seed52-h8-valid-month: step=1/120 loss=2.093838
+[probe] A2-seed52-h8-valid-month: step=20/120 loss=1.444033
+[probe] A2-seed52-h8-valid-month: step=40/120 loss=1.259383
+[probe] A2-seed52-h8-valid-month: step=60/120 loss=1.192165
+[probe] A2-seed52-h8-valid-month: step=80/120 loss=1.144116
+[probe] A2-seed52-h8-valid-month: step=100/120 loss=1.103716
+[probe] A2-seed52-h8-valid-month: step=120/120 loss=1.068894
+[probe-result] arm=A2 seed=52 hdim=8 split=valid target=month accuracy=0.5459 macro_f1=0.4174
+[probe] A2-seed52-h8-valid-hierarchy: step=1/120 loss=3.605945
+[probe] A2-seed52-h8-valid-hierarchy: step=20/120 loss=2.744369
+[probe] A2-seed52-h8-valid-hierarchy: step=40/120 loss=2.375242
+[probe] A2-seed52-h8-valid-hierarchy: step=60/120 loss=2.177152
+[probe] A2-seed52-h8-valid-hierarchy: step=80/120 loss=2.033961
+[probe] A2-seed52-h8-valid-hierarchy: step=100/120 loss=1.921691
+[probe] A2-seed52-h8-valid-hierarchy: step=120/120 loss=1.830692
+[probe-result] arm=A2 seed=52 hdim=8 split=valid target=hierarchy accuracy=0.3701 macro_f1=0.0968
+[probe] A2-seed52-h8-test-weekday: step=1/120 loss=1.991204
+[probe] A2-seed52-h8-test-weekday: step=20/120 loss=1.847575
+[probe] A2-seed52-h8-test-weekday: step=40/120 loss=1.756797
+[probe] A2-seed52-h8-test-weekday: step=60/120 loss=1.697268
+[probe] A2-seed52-h8-test-weekday: step=80/120 loss=1.655797
+[probe] A2-seed52-h8-test-weekday: step=100/120 loss=1.625068
+[probe] A2-seed52-h8-test-weekday: step=120/120 loss=1.601265
+[probe-result] arm=A2 seed=52 hdim=8 split=test target=weekday accuracy=0.2308 macro_f1=0.1806
+[probe] A2-seed52-h8-test-month: step=1/120 loss=1.899843
+[probe] A2-seed52-h8-test-month: step=20/120 loss=1.399286
+[probe] A2-seed52-h8-test-month: step=40/120 loss=1.253783
+[probe] A2-seed52-h8-test-month: step=60/120 loss=1.179807
+[probe] A2-seed52-h8-test-month: step=80/120 loss=1.125575
+[probe] A2-seed52-h8-test-month: step=100/120 loss=1.080763
+[probe] A2-seed52-h8-test-month: step=120/120 loss=1.042633
+[probe-result] arm=A2 seed=52 hdim=8 split=test target=month accuracy=0.5471 macro_f1=0.4163
+[probe] A2-seed52-h8-test-hierarchy: step=1/120 loss=3.682672
+[probe] A2-seed52-h8-test-hierarchy: step=20/120 loss=2.837765
+[probe] A2-seed52-h8-test-hierarchy: step=40/120 loss=2.410094
+[probe] A2-seed52-h8-test-hierarchy: step=60/120 loss=2.193373
+[probe] A2-seed52-h8-test-hierarchy: step=80/120 loss=2.042508
+[probe] A2-seed52-h8-test-hierarchy: step=100/120 loss=1.927219
+[probe] A2-seed52-h8-test-hierarchy: step=120/120 loss=1.835101
+[probe-result] arm=A2 seed=52 hdim=8 split=test target=hierarchy accuracy=0.3382 macro_f1=0.0863
+
+[progress] Training A2_seed62_h8
+[train] A2_seed62_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A2_seed62_h8: step=1/120 loss=1.103957
+[train] A2_seed62_h8: step=20/120 loss=0.589833
+[train] A2_seed62_h8: step=40/120 loss=0.438909
+[train] A2_seed62_h8: step=60/120 loss=0.419455
+[train] A2_seed62_h8: step=80/120 loss=0.412136
+[train] A2_seed62_h8: step=100/120 loss=0.407101
+[train] A2_seed62_h8: step=120/120 loss=0.402096
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A2_seed62_h8_train_loss.png
+[result] run=A2_seed62_h8 mode=local_only valid_wape=0.5764 valid_wpe=-0.4615 valid_mae=0.5664 test_wape=0.5727 test_wpe=-0.4599 test_mae=0.5679
+[result] run=A2_seed62_h8 mode=common_only valid_wape=0.6691 valid_wpe=-0.5317 valid_mae=0.6575 test_wape=0.6552 test_wpe=-0.4942 test_mae=0.6497
+[result] run=A2_seed62_h8 mode=both valid_wape=0.4213 valid_wpe=-0.0427 valid_mae=0.4140 test_wape=0.4234 test_wpe=0.0023 test_mae=0.4198
+[probe] A2-seed62-h8-valid-weekday: step=1/120 loss=2.003487
+[probe] A2-seed62-h8-valid-weekday: step=20/120 loss=1.908496
+[probe] A2-seed62-h8-valid-weekday: step=40/120 loss=1.847796
+[probe] A2-seed62-h8-valid-weekday: step=60/120 loss=1.803702
+[probe] A2-seed62-h8-valid-weekday: step=80/120 loss=1.769959
+[probe] A2-seed62-h8-valid-weekday: step=100/120 loss=1.742975
+[probe] A2-seed62-h8-valid-weekday: step=120/120 loss=1.720787
+[probe-result] arm=A2 seed=62 hdim=8 split=valid target=weekday accuracy=0.3079 macro_f1=0.2336
+[probe] A2-seed62-h8-valid-month: step=1/120 loss=1.920853
+[probe] A2-seed62-h8-valid-month: step=20/120 loss=1.424073
+[probe] A2-seed62-h8-valid-month: step=40/120 loss=1.274540
+[probe] A2-seed62-h8-valid-month: step=60/120 loss=1.203874
+[probe] A2-seed62-h8-valid-month: step=80/120 loss=1.157050
+[probe] A2-seed62-h8-valid-month: step=100/120 loss=1.120474
+[probe] A2-seed62-h8-valid-month: step=120/120 loss=1.090057
+[probe-result] arm=A2 seed=62 hdim=8 split=valid target=month accuracy=0.5384 macro_f1=0.4037
+[probe] A2-seed62-h8-valid-hierarchy: step=1/120 loss=3.542338
+[probe] A2-seed62-h8-valid-hierarchy: step=20/120 loss=2.844064
+[probe] A2-seed62-h8-valid-hierarchy: step=40/120 loss=2.490555
+[probe] A2-seed62-h8-valid-hierarchy: step=60/120 loss=2.296641
+[probe] A2-seed62-h8-valid-hierarchy: step=80/120 loss=2.158833
+[probe] A2-seed62-h8-valid-hierarchy: step=100/120 loss=2.049343
+[probe] A2-seed62-h8-valid-hierarchy: step=120/120 loss=1.959082
+[probe-result] arm=A2 seed=62 hdim=8 split=valid target=hierarchy accuracy=0.4160 macro_f1=0.1173
+[probe] A2-seed62-h8-test-weekday: step=1/120 loss=2.039319
+[probe] A2-seed62-h8-test-weekday: step=20/120 loss=1.890591
+[probe] A2-seed62-h8-test-weekday: step=40/120 loss=1.843018
+[probe] A2-seed62-h8-test-weekday: step=60/120 loss=1.807038
+[probe] A2-seed62-h8-test-weekday: step=80/120 loss=1.778542
+[probe] A2-seed62-h8-test-weekday: step=100/120 loss=1.754910
+[probe] A2-seed62-h8-test-weekday: step=120/120 loss=1.734850
+[probe-result] arm=A2 seed=62 hdim=8 split=test target=weekday accuracy=0.3031 macro_f1=0.2328
+[probe] A2-seed62-h8-test-month: step=1/120 loss=1.928555
+[probe] A2-seed62-h8-test-month: step=20/120 loss=1.420595
+[probe] A2-seed62-h8-test-month: step=40/120 loss=1.278758
+[probe] A2-seed62-h8-test-month: step=60/120 loss=1.211792
+[probe] A2-seed62-h8-test-month: step=80/120 loss=1.164008
+[probe] A2-seed62-h8-test-month: step=100/120 loss=1.126379
+[probe] A2-seed62-h8-test-month: step=120/120 loss=1.095109
+[probe-result] arm=A2 seed=62 hdim=8 split=test target=month accuracy=0.4853 macro_f1=0.3584
+[probe] A2-seed62-h8-test-hierarchy: step=1/120 loss=3.735993
+[probe] A2-seed62-h8-test-hierarchy: step=20/120 loss=2.918174
+[probe] A2-seed62-h8-test-hierarchy: step=40/120 loss=2.512781
+[probe] A2-seed62-h8-test-hierarchy: step=60/120 loss=2.311435
+[probe] A2-seed62-h8-test-hierarchy: step=80/120 loss=2.176692
+[probe] A2-seed62-h8-test-hierarchy: step=100/120 loss=2.070607
+[probe] A2-seed62-h8-test-hierarchy: step=120/120 loss=1.983131
+[probe-result] arm=A2 seed=62 hdim=8 split=test target=hierarchy accuracy=0.3825 macro_f1=0.1017
+
+[progress] arm=A3 common_features=30 specific_features=4
+[progress] arm=A3 categorical_features=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id']
+
+[progress] Training A3_seed42_h4
+[train] A3_seed42_h4: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=4 log_interval=20
+[train] A3_seed42_h4: step=1/120 loss=0.923981
+[train] A3_seed42_h4: step=20/120 loss=0.587823
+[train] A3_seed42_h4: step=40/120 loss=0.438832
+[train] A3_seed42_h4: step=60/120 loss=0.418781
+[train] A3_seed42_h4: step=80/120 loss=0.412659
+[train] A3_seed42_h4: step=100/120 loss=0.408249
+[train] A3_seed42_h4: step=120/120 loss=0.404499
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed42_h4_train_loss.png
+[result] run=A3_seed42_h4 mode=local_only valid_wape=0.5091 valid_wpe=-0.3548 valid_mae=0.5003 test_wape=0.5053 test_wpe=-0.3550 test_mae=0.5011
+[result] run=A3_seed42_h4 mode=common_only valid_wape=0.6496 valid_wpe=-0.4300 valid_mae=0.6383 test_wape=0.6429 test_wpe=-0.3808 test_mae=0.6375
+[result] run=A3_seed42_h4 mode=both valid_wape=0.4316 valid_wpe=0.0151 valid_mae=0.4241 test_wape=0.4417 test_wpe=0.0713 test_mae=0.4380
+[probe] A3-seed42-h4-valid-weekday: step=1/120 loss=2.021483
+[probe] A3-seed42-h4-valid-weekday: step=20/120 loss=1.863955
+[probe] A3-seed42-h4-valid-weekday: step=40/120 loss=1.783088
+[probe] A3-seed42-h4-valid-weekday: step=60/120 loss=1.728487
+[probe] A3-seed42-h4-valid-weekday: step=80/120 loss=1.686962
+[probe] A3-seed42-h4-valid-weekday: step=100/120 loss=1.653139
+[probe] A3-seed42-h4-valid-weekday: step=120/120 loss=1.624666
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=weekday accuracy=0.2628 macro_f1=0.1898
+[probe] A3-seed42-h4-valid-month: step=1/120 loss=2.078490
+[probe] A3-seed42-h4-valid-month: step=20/120 loss=1.503194
+[probe] A3-seed42-h4-valid-month: step=40/120 loss=1.300131
+[probe] A3-seed42-h4-valid-month: step=60/120 loss=1.221199
+[probe] A3-seed42-h4-valid-month: step=80/120 loss=1.171870
+[probe] A3-seed42-h4-valid-month: step=100/120 loss=1.134075
+[probe] A3-seed42-h4-valid-month: step=120/120 loss=1.103084
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=month accuracy=0.5064 macro_f1=0.3852
+[probe] A3-seed42-h4-valid-hierarchy: step=1/120 loss=3.471141
+[probe] A3-seed42-h4-valid-hierarchy: step=20/120 loss=2.760720
+[probe] A3-seed42-h4-valid-hierarchy: step=40/120 loss=2.395256
+[probe] A3-seed42-h4-valid-hierarchy: step=60/120 loss=2.209784
+[probe] A3-seed42-h4-valid-hierarchy: step=80/120 loss=2.083768
+[probe] A3-seed42-h4-valid-hierarchy: step=100/120 loss=1.985374
+[probe] A3-seed42-h4-valid-hierarchy: step=120/120 loss=1.904356
+[probe-result] arm=A3 seed=42 hdim=4 split=valid target=hierarchy accuracy=0.3325 macro_f1=0.0761
+[probe] A3-seed42-h4-test-weekday: step=1/120 loss=1.931374
+[probe] A3-seed42-h4-test-weekday: step=20/120 loss=1.817577
+[probe] A3-seed42-h4-test-weekday: step=40/120 loss=1.750290
+[probe] A3-seed42-h4-test-weekday: step=60/120 loss=1.700554
+[probe] A3-seed42-h4-test-weekday: step=80/120 loss=1.660617
+[probe] A3-seed42-h4-test-weekday: step=100/120 loss=1.627404
+[probe] A3-seed42-h4-test-weekday: step=120/120 loss=1.599326
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=weekday accuracy=0.2028 macro_f1=0.1060
+[probe] A3-seed42-h4-test-month: step=1/120 loss=1.878516
+[probe] A3-seed42-h4-test-month: step=20/120 loss=1.451921
+[probe] A3-seed42-h4-test-month: step=40/120 loss=1.296943
+[probe] A3-seed42-h4-test-month: step=60/120 loss=1.220839
+[probe] A3-seed42-h4-test-month: step=80/120 loss=1.168537
+[probe] A3-seed42-h4-test-month: step=100/120 loss=1.128954
+[probe] A3-seed42-h4-test-month: step=120/120 loss=1.097582
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=month accuracy=0.4763 macro_f1=0.3629
+[probe] A3-seed42-h4-test-hierarchy: step=1/120 loss=3.528942
+[probe] A3-seed42-h4-test-hierarchy: step=20/120 loss=2.803727
+[probe] A3-seed42-h4-test-hierarchy: step=40/120 loss=2.420623
+[probe] A3-seed42-h4-test-hierarchy: step=60/120 loss=2.230873
+[probe] A3-seed42-h4-test-hierarchy: step=80/120 loss=2.106461
+[probe] A3-seed42-h4-test-hierarchy: step=100/120 loss=2.009660
+[probe] A3-seed42-h4-test-hierarchy: step=120/120 loss=1.929394
+[probe-result] arm=A3 seed=42 hdim=4 split=test target=hierarchy accuracy=0.1942 macro_f1=0.0191
+
+[progress] Training A3_seed52_h4
+[train] A3_seed52_h4: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=4 log_interval=20
+[train] A3_seed52_h4: step=1/120 loss=0.992317
+[train] A3_seed52_h4: step=20/120 loss=0.557378
+[train] A3_seed52_h4: step=40/120 loss=0.434748
+[train] A3_seed52_h4: step=60/120 loss=0.419611
+[train] A3_seed52_h4: step=80/120 loss=0.413530
+[train] A3_seed52_h4: step=100/120 loss=0.408028
+[train] A3_seed52_h4: step=120/120 loss=0.402949
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed52_h4_train_loss.png
+[result] run=A3_seed52_h4 mode=local_only valid_wape=0.5361 valid_wpe=-0.3987 valid_mae=0.5268 test_wape=0.5321 test_wpe=-0.3978 test_mae=0.5277
+[result] run=A3_seed52_h4 mode=common_only valid_wape=0.6493 valid_wpe=-0.4375 valid_mae=0.6380 test_wape=0.6421 test_wpe=-0.3765 test_mae=0.6367
+[result] run=A3_seed52_h4 mode=both valid_wape=0.4293 valid_wpe=0.0183 valid_mae=0.4219 test_wape=0.4449 test_wpe=0.0910 test_mae=0.4411
+[probe] A3-seed52-h4-valid-weekday: step=1/120 loss=2.038846
+[probe] A3-seed52-h4-valid-weekday: step=20/120 loss=1.865844
+[probe] A3-seed52-h4-valid-weekday: step=40/120 loss=1.781348
+[probe] A3-seed52-h4-valid-weekday: step=60/120 loss=1.721182
+[probe] A3-seed52-h4-valid-weekday: step=80/120 loss=1.674641
+[probe] A3-seed52-h4-valid-weekday: step=100/120 loss=1.636873
+[probe] A3-seed52-h4-valid-weekday: step=120/120 loss=1.605466
+[probe-result] arm=A3 seed=52 hdim=4 split=valid target=weekday accuracy=0.2746 macro_f1=0.1997
+[probe] A3-seed52-h4-valid-month: step=1/120 loss=2.045962
+[probe] A3-seed52-h4-valid-month: step=20/120 loss=1.488093
+[probe] A3-seed52-h4-valid-month: step=40/120 loss=1.283427
+[probe] A3-seed52-h4-valid-month: step=60/120 loss=1.201441
+[probe] A3-seed52-h4-valid-month: step=80/120 loss=1.151912
+[probe] A3-seed52-h4-valid-month: step=100/120 loss=1.116114
+[probe] A3-seed52-h4-valid-month: step=120/120 loss=1.088277
+[probe-result] arm=A3 seed=52 hdim=4 split=valid target=month accuracy=0.3905 macro_f1=0.2213
+[probe] A3-seed52-h4-valid-hierarchy: step=1/120 loss=3.676607
+[probe] A3-seed52-h4-valid-hierarchy: step=20/120 loss=2.970576
+[probe] A3-seed52-h4-valid-hierarchy: step=40/120 loss=2.531777
+[probe] A3-seed52-h4-valid-hierarchy: step=60/120 loss=2.277544
+[probe] A3-seed52-h4-valid-hierarchy: step=80/120 loss=2.113937
+[probe] A3-seed52-h4-valid-hierarchy: step=100/120 loss=1.993874
+[probe] A3-seed52-h4-valid-hierarchy: step=120/120 loss=1.899078
+[probe-result] arm=A3 seed=52 hdim=4 split=valid target=hierarchy accuracy=0.2569 macro_f1=0.0751
+[probe] A3-seed52-h4-test-weekday: step=1/120 loss=1.961661
+[probe] A3-seed52-h4-test-weekday: step=20/120 loss=1.837629
+[probe] A3-seed52-h4-test-weekday: step=40/120 loss=1.762769
+[probe] A3-seed52-h4-test-weekday: step=60/120 loss=1.707132
+[probe] A3-seed52-h4-test-weekday: step=80/120 loss=1.662589
+[probe] A3-seed52-h4-test-weekday: step=100/120 loss=1.625859
+[probe] A3-seed52-h4-test-weekday: step=120/120 loss=1.594906
+[probe-result] arm=A3 seed=52 hdim=4 split=test target=weekday accuracy=0.1968 macro_f1=0.1279
+[probe] A3-seed52-h4-test-month: step=1/120 loss=1.935081
+[probe] A3-seed52-h4-test-month: step=20/120 loss=1.476586
+[probe] A3-seed52-h4-test-month: step=40/120 loss=1.296459
+[probe] A3-seed52-h4-test-month: step=60/120 loss=1.212209
+[probe] A3-seed52-h4-test-month: step=80/120 loss=1.157040
+[probe] A3-seed52-h4-test-month: step=100/120 loss=1.116134
+[probe] A3-seed52-h4-test-month: step=120/120 loss=1.084363
+[probe-result] arm=A3 seed=52 hdim=4 split=test target=month accuracy=0.3612 macro_f1=0.1786
+[probe] A3-seed52-h4-test-hierarchy: step=1/120 loss=3.285632
+[probe] A3-seed52-h4-test-hierarchy: step=20/120 loss=2.683522
+[probe] A3-seed52-h4-test-hierarchy: step=40/120 loss=2.355120
+[probe] A3-seed52-h4-test-hierarchy: step=60/120 loss=2.159872
+[probe] A3-seed52-h4-test-hierarchy: step=80/120 loss=2.022485
+[probe] A3-seed52-h4-test-hierarchy: step=100/120 loss=1.916365
+[probe] A3-seed52-h4-test-hierarchy: step=120/120 loss=1.829904
+[probe-result] arm=A3 seed=52 hdim=4 split=test target=hierarchy accuracy=0.2567 macro_f1=0.0696
+
+[progress] Training A3_seed62_h4
+[train] A3_seed62_h4: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=4 log_interval=20
+[train] A3_seed62_h4: step=1/120 loss=0.910627
+[train] A3_seed62_h4: step=20/120 loss=0.554325
+[train] A3_seed62_h4: step=40/120 loss=0.431229
+[train] A3_seed62_h4: step=60/120 loss=0.416464
+[train] A3_seed62_h4: step=80/120 loss=0.411657
+[train] A3_seed62_h4: step=100/120 loss=0.407080
+[train] A3_seed62_h4: step=120/120 loss=0.402879
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed62_h4_train_loss.png
+[result] run=A3_seed62_h4 mode=local_only valid_wape=0.5132 valid_wpe=-0.3552 valid_mae=0.5043 test_wape=0.5089 test_wpe=-0.3546 test_mae=0.5046
+[result] run=A3_seed62_h4 mode=common_only valid_wape=0.6449 valid_wpe=-0.4300 valid_mae=0.6337 test_wape=0.6386 test_wpe=-0.3827 test_mae=0.6333
+[result] run=A3_seed62_h4 mode=both valid_wape=0.4254 valid_wpe=0.0104 valid_mae=0.4180 test_wape=0.4340 test_wpe=0.0606 test_mae=0.4303
+[probe] A3-seed62-h4-valid-weekday: step=1/120 loss=1.959280
+[probe] A3-seed62-h4-valid-weekday: step=20/120 loss=1.833482
+[probe] A3-seed62-h4-valid-weekday: step=40/120 loss=1.756709
+[probe] A3-seed62-h4-valid-weekday: step=60/120 loss=1.700064
+[probe] A3-seed62-h4-valid-weekday: step=80/120 loss=1.655830
+[probe] A3-seed62-h4-valid-weekday: step=100/120 loss=1.620020
+[probe] A3-seed62-h4-valid-weekday: step=120/120 loss=1.590212
+[probe-result] arm=A3 seed=62 hdim=4 split=valid target=weekday accuracy=0.3164 macro_f1=0.2561
+[probe] A3-seed62-h4-valid-month: step=1/120 loss=2.075492
+[probe] A3-seed62-h4-valid-month: step=20/120 loss=1.580190
+[probe] A3-seed62-h4-valid-month: step=40/120 loss=1.358856
+[probe] A3-seed62-h4-valid-month: step=60/120 loss=1.256724
+[probe] A3-seed62-h4-valid-month: step=80/120 loss=1.196608
+[probe] A3-seed62-h4-valid-month: step=100/120 loss=1.152016
+[probe] A3-seed62-h4-valid-month: step=120/120 loss=1.115329
+[probe-result] arm=A3 seed=62 hdim=4 split=valid target=month accuracy=0.4786 macro_f1=0.3454
+[probe] A3-seed62-h4-valid-hierarchy: step=1/120 loss=3.413301
+[probe] A3-seed62-h4-valid-hierarchy: step=20/120 loss=2.833283
+[probe] A3-seed62-h4-valid-hierarchy: step=40/120 loss=2.476332
+[probe] A3-seed62-h4-valid-hierarchy: step=60/120 loss=2.272861
+[probe] A3-seed62-h4-valid-hierarchy: step=80/120 loss=2.134075
+[probe] A3-seed62-h4-valid-hierarchy: step=100/120 loss=2.026599
+[probe] A3-seed62-h4-valid-hierarchy: step=120/120 loss=1.938503
+[probe-result] arm=A3 seed=62 hdim=4 split=valid target=hierarchy accuracy=0.3486 macro_f1=0.0866
+[probe] A3-seed62-h4-test-weekday: step=1/120 loss=2.012395
+[probe] A3-seed62-h4-test-weekday: step=20/120 loss=1.873270
+[probe] A3-seed62-h4-test-weekday: step=40/120 loss=1.790068
+[probe] A3-seed62-h4-test-weekday: step=60/120 loss=1.729149
+[probe] A3-seed62-h4-test-weekday: step=80/120 loss=1.681493
+[probe] A3-seed62-h4-test-weekday: step=100/120 loss=1.643018
+[probe] A3-seed62-h4-test-weekday: step=120/120 loss=1.611131
+[probe-result] arm=A3 seed=62 hdim=4 split=test target=weekday accuracy=0.2862 macro_f1=0.2165
+[probe] A3-seed62-h4-test-month: step=1/120 loss=2.100876
+[probe] A3-seed62-h4-test-month: step=20/120 loss=1.595769
+[probe] A3-seed62-h4-test-month: step=40/120 loss=1.372163
+[probe] A3-seed62-h4-test-month: step=60/120 loss=1.272776
+[probe] A3-seed62-h4-test-month: step=80/120 loss=1.211402
+[probe] A3-seed62-h4-test-month: step=100/120 loss=1.165017
+[probe] A3-seed62-h4-test-month: step=120/120 loss=1.127024
+[probe-result] arm=A3 seed=62 hdim=4 split=test target=month accuracy=0.3961 macro_f1=0.2734
+[probe] A3-seed62-h4-test-hierarchy: step=1/120 loss=3.456070
+[probe] A3-seed62-h4-test-hierarchy: step=20/120 loss=2.857466
+[probe] A3-seed62-h4-test-hierarchy: step=40/120 loss=2.495595
+[probe] A3-seed62-h4-test-hierarchy: step=60/120 loss=2.289087
+[probe] A3-seed62-h4-test-hierarchy: step=80/120 loss=2.150845
+[probe] A3-seed62-h4-test-hierarchy: step=100/120 loss=2.044632
+[probe] A3-seed62-h4-test-hierarchy: step=120/120 loss=1.957388
+[probe-result] arm=A3 seed=62 hdim=4 split=test target=hierarchy accuracy=0.3147 macro_f1=0.0732
+
+[progress] Training A3_seed42_h8
+[train] A3_seed42_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A3_seed42_h8: step=1/120 loss=0.916811
+[train] A3_seed42_h8: step=20/120 loss=0.541148
+[train] A3_seed42_h8: step=40/120 loss=0.431387
+[train] A3_seed42_h8: step=60/120 loss=0.416229
+[train] A3_seed42_h8: step=80/120 loss=0.410527
+[train] A3_seed42_h8: step=100/120 loss=0.405387
+[train] A3_seed42_h8: step=120/120 loss=0.400656
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed42_h8_train_loss.png
+[result] run=A3_seed42_h8 mode=local_only valid_wape=0.4944 valid_wpe=-0.3232 valid_mae=0.4859 test_wape=0.4902 test_wpe=-0.3231 test_mae=0.4861
+[result] run=A3_seed42_h8 mode=common_only valid_wape=0.6593 valid_wpe=-0.4998 valid_mae=0.6479 test_wape=0.6489 test_wpe=-0.4723 test_mae=0.6435
+[result] run=A3_seed42_h8 mode=both valid_wape=0.4193 valid_wpe=-0.0571 valid_mae=0.4120 test_wape=0.4193 test_wpe=-0.0237 test_mae=0.4158
+[probe] A3-seed42-h8-valid-weekday: step=1/120 loss=1.949048
+[probe] A3-seed42-h8-valid-weekday: step=20/120 loss=1.847871
+[probe] A3-seed42-h8-valid-weekday: step=40/120 loss=1.797252
+[probe] A3-seed42-h8-valid-weekday: step=60/120 loss=1.759185
+[probe] A3-seed42-h8-valid-weekday: step=80/120 loss=1.727515
+[probe] A3-seed42-h8-valid-weekday: step=100/120 loss=1.700665
+[probe] A3-seed42-h8-valid-weekday: step=120/120 loss=1.677727
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=weekday accuracy=0.3610 macro_f1=0.3195
+[probe] A3-seed42-h8-valid-month: step=1/120 loss=2.060256
+[probe] A3-seed42-h8-valid-month: step=20/120 loss=1.557738
+[probe] A3-seed42-h8-valid-month: step=40/120 loss=1.338997
+[probe] A3-seed42-h8-valid-month: step=60/120 loss=1.246857
+[probe] A3-seed42-h8-valid-month: step=80/120 loss=1.193325
+[probe] A3-seed42-h8-valid-month: step=100/120 loss=1.155676
+[probe] A3-seed42-h8-valid-month: step=120/120 loss=1.126681
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=month accuracy=0.4488 macro_f1=0.3252
+[probe] A3-seed42-h8-valid-hierarchy: step=1/120 loss=3.555822
+[probe] A3-seed42-h8-valid-hierarchy: step=20/120 loss=2.866895
+[probe] A3-seed42-h8-valid-hierarchy: step=40/120 loss=2.430172
+[probe] A3-seed42-h8-valid-hierarchy: step=60/120 loss=2.173156
+[probe] A3-seed42-h8-valid-hierarchy: step=80/120 loss=1.998327
+[probe] A3-seed42-h8-valid-hierarchy: step=100/120 loss=1.867734
+[probe] A3-seed42-h8-valid-hierarchy: step=120/120 loss=1.764610
+[probe-result] arm=A3 seed=42 hdim=8 split=valid target=hierarchy accuracy=0.3539 macro_f1=0.0925
+[probe] A3-seed42-h8-test-weekday: step=1/120 loss=2.062501
+[probe] A3-seed42-h8-test-weekday: step=20/120 loss=1.913367
+[probe] A3-seed42-h8-test-weekday: step=40/120 loss=1.851229
+[probe] A3-seed42-h8-test-weekday: step=60/120 loss=1.804781
+[probe] A3-seed42-h8-test-weekday: step=80/120 loss=1.767188
+[probe] A3-seed42-h8-test-weekday: step=100/120 loss=1.735881
+[probe] A3-seed42-h8-test-weekday: step=120/120 loss=1.709395
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=weekday accuracy=0.3074 macro_f1=0.2480
+[probe] A3-seed42-h8-test-month: step=1/120 loss=2.051746
+[probe] A3-seed42-h8-test-month: step=20/120 loss=1.562706
+[probe] A3-seed42-h8-test-month: step=40/120 loss=1.346536
+[probe] A3-seed42-h8-test-month: step=60/120 loss=1.246771
+[probe] A3-seed42-h8-test-month: step=80/120 loss=1.188233
+[probe] A3-seed42-h8-test-month: step=100/120 loss=1.147408
+[probe] A3-seed42-h8-test-month: step=120/120 loss=1.116510
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=month accuracy=0.4567 macro_f1=0.3065
+[probe] A3-seed42-h8-test-hierarchy: step=1/120 loss=3.466717
+[probe] A3-seed42-h8-test-hierarchy: step=20/120 loss=2.781811
+[probe] A3-seed42-h8-test-hierarchy: step=40/120 loss=2.357804
+[probe] A3-seed42-h8-test-hierarchy: step=60/120 loss=2.115975
+[probe] A3-seed42-h8-test-hierarchy: step=80/120 loss=1.956972
+[probe] A3-seed42-h8-test-hierarchy: step=100/120 loss=1.838554
+[probe] A3-seed42-h8-test-hierarchy: step=120/120 loss=1.743994
+[probe-result] arm=A3 seed=42 hdim=8 split=test target=hierarchy accuracy=0.2844 macro_f1=0.0682
+
+[progress] Training A3_seed52_h8
+[train] A3_seed52_h8: steps=120 lr=0.001 hidden_dim=64 latent_dim=16 hierarchy_dim=8 log_interval=20
+[train] A3_seed52_h8: step=1/120 loss=1.065300
+[train] A3_seed52_h8: step=20/120 loss=0.586370
+[train] A3_seed52_h8: step=40/120 loss=0.437611
+[train] A3_seed52_h8: step=60/120 loss=0.416891
+[train] A3_seed52_h8: step=80/120 loss=0.410272
+[train] A3_seed52_h8: step=100/120 loss=0.404961
+[train] A3_seed52_h8: step=120/120 loss=0.399837
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario15_common_branch_strengthening/output/A3_seed52_h8_train_loss.png
+[result] run=A3_seed52_h8 mode=local_only valid_wape=0.5987 valid_wpe=-0.4948 valid_mae=0.5884 test_wape=0.5943 test_wpe=-0.4918 test_mae=0.5893
+[result] run=A3_seed52_h8 mode=common_only valid_wape=0.6668 valid_wpe=-0.5256 valid_mae=0.6552 test_wape=0.6460 test_wpe=-0.4595 test_mae=0.6406
+[result] run=A3_seed52_h8 mode=both valid_wape=0.4232 valid_wpe=-0.0244 valid_mae=0.4159 test_wape=0.4318 test_wpe=0.0440 test_mae=0.4281
+[probe] A3-seed52-h8-valid-weekday: step=1/120 loss=2.051345
+[probe] A3-seed52-h8-valid-weekday: step=20/120 loss=1.847853
+[probe] A3-seed52-h8-valid-weekday: step=40/120 loss=1.761758
+[probe] A3-seed52-h8-valid-weekday: step=60/120 loss=1.702327
+[probe] A3-seed52-h8-valid-weekday: step=80/120 loss=1.659778
+[probe] A3-seed52-h8-valid-weekday: step=100/120 loss=1.628036
+[probe] A3-seed52-h8-valid-weekday: step=120/120 loss=1.603595
+[probe-result] arm=A3 seed=52 hdim=8 split=valid target=weekday accuracy=0.3333 macro_f1=0.2653
+[probe] A3-seed52-h8-valid-month: step=1/120 loss=2.093838
+[probe] A3-seed52-h8-valid-month: step=20/120 loss=1.444033
+[probe] A3-seed52-h8-valid-month: step=40/120 loss=1.259383
+[probe] A3-seed52-h8-valid-month: step=60/120 loss=1.192165
+[probe] A3-seed52-h8-valid-month: step=80/120 loss=1.144116
+[probe] A3-seed52-h8-valid-month: step=100/120 loss=1.103716
+[probe] A3-seed52-h8-valid-month: step=120/120 loss=1.068894
+[probe-result] arm=A3 seed=52 hdim=8 split=valid target=month accuracy=0.5459 macro_f1=0.4174

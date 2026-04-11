@@ -1,0 +1,4 @@
+horizon,seed,valid_drop_common_wape,valid_drop_specific_wape,test_drop_common_wape,test_drop_specific_wape,valid_drop_common_wpe,valid_drop_specific_wpe,test_drop_common_wpe,test_drop_specific_wpe,valid_drop_common_mae,valid_drop_specific_mae,test_drop_common_mae,test_drop_specific_mae
+1,42,0.216814,0.003213,0.231931,-0.006989,-0.202324,-0.021365,-0.180452,-0.072151,0.213057,0.003158,0.229988,-0.006931
+3,42,0.178142,0.012344,0.187112,-0.001384,-0.194608,-0.019533,-0.182126,-0.077439,0.175056,0.012130,0.185545,-0.001373
+7,42,0.173842,0.004486,0.188700,-0.005437,-0.192625,-0.000840,-0.164376,-0.042238,0.170831,0.004408,0.187119,-0.005391
