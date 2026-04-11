@@ -33,6 +33,8 @@ class ProbeConfig:
     latent_dim: int = 16
     seed: int = 42
     volatility_window: int = 5
+    specific_feature_mode: Literal["all", "scenario12_core", "plus_stock_cnt", "plus_stock_status"] = "all"
+    fail_fast: bool = True
 
 
 @dataclass
@@ -85,6 +87,37 @@ def _normalize_train(train_x: np.ndarray, valid_x: np.ndarray, test_x: np.ndarra
     mu = train_x.mean(axis=0, keepdims=True)
     sigma = train_x.std(axis=0, keepdims=True) + 1e-6
     return (train_x - mu) / sigma, (valid_x - mu) / sigma, (test_x - mu) / sigma
+
+
+def _assert_finite(name: str, arr: np.ndarray, fail_fast: bool = True) -> None:
+    if np.isfinite(arr).all():
+        return
+    bad = np.argwhere(~np.isfinite(arr))
+    samples = bad[:5].tolist()
+    msg = (
+        f"[scenario11][finite-check] {name} has non-finite values: "
+        f"count={bad.shape[0]} sample_indices={samples}"
+    )
+    if fail_fast:
+        raise RuntimeError(msg)
+    print(msg)
+
+
+def _resolve_specific_features(mode: str, available: list[str]) -> list[str]:
+    scenario12_core = ["sale_amount", "hours_sale", "discount", "activity_flag"]
+    stock_cnt = "stock_hour6_22_cnt"
+    stock_status = "hours_stock_status"
+
+    order = list(dict.fromkeys(available))
+    if mode == "all":
+        return order
+
+    selected = [f for f in scenario12_core if f in order]
+    if mode == "plus_stock_cnt" and stock_cnt in order:
+        selected.append(stock_cnt)
+    elif mode == "plus_stock_status" and stock_status in order:
+        selected.append(stock_status)
+    return selected
 
 
 def _to_int_labels(train: np.ndarray, valid: np.ndarray, test: np.ndarray) -> tuple[np.ndarray, np.ndarray, np.ndarray, int]:
@@ -209,6 +242,7 @@ def build_latents_and_tasks(df: pd.DataFrame, cfg: ProbeConfig, window_size: int
     common_features, _ = resolve_features(df, COMMON_FEATURE_CANDIDATES)
     specific_candidates = tuple(dict.fromkeys(SPECIFIC_FEATURE_CANDIDATES + STOCK_FEATURE_CANDIDATES))
     specific_features, _ = resolve_features(df, specific_candidates)
+    specific_features = _resolve_specific_features(cfg.specific_feature_mode, specific_features)
 
     if not common_features:
         raise RuntimeError("No common features were found.")
@@ -225,6 +259,17 @@ def build_latents_and_tasks(df: pd.DataFrame, cfg: ProbeConfig, window_size: int
     common_train, common_valid, common_test = split_train_valid_test(common_all)
     specific_train, specific_valid, specific_test = split_train_valid_test(specific_all)
     y_train, y_valid, y_test = split_train_valid_test(y_all)
+
+    common_train, common_valid, common_test = _normalize_train(common_train, common_valid, common_test)
+    specific_train, specific_valid, specific_test = _normalize_train(specific_train, specific_valid, specific_test)
+
+    _assert_finite("common_train", common_train, fail_fast=cfg.fail_fast)
+    _assert_finite("common_valid", common_valid, fail_fast=cfg.fail_fast)
+    _assert_finite("common_test", common_test, fail_fast=cfg.fail_fast)
+    _assert_finite("specific_train", specific_train, fail_fast=cfg.fail_fast)
+    _assert_finite("specific_valid", specific_valid, fail_fast=cfg.fail_fast)
+    _assert_finite("specific_test", specific_test, fail_fast=cfg.fail_fast)
+    _assert_finite("y_train", y_train, fail_fast=cfg.fail_fast)
 
     # Train a decoupled forecaster to obtain z_common / z_specific.
     from src.scenario9_pipeline import DatasetSplits
@@ -257,9 +302,15 @@ def build_latents_and_tasks(df: pd.DataFrame, cfg: ProbeConfig, window_size: int
     def _extract(common_split: np.ndarray, specific_split: np.ndarray) -> SplitLatents:
         c = torch.tensor(_flatten_windows(_make_one_step_pairs(common_split)), dtype=torch.float32)
         s = torch.tensor(_flatten_windows(_make_one_step_pairs(specific_split)), dtype=torch.float32)
+        _assert_finite("extract_common_input", c.numpy(), fail_fast=cfg.fail_fast)
+        _assert_finite("extract_specific_input", s.numpy(), fail_fast=cfg.fail_fast)
         with torch.no_grad():
             _, zc, zs = model(c, s)
-        return SplitLatents(z_common=zc.numpy(), z_specific=zs.numpy())
+        z_common = zc.numpy()
+        z_specific = zs.numpy()
+        _assert_finite("z_common", z_common, fail_fast=cfg.fail_fast)
+        _assert_finite("z_specific", z_specific, fail_fast=cfg.fail_fast)
+        return SplitLatents(z_common=z_common, z_specific=z_specific)
 
     latent_by_split = {
         "train": _extract(common_train, specific_train),
@@ -373,6 +424,9 @@ def build_latents_and_tasks(df: pd.DataFrame, cfg: ProbeConfig, window_size: int
 
 def run_probe_suite(latent_by_split: dict[SplitName, SplitLatents], tasks: list[ProbeTask], cfg: ProbeConfig, seeds: list[int]) -> pd.DataFrame:
     rows: list[ProbeResult] = []
+    for split_name, latent in latent_by_split.items():
+        _assert_finite(f"{split_name}.z_common", latent.z_common, fail_fast=cfg.fail_fast)
+        _assert_finite(f"{split_name}.z_specific", latent.z_specific, fail_fast=cfg.fail_fast)
 
     for seed in seeds:
         print(f"\n[scenario11] probe_seed={seed}")
@@ -403,6 +457,9 @@ def run_probe_suite(latent_by_split: dict[SplitName, SplitLatents], tasks: list[
 
             for input_type, (xtr, xva, xte) in x_sources.items():
                 xtr, xva, xte = _normalize_train(xtr, xva, xte)
+                _assert_finite(f"{task.name}.{input_type}.x_train", xtr, fail_fast=cfg.fail_fast)
+                _assert_finite(f"{task.name}.{input_type}.x_valid", xva, fail_fast=cfg.fail_fast)
+                _assert_finite(f"{task.name}.{input_type}.x_test", xte, fail_fast=cfg.fail_fast)
                 result = train_and_eval_probe(
                     xtr,
                     task.labels["train"],
