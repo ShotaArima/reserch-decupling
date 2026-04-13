@@ -40,7 +40,7 @@ for lb in "${LOOKBACKS[@]}"; do
         
         echo "Running: LB=$lb, Model=$model, Ablation=$ablation, Seed=$seed"
         
-        uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
+        uv run python -u scenarios/scenario18_prophet_vs_sequential_vae/run.py \
           --lookback "$lb" \
           --horizon 7 \
           --model "$model" \
@@ -57,7 +57,7 @@ for lb in "${LOOKBACKS[@]}"; do
   for seed in "${SEEDS[@]}"; do
     LOG_FILE="${OUTPUT_DIR}/log_lb${lb}_v0_flatten_vae_s${seed}.log"
     
-    uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
+    uv run python -u scenarios/scenario18_prophet_vs_sequential_vae/run.py \
       --lookback "$lb" \
       --horizon 7 \
       --model v0_flatten_vae \
