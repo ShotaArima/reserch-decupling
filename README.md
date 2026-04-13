@@ -70,6 +70,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - Scenario10 の stock 状態変数 local 拡張実験計画
 - `doc/17-scenario17_horizon_role_gap.md`
   - Scenario17 の horizon 依存役割差実験計画
+- `doc/18-scenario18_prophet_input_structure_and_vae_common_specific_evaluation.md`
+  - Scenario18 の Prophet 高精度化入力構造 × Sequential VAE(common/specific) 統合評価計画
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
