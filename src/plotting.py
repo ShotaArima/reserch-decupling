@@ -307,3 +307,41 @@ def save_swap_direction_plot(
     fig.savefig(output, dpi=150)
     plt.close(fig)
     return output
+
+
+def save_horizon_error_plot(
+    *,
+    rows: Sequence[dict[str, float | str | int]],
+    model_order: Sequence[str],
+    metric_key: str,
+    out_path: str | Path,
+    title: str,
+) -> Path:
+    output = Path(out_path)
+    output.parent.mkdir(parents=True, exist_ok=True)
+
+    horizon_values = sorted({int(row["horizon"]) for row in rows})
+
+    fig, ax = plt.subplots(figsize=(8, 4.8))
+    for model in model_order:
+        series = {
+            int(row["horizon"]): float(row[metric_key])
+            for row in rows
+            if str(row["model"]) == model and metric_key in row
+        }
+        if not series:
+            continue
+        xs = [h for h in horizon_values if h in series]
+        ys = [series[h] for h in xs]
+        ax.plot(xs, ys, marker="o", linewidth=2, label=model)
+
+    ax.set_title(title)
+    ax.set_xlabel("Window / Horizon (days)")
+    ax.set_ylabel(metric_key.upper())
+    ax.set_xticks(horizon_values)
+    ax.grid(alpha=0.3)
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig(output, dpi=150)
+    plt.close(fig)
+    return output
