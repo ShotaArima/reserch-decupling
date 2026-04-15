@@ -14,6 +14,7 @@ from src.scenario9_pipeline import AblationMode
 ModelName = Literal[
     "p0_prophet",
     "p1_prophet_reg",
+    "p2_prophet_segmented",
     "v0_flatten_vae",
     "v1_seq_vae",
     "v2_seq_vae_transition",
@@ -151,10 +152,13 @@ class ProphetWindowForecaster:
     - If prophet package is unavailable, falls back to a deterministic naive strategy.
     """
 
-    def __init__(self, use_regressor: bool) -> None:
+    def __init__(self, use_regressor: bool, fit_mode: Literal["auto", "prophet", "naive"] = "auto") -> None:
         self.use_regressor = use_regressor
+        self.fit_mode = fit_mode
 
     def predict(self, y_hist: np.ndarray, reg_hist: np.ndarray, reg_future: np.ndarray, horizon: int) -> np.ndarray:
+        if self.fit_mode == "naive":
+            return self._fallback_predict(y_hist=y_hist, reg_hist=reg_hist, reg_future=reg_future, horizon=horizon)
         try:
             import importlib
             import pandas as pd
@@ -182,12 +186,15 @@ class ProphetWindowForecaster:
             fcst = model.predict(fut)
             return fcst["yhat"].to_numpy(dtype=np.float64)
         except Exception:
-            if self.use_regressor:
-                base = float(y_hist[-1])
-                drift = float(reg_future.mean() - reg_hist.mean()) if reg_hist.size else 0.0
-                return np.full(horizon, base + 0.1 * drift, dtype=np.float64)
-            trend = float(y_hist[-1] - y_hist[-7]) / 7.0 if y_hist.shape[0] >= 7 else 0.0
-            return np.asarray([float(y_hist[-1] + trend * (i + 1)) for i in range(horizon)], dtype=np.float64)
+            return self._fallback_predict(y_hist=y_hist, reg_hist=reg_hist, reg_future=reg_future, horizon=horizon)
+
+    def _fallback_predict(self, y_hist: np.ndarray, reg_hist: np.ndarray, reg_future: np.ndarray, horizon: int) -> np.ndarray:
+        if self.use_regressor:
+            base = float(y_hist[-1])
+            drift = float(reg_future.mean() - reg_hist.mean()) if reg_hist.size else 0.0
+            return np.full(horizon, base + 0.1 * drift, dtype=np.float64)
+        trend = float(y_hist[-1] - y_hist[-7]) / 7.0 if y_hist.shape[0] >= 7 else 0.0
+        return np.asarray([float(y_hist[-1] + trend * (i + 1)) for i in range(horizon)], dtype=np.float64)
 
 
 def _reparameterize(mu: torch.Tensor, logvar: torch.Tensor) -> torch.Tensor:
@@ -429,11 +436,28 @@ def run_prophet_baseline(
     *,
     horizon: int,
     use_regressor: bool,
+    max_eval_samples: int | None = 2000,
+    fit_mode: Literal["auto", "prophet", "naive"] = "auto",
+    seed: int = 42,
 ) -> Scenario18Metrics:
-    forecaster = ProphetWindowForecaster(use_regressor=use_regressor)
+    rng = np.random.default_rng(seed)
+    forecaster = ProphetWindowForecaster(use_regressor=use_regressor, fit_mode=fit_mode)
 
     def _predict_for_split(common_x: np.ndarray, specific_x: np.ndarray, y: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
         c, s, yy = make_multi_horizon_pairs(common_x, specific_x, y, horizon)
+        if max_eval_samples is not None and c.shape[0] > max_eval_samples:
+            sampled_idx = np.sort(rng.choice(c.shape[0], size=max_eval_samples, replace=False))
+            c = c[sampled_idx]
+            s = s[sampled_idx]
+            yy = yy[sampled_idx]
+            print(
+                f"[prophet] sampled {max_eval_samples} windows out of {common_x.shape[0] - horizon} "
+                f"for faster evaluation"
+            )
+        elif fit_mode == "auto" and c.shape[0] > 2000:
+            forecaster.fit_mode = "naive"
+            print("[prophet] switched to naive fallback mode due to large window count.")
+
         preds: list[np.ndarray] = []
         for idx in range(c.shape[0]):
             y_hist = s[idx, :, 0]

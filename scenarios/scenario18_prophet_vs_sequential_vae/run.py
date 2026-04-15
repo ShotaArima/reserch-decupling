@@ -84,7 +84,7 @@ def _parse_args() -> argparse.Namespace:
         "--model",
         type=str,
         default="v2_seq_vae_transition",
-        choices=["p0_prophet", "p1_prophet_reg", "v0_flatten_vae", "v1_seq_vae", "v2_seq_vae_transition"],
+        choices=["p0_prophet", "p1_prophet_reg", "p2_prophet_segmented", "v0_flatten_vae", "v1_seq_vae", "v2_seq_vae_transition"],
     )
     parser.add_argument("--ablation-mode", type=str, default="both", choices=["both", "common_only", "specific_only"])
     parser.add_argument("--steps", type=int, default=120)
@@ -95,6 +95,19 @@ def _parse_args() -> argparse.Namespace:
     parser.add_argument("--transition-weight", type=float, default=1e-2)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--log-interval", type=int, default=20)
+    parser.add_argument(
+        "--prophet-fit-mode",
+        type=str,
+        default="auto",
+        choices=["auto", "prophet", "naive"],
+        help="Prophet baseline fit mode. auto switches to naive when sample count is very large.",
+    )
+    parser.add_argument(
+        "--prophet-max-eval-samples",
+        type=int,
+        default=2000,
+        help="Upper bound of windows to evaluate for Prophet baselines (speed guard). Use 0 for all windows.",
+    )
     return parser.parse_args()
 
 
@@ -183,9 +196,17 @@ def main() -> None:
 
     model_name = args.model
 
-    if model_name in {"p0_prophet", "p1_prophet_reg"}:
-        use_reg = model_name == "p1_prophet_reg"
-        metrics = run_prophet_baseline(splits, horizon=args.horizon, use_regressor=use_reg)
+    if model_name in {"p0_prophet", "p1_prophet_reg", "p2_prophet_segmented"}:
+        use_reg = model_name in {"p1_prophet_reg", "p2_prophet_segmented"}
+        max_eval_samples = None if args.prophet_max_eval_samples <= 0 else args.prophet_max_eval_samples
+        metrics = run_prophet_baseline(
+            splits,
+            horizon=args.horizon,
+            use_regressor=use_reg,
+            max_eval_samples=max_eval_samples,
+            fit_mode=args.prophet_fit_mode,  # type: ignore[arg-type]
+            seed=args.seed,
+        )
         losses: list[float] = []
     else:
         train_cfg = Scenario18TrainConfig(
