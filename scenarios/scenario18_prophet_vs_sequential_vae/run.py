@@ -21,6 +21,7 @@ OUTPUT_DIR = SCENARIO_DIR / "output"
 from src.data import FreshRetailConfig, load_freshretail_dataframe
 from src.plotting import save_learning_curve
 from src.scenario18_pipeline import (
+    ModelName,
     Scenario18TrainConfig,
     build_splits_for_scenario18,
     evaluate_vae_model,

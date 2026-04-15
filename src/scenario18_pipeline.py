@@ -159,7 +159,6 @@ class ProphetWindowForecaster:
     def predict(self, y_hist: np.ndarray, reg_hist: np.ndarray, reg_future: np.ndarray, horizon: int) -> np.ndarray:
         if self.fit_mode == "naive":
             return self._fallback_predict(y_hist=y_hist, reg_hist=reg_hist, reg_future=reg_future, horizon=horizon)
-
         try:
             import importlib
             import pandas as pd
