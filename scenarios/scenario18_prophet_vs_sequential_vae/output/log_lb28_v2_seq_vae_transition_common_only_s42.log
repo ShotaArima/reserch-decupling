@@ -1,0 +1,44 @@
+[progress] Loading dataset...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'dt_weekday', 'dt_month', 'dt_day', 'dt_is_weekend', 'discount', 'activity_flag']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[split] sample_count train=3149993 valid=674993 test=674993
+Traceback (most recent call last):
+  File "/home/arishow/project/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/run.py", line 273, in <module>
+    main()
+    ~~~~^^
+  File "/home/arishow/project/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/run.py", line 223, in main
+    model, losses = train_vae_model(
+                    ~~~~~~~~~~~~~~~^
+        splits,
+        ^^^^^^^
+    ...<3 lines>...
+        config=train_cfg,
+        ^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/home/arishow/project/reserch-decupling/src/scenario18_pipeline.py", line 342, in train_vae_model
+    pred, info = model(common_train_t, specific_train_t, mode=mode)
+                 ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arishow/project/reserch-decupling/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/arishow/project/reserch-decupling/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arishow/project/reserch-decupling/src/scenario18_pipeline.py", line 141, in forward
+    mu_common, logvar_common, mu_specific, logvar_specific, z_common, z_specific = self.encode(common_x, specific_x)
+                                                                                   ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/arishow/project/reserch-decupling/src/scenario18_pipeline.py", line 123, in encode
+    _, h_common = self.common_encoder(common_x)
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/home/arishow/project/reserch-decupling/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1776, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/home/arishow/project/reserch-decupling/.venv/lib/python3.13/site-packages/torch/nn/modules/module.py", line 1787, in _call_impl
+    return forward_call(*args, **kwargs)
+  File "/home/arishow/project/reserch-decupling/.venv/lib/python3.13/site-packages/torch/nn/modules/rnn.py", line 1415, in forward
+    result = _VF.gru(
+        input,
+    ...<7 lines>...
+        self.batch_first,
+    )
+RuntimeError: [enforce fail at alloc_cpu.cpp:127] err == 0. DefaultCPUAllocator: can't allocate memory: you tried to allocate 67737449472 bytes. Error code 12 (Cannot allocate memory)
