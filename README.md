@@ -62,6 +62,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - stock 系特徴を specific 側へ追加する拡張検証（Exp-3 系）
 - `scenarios/scenario17_horizon_role_gap`
   - 予測 horizon（1/3/7-step）で common/specific の寄与差を比較
+- `scenarios/scenario19_prophet_vae_horizon_extension`
+  - Prophet と VAE系 decoupling の horizon 拡張比較（14/21/28/35/42日）
 - `doc/08-scenario8_recovery_subset_diagnosis.md`
   - Scenario8 の実験設計ドキュメント
 - `doc/09-scenario9_common_specific_feature_assignment.md`
@@ -70,6 +72,8 @@ uv run python -c "import torch, datasets, pandas, numpy; print('ok')"
   - Scenario10 の stock 状態変数 local 拡張実験計画
 - `doc/17-scenario17_horizon_role_gap.md`
   - Scenario17 の horizon 依存役割差実験計画
+- `doc/19-scenario19_prophet_vae_horizon_extension.md`
+  - Scenario19 の Prophet/VAE horizon 拡張比較実験計画
 - `src/`
   - データロード、モデル、メトリクス共通部品
 
@@ -87,6 +91,7 @@ uv run python scenarios/scenario8_recovery_subset_diagnosis/run.py
 uv run python scenarios/scenario9_common_specific_feature_assignment/run.py
 uv run python scenarios/scenario10_stock_extension_local_branch/run.py
 uv run python scenarios/scenario17_horizon_role_gap/run.py
+uv run python scenarios/scenario19_prophet_vae_horizon_extension/run.py
 ```
 
 > 注意: FreshRetailNet-50K の列名や split 名が将来変更された場合は、各スクリプト内の feature 定義を合わせて修正してください。
