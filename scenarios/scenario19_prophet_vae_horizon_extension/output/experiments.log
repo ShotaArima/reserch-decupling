@@ -1,0 +1,68 @@
+[2026-04-19 20:06:52] Seed fixed at 42
+[2026-04-19 20:06:52] Loading FreshRetailNet-50K dataframe...
+[2026-04-19 20:06:56] Loaded dataframe rows=4500000 cols=19
+[2026-04-19 20:06:56] --------------------------------------------------------------------------------
+[2026-04-19 20:06:56] Start horizon=14
+[2026-04-19 20:07:31] Prepared tensors: x_train=(3150000, 14, 4) x_valid=(675000, 14, 4) x_test=(675000, 14, 4)
+[2026-04-19 20:07:31] One-step pairs: train=3149999 valid=674999 test=674999
+[2026-04-19 20:07:31] Running Prophet baseline...
+[2026-04-19 21:20:50] Prophet finished: valid_wape=0.4636 test_wape=0.4584
+[2026-04-19 21:20:50] Training VAE decoupling model (Scenario2) steps=100...
+[2026-04-19 21:33:12] Scenario2 loss snapshot: start=1.0013 mid=0.4223 end=0.4173
+[2026-04-19 21:33:13] Scenario2 finished: valid_wape=0.4292 test_wape=0.4242
+[2026-04-19 21:33:13] Saved learning curve: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/h14_scenario2_train_loss.png
+[2026-04-19 21:33:13] --------------------------------------------------------------------------------
+[2026-04-19 21:33:13] Start horizon=21
+[2026-04-19 21:33:49] Prepared tensors: x_train=(3150000, 21, 4) x_valid=(675000, 21, 4) x_test=(675000, 21, 4)
+[2026-04-19 21:33:49] One-step pairs: train=3149999 valid=674999 test=674999
+[2026-04-19 21:33:49] Running Prophet baseline...
+[2026-04-19 22:49:28] Prophet finished: valid_wape=0.4636 test_wape=0.4584
+[2026-04-19 22:49:28] Training VAE decoupling model (Scenario2) steps=100...
+[2026-04-19 23:00:23] Scenario2 loss snapshot: start=0.9680 mid=0.4204 end=0.4160
+[2026-04-19 23:00:24] Scenario2 finished: valid_wape=0.4281 test_wape=0.4229
+[2026-04-19 23:00:24] Saved learning curve: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/h21_scenario2_train_loss.png
+[2026-04-19 23:00:24] --------------------------------------------------------------------------------
+[2026-04-19 23:00:24] Start horizon=28
+[2026-04-19 23:01:02] Prepared tensors: x_train=(3150000, 28, 4) x_valid=(675000, 28, 4) x_test=(675000, 28, 4)
+[2026-04-19 23:01:02] One-step pairs: train=3149999 valid=674999 test=674999
+[2026-04-19 23:01:02] Running Prophet baseline...
+[2026-04-20 00:19:20] Prophet finished: valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 00:19:20] Training VAE decoupling model (Scenario2) steps=100...
+[2026-04-20 00:29:52] Scenario2 loss snapshot: start=1.0602 mid=0.4211 end=0.4165
+[2026-04-20 00:29:53] Scenario2 finished: valid_wape=0.4284 test_wape=0.4235
+[2026-04-20 00:29:53] Saved learning curve: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/h28_scenario2_train_loss.png
+[2026-04-20 00:29:53] --------------------------------------------------------------------------------
+[2026-04-20 00:29:53] Start horizon=35
+[2026-04-20 00:30:32] Prepared tensors: x_train=(3150000, 35, 4) x_valid=(675000, 35, 4) x_test=(675000, 35, 4)
+[2026-04-20 00:30:32] One-step pairs: train=3149999 valid=674999 test=674999
+[2026-04-20 00:30:32] Running Prophet baseline...
+[2026-04-20 01:49:18] Prophet finished: valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 01:49:18] Training VAE decoupling model (Scenario2) steps=100...
+[2026-04-20 02:01:55] Scenario2 loss snapshot: start=1.0134 mid=0.4178 end=0.4160
+[2026-04-20 02:01:56] Scenario2 finished: valid_wape=0.4283 test_wape=0.4231
+[2026-04-20 02:01:56] Saved learning curve: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/h35_scenario2_train_loss.png
+[2026-04-20 02:01:56] --------------------------------------------------------------------------------
+[2026-04-20 02:01:56] Start horizon=42
+[2026-04-20 02:02:37] Prepared tensors: x_train=(3150000, 42, 4) x_valid=(675000, 42, 4) x_test=(675000, 42, 4)
+[2026-04-20 02:02:37] One-step pairs: train=3149999 valid=674999 test=674999
+[2026-04-20 02:02:37] Running Prophet baseline...
+[2026-04-20 03:22:37] Prophet finished: valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:22:37] Training VAE decoupling model (Scenario2) steps=100...
+[2026-04-20 03:34:31] Scenario2 loss snapshot: start=0.8382 mid=0.4190 end=0.4160
+[2026-04-20 03:34:32] Scenario2 finished: valid_wape=0.4285 test_wape=0.4232
+[2026-04-20 03:34:32] Saved learning curve: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/h42_scenario2_train_loss.png
+[2026-04-20 03:34:32] Saved result csv: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/horizon_extension_results.csv
+[2026-04-20 03:34:32] Saved horizon plot: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/horizon_extension_valid_wape.png
+[2026-04-20 03:34:32] Saved horizon plot: /home/arishow/project/reserch-decupling/scenarios/scenario19_prophet_vae_horizon_extension/output/horizon_extension_test_wape.png
+[2026-04-20 03:34:32] ================================================================================
+[2026-04-20 03:34:32] Result summary
+[2026-04-20 03:34:32] h=14 Prophet    valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:34:32] h=14 Scenario2  valid_wape=0.4292 test_wape=0.4242
+[2026-04-20 03:34:32] h=21 Prophet    valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:34:32] h=21 Scenario2  valid_wape=0.4281 test_wape=0.4229
+[2026-04-20 03:34:32] h=28 Prophet    valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:34:32] h=28 Scenario2  valid_wape=0.4284 test_wape=0.4235
+[2026-04-20 03:34:32] h=35 Prophet    valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:34:32] h=35 Scenario2  valid_wape=0.4283 test_wape=0.4231
+[2026-04-20 03:34:32] h=42 Prophet    valid_wape=0.4636 test_wape=0.4584
+[2026-04-20 03:34:32] h=42 Scenario2  valid_wape=0.4285 test_wape=0.4232
