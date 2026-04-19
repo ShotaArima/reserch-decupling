@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import sys
 import time
@@ -43,6 +44,56 @@ SEED = 42
 def _log(message: str) -> None:
     timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
     print(f"[{timestamp}] {message}")
+
+
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Scenario19: Prophet vs VAE horizon extension.")
+    parser.add_argument("--seed", type=int, default=SEED)
+    parser.add_argument("--horizons", type=str, default="14,21,28,35,42")
+    parser.add_argument("--train-steps", type=int, default=TRAIN_STEPS)
+    parser.add_argument("--batch-size", type=int, default=256)
+    parser.add_argument("--device", type=str, default="auto", choices=["auto", "cpu", "cuda"])
+    parser.add_argument("--log-interval", type=int, default=20)
+    parser.add_argument("--skip-prophet", action="store_true")
+    parser.add_argument(
+        "--prophet-max-samples",
+        type=int,
+        default=256,
+        help="Limit samples per split for Prophet to avoid very long runtime.",
+    )
+    return parser.parse_args()
+
+
+def _parse_horizons(raw: str) -> list[int]:
+    return [int(v.strip()) for v in raw.split(",") if v.strip()]
+
+
+def _resolve_device(device_arg: str) -> torch.device:
+    if device_arg == "cpu":
+        return torch.device("cpu")
+    if device_arg == "cuda":
+        if not torch.cuda.is_available():
+            raise RuntimeError("CUDA was requested but is not available.")
+        return torch.device("cuda")
+    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def _cap_prophet_indices(length: int, max_samples: int | None, *, seed: int) -> np.ndarray:
+    if max_samples is None or max_samples <= 0 or length <= max_samples:
+        return np.arange(length, dtype=np.int64)
+    rng = np.random.default_rng(seed)
+    return np.sort(rng.choice(length, size=max_samples, replace=False))
+
+
+def _predict_scenario2_batched(body, head, x: torch.Tensor, batch_size: int) -> np.ndarray:
+    preds: list[np.ndarray] = []
+    with torch.no_grad():
+        for start in range(0, x.shape[0], batch_size):
+            end = min(start + batch_size, x.shape[0])
+            batch = x[start:end]
+            pred = head(*body(batch)[1:]).numpy().reshape(-1)
+            preds.append(pred)
+    return np.concatenate(preds, axis=0)
 
 
 def _prepare_split_tensors(
@@ -99,18 +150,33 @@ def _write_results(rows: list[dict[str, float | str | int]], out_path: Path) -> 
 
 
 def main() -> None:
-    torch.manual_seed(SEED)
-    np.random.seed(SEED)
+    args = _parse_args()
+    seed = args.seed
+    horizons = _parse_horizons(args.horizons)
+    if not horizons:
+        raise ValueError("No horizons provided.")
+
+    device = _resolve_device(args.device)
+    torch.manual_seed(seed)
+    np.random.seed(seed)
+    if device.type == "cuda":
+        torch.cuda.manual_seed_all(seed)
+
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    _log(f"Seed fixed at {SEED}")
+    _log(f"Seed fixed at {seed}")
+    _log(
+        f"Runtime config: device={device} horizons={horizons} train_steps={args.train_steps} "
+        f"batch_size={args.batch_size} skip_prophet={args.skip_prophet} "
+        f"prophet_max_samples={args.prophet_max_samples}"
+    )
     _log("Loading FreshRetailNet-50K dataframe...")
     df = load_freshretail_dataframe(FreshRetailConfig())
     _log(f"Loaded dataframe rows={len(df)} cols={len(df.columns)}")
 
     rows: list[dict[str, float | str | int]] = []
 
-    for horizon in HORIZONS:
+    for horizon in horizons:
         _log("-" * 80)
         _log(f"Start horizon={horizon}")
         x_train, x_valid, x_test, y_train, y_valid, y_test, valid_raw, test_raw = _prepare_split_tensors(
@@ -131,41 +197,60 @@ def main() -> None:
         y_test_np = y_test_s.numpy().reshape(-1)
         _log(f"One-step pairs: train={len(x_train_s)} valid={len(x_valid_s)} test={len(x_test_s)}")
 
-        _log("Running Prophet baseline...")
-        try:
-            prophet_valid = predict_prophet_next_step_per_sample(
-                valid_raw[:-1],
-                target_feature_index=TARGET_FEATURE_INDEX,
-            )
-            prophet_test = predict_prophet_next_step_per_sample(
-                test_raw[:-1],
-                target_feature_index=TARGET_FEATURE_INDEX,
-            )
-            prophet_row = _score_row(horizon, "Prophet", y_valid_np, prophet_valid, y_test_np, prophet_test)
-            rows.append(prophet_row)
-            _log(
-                "Prophet finished: "
-                f"valid_wape={prophet_row['valid_wape']:.4f} test_wape={prophet_row['test_wape']:.4f}"
-            )
-        except Exception as exc:
-            _log(f"Prophet skipped on horizon={horizon}: {exc}")
+        if not args.skip_prophet:
+            _log("Running Prophet baseline...")
+            try:
+                valid_indices = _cap_prophet_indices(len(y_valid_np), args.prophet_max_samples, seed=seed + horizon)
+                test_indices = _cap_prophet_indices(len(y_test_np), args.prophet_max_samples, seed=seed + horizon + 10_000)
+                valid_raw_prophet = valid_raw[:-1][valid_indices]
+                test_raw_prophet = test_raw[:-1][test_indices]
 
-        _log(f"Training VAE decoupling model (Scenario2) steps={TRAIN_STEPS}...")
+                prophet_valid = predict_prophet_next_step_per_sample(
+                    valid_raw_prophet,
+                    target_feature_index=TARGET_FEATURE_INDEX,
+                )
+                prophet_test = predict_prophet_next_step_per_sample(
+                    test_raw_prophet,
+                    target_feature_index=TARGET_FEATURE_INDEX,
+                )
+                y_valid_prophet = y_valid_np[valid_indices]
+                y_test_prophet = y_test_np[test_indices]
+                prophet_row = _score_row(
+                    horizon,
+                    f"Prophet(n={len(valid_raw_prophet)}/{len(test_raw_prophet)})",
+                    y_valid_prophet,
+                    prophet_valid,
+                    y_test_prophet,
+                    prophet_test,
+                )
+                rows.append(prophet_row)
+                _log(
+                    "Prophet finished: "
+                    f"valid_wape={prophet_row['valid_wape']:.4f} test_wape={prophet_row['test_wape']:.4f}"
+                )
+            except Exception as exc:
+                _log(f"Prophet skipped on horizon={horizon}: {exc}")
+        else:
+            _log("Skipping Prophet baseline by --skip-prophet.")
+
+        _log(f"Training VAE decoupling model (Scenario2) steps={args.train_steps}...")
         s2_body, s2_head, s2_losses = train_scenario2_model(
             x_train_s,
             y_train_s,
             feature_dim=len(BASE_FEATURES),
             window_size=horizon,
-            steps=TRAIN_STEPS,
+            steps=args.train_steps,
+            batch_size=args.batch_size,
+            device=device,
+            log_interval=args.log_interval,
         )
         _log(
             f"Scenario2 loss snapshot: start={s2_losses[0]:.4f} "
             f"mid={s2_losses[len(s2_losses)//2]:.4f} end={s2_losses[-1]:.4f}"
         )
 
-        with torch.no_grad():
-            s2_valid = s2_head(*s2_body(x_valid_s)[1:]).numpy().reshape(-1)
-            s2_test = s2_head(*s2_body(x_test_s)[1:]).numpy().reshape(-1)
+        s2_valid = _predict_scenario2_batched(s2_body, s2_head, x_valid_s, batch_size=max(1, args.batch_size))
+        s2_test = _predict_scenario2_batched(s2_body, s2_head, x_test_s, batch_size=max(1, args.batch_size))
 
         s2_row = _score_row(horizon, "Scenario2", y_valid_np, s2_valid, y_test_np, s2_test)
         rows.append(s2_row)
@@ -189,7 +274,7 @@ def main() -> None:
     _write_results(rows, csv_path)
     _log(f"Saved result csv: {csv_path}")
 
-    model_order = ["Prophet", "Scenario2"]
+    model_order = list(dict.fromkeys(str(r["model"]) for r in rows))
     for split in ("valid_wape", "test_wape"):
         plot_path = OUTPUT_DIR / f"horizon_extension_{split}.png"
         rendered = save_horizon_error_plot(
@@ -203,7 +288,7 @@ def main() -> None:
 
     _log("=" * 80)
     _log("Result summary")
-    for horizon in HORIZONS:
+    for horizon in horizons:
         horizon_rows = [r for r in rows if r["horizon"] == horizon]
         for row in sorted(horizon_rows, key=lambda x: str(x["model"])):
             _log(

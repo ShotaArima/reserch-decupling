@@ -104,21 +104,41 @@ def train_scenario2_model(
     window_size: int,
     lr: float = 1e-3,
     steps: int = 100,
+    batch_size: int | None = None,
+    device: torch.device | str = "cpu",
+    log_interval: int = 0,
 ) -> tuple[DecouplingAutoEncoder, ForecastHead, list[float]]:
-    body = DecouplingAutoEncoder(DecouplingConfig(feature_dim=feature_dim, window_size=window_size))
-    head = ForecastHead(local_dim=16, global_dim=16, horizon=1)
+    body = DecouplingAutoEncoder(DecouplingConfig(feature_dim=feature_dim, window_size=window_size)).to(device)
+    head = ForecastHead(local_dim=16, global_dim=16, horizon=1).to(device)
     optimizer = torch.optim.Adam(list(body.parameters()) + list(head.parameters()), lr=lr)
     loss_fn = nn.L1Loss()
     losses: list[float] = []
+    x_train = x_train.to(device)
+    y_train = y_train.to(device)
+    train_count = x_train.shape[0]
+    use_batch = batch_size is not None and 0 < batch_size < train_count
 
-    for _ in range(steps):
-        _, local, global_latent = body(x_train)
+    for step in range(1, steps + 1):
+        if use_batch:
+            indices = torch.randint(low=0, high=train_count, size=(batch_size,), device=device)
+            xb = x_train[indices]
+            yb = y_train[indices]
+        else:
+            xb = x_train
+            yb = y_train
+
+        _, local, global_latent = body(xb)
         pred = head(local, global_latent)
-        loss = loss_fn(pred, y_train)
+        loss = loss_fn(pred, yb)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         losses.append(float(loss.item()))
+        if log_interval > 0 and (step % log_interval == 0 or step == 1 or step == steps):
+            print(f"[scenario2-train] step={step}/{steps} loss={loss.item():.6f}")
+
+    body = body.cpu()
+    head = head.cpu()
 
     return body, head, losses
 
