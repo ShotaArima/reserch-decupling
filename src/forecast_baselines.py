@@ -6,6 +6,12 @@ from typing import Sequence
 import numpy as np
 import torch
 from torch import nn
+import pandas as pd
+import importlib
+import importlib.util
+from tqdm  import tqdm
+from joblib import Parallel, delayed
+
 
 from src.models import DecouplingAutoEncoder, DecouplingConfig, ForecastHead
 
@@ -104,21 +110,41 @@ def train_scenario2_model(
     window_size: int,
     lr: float = 1e-3,
     steps: int = 100,
+    batch_size: int | None = None,
+    device: torch.device | str = "cpu",
+    log_interval: int = 0,
 ) -> tuple[DecouplingAutoEncoder, ForecastHead, list[float]]:
-    body = DecouplingAutoEncoder(DecouplingConfig(feature_dim=feature_dim, window_size=window_size))
-    head = ForecastHead(local_dim=16, global_dim=16, horizon=1)
+    body = DecouplingAutoEncoder(DecouplingConfig(feature_dim=feature_dim, window_size=window_size)).to(device)
+    head = ForecastHead(local_dim=16, global_dim=16, horizon=1).to(device)
     optimizer = torch.optim.Adam(list(body.parameters()) + list(head.parameters()), lr=lr)
     loss_fn = nn.L1Loss()
     losses: list[float] = []
+    x_train = x_train.to(device)
+    y_train = y_train.to(device)
+    train_count = x_train.shape[0]
+    use_batch = batch_size is not None and 0 < batch_size < train_count
 
-    for _ in range(steps):
-        _, local, global_latent = body(x_train)
+    for step in range(1, steps + 1):
+        if use_batch:
+            indices = torch.randint(low=0, high=train_count, size=(batch_size,), device=device)
+            xb = x_train[indices]
+            yb = y_train[indices]
+        else:
+            xb = x_train
+            yb = y_train
+
+        _, local, global_latent = body(xb)
         pred = head(local, global_latent)
-        loss = loss_fn(pred, y_train)
+        loss = loss_fn(pred, yb)
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
         losses.append(float(loss.item()))
+        if log_interval > 0 and (step % log_interval == 0 or step == 1 or step == steps):
+            print(f"[scenario2-train] step={step}/{steps} loss={loss.item():.6f}")
+
+    body = body.cpu()
+    head = head.cpu()
 
     return body, head, losses
 
@@ -166,26 +192,21 @@ def train_scenario4_pipeline(
 
 
 def predict_prophet_next_step_per_sample(
-    x_raw: np.ndarray,
-    *,
-    target_feature_index: int = 0,
-    seasonality_mode: str = "additive",
+        x_raw: np.ndarray,
+        *,
+        target_feature_index: int = 0,
+        seasonality_mode: str = "additive",
 ) -> np.ndarray:
-    """Fit Prophet on each window and predict the next step.
-
-    Returns shape [N]. If prophet is unavailable, this function raises RuntimeError.
-    """
-    import importlib
-    import importlib.util
-    import pandas as pd
+    """Fit Prophet on each window and predict the next step in parallel."""
 
     if importlib.util.find_spec("prophet") is None:
         raise RuntimeError("prophet is not installed. Install with `uv add prophet`.")
 
-    Prophet = importlib.import_module("prophet").Prophet
+    # 1. ループ内の処理を、1つの関数として分離する
+    def _fit_and_predict(row):
+        # 関数内部でインポートすることで、各プロセスでの依存関係を確実にする
+        from prophet import Prophet
 
-    preds: list[float] = []
-    for row in x_raw:
         y = row[:, target_feature_index].astype(float)
         ds = pd.date_range("2020-01-01", periods=len(y), freq="D")
         fit_df = pd.DataFrame({"ds": ds, "y": y})
@@ -196,9 +217,22 @@ def predict_prophet_next_step_per_sample(
             daily_seasonality=False,
             seasonality_mode=seasonality_mode,
         )
+
+        # Prophetの不要なログ出力を抑える（並列実行時のログ汚れ防止）
+        import logging
+        logging.getLogger('prophet').setLevel(logging.ERROR)
+        logging.getLogger('cmdstanpy').setLevel(logging.ERROR)
+
         model.fit(fit_df)
         future = model.make_future_dataframe(periods=1, freq="D", include_history=False)
         forecast = model.predict(future)
-        preds.append(float(forecast["yhat"].iloc[-1]))
+        return float(forecast["yhat"].iloc[-1])
+
+    # 2. Parallel を使って実行
+    # n_jobs=-1 は「利用可能なすべてのCPUコアを使う」設定
+    preds = Parallel(n_jobs=-1)(
+        delayed(_fit_and_predict)(row)
+        for row in tqdm(x_raw, desc="Parallel Forecasting")
+    )
 
     return np.asarray(preds, dtype=np.float64)
