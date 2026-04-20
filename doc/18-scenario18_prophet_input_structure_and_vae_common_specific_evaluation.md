@@ -268,32 +268,82 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 
 ---
 
-## 15. 実験実行ステータス（2026-04-20 時点）
+## 15. 実験実行ステータスと結果集約（2026-04-20 時点）
 
-Scenario18 の実行状況を、実ログファイル（`scenarios/scenario18_prophet_vs_sequential_vae/output/log_*.log`）基準で整理する。
+このセクションでは、`scenarios/scenario18_prophet_vs_sequential_vae/output/log_*.log` を一次情報として、
+「何を実験し、何が分かり、何が未達か」を 1 枚で把握できるように集約する。
 
-### 15.1 進捗サマリ
+### 15.1 全体進捗（実行コマンドベース vs スコア取得ベース）
 
-- **1. Prophet Models**: 18/18 完了
-- **2. Sequential VAE Models**: 36/36 完了
-- **3. V0 Flatten VAE**: 6/6 完了
-- **合計**: **60/60 完了**
+- 実行ログファイル自体は **60/60 パターン分**存在。
+- ただし、`[result]` 行（`valid_wape/test_wape/valid_mae/test_mae`）まで出力されたのは **16/60**。
+- したがって、**「実行トリガーはほぼ完了」だが「評価可能な実験は一部のみ」**という状態。
 
-### 15.2 詳細チェック（3区分）
+| 区分 | 期待run数 | ログ存在 | スコア出力あり | 備考 |
+|---|---:|---:|---:|---|
+| 1. Prophet Models | 18 | 18 | 16 | `lb28` の `p1/p2` seed62 が欠測 |
+| 2. Sequential VAE Models | 36 | 36 | 0 | 主にメモリ確保失敗/中断で結果なし |
+| 3. V0 Flatten VAE | 6 | 6 | 0 | `save_learning_curve(..., output_path=...)` の TypeError |
+| **合計** | **60** | **60** | **16** |  |
 
-#### 1) Prophet Models
-- [x] lookback=14: `p0_prophet`, `p1_prophet_reg`, `p2_prophet_segmented` × seed `{42,52,62}`
-- [x] lookback=28: `p0_prophet`, `p1_prophet_reg`, `p2_prophet_segmented` × seed `{42,52,62}`
+### 15.2 スコアが出ている実験（Prophetのみ）
 
-#### 2) Sequential VAE Models
-- [x] lookback=14: `v1_seq_vae`, `v2_seq_vae_transition` × ablation `{both, common_only, specific_only}` × seed `{42,52,62}`
-- [x] lookback=28: `v1_seq_vae`, `v2_seq_vae_transition` × ablation `{both, common_only, specific_only}` × seed `{42,52,62}`
+#### 集約（平均は seed 平均）
 
-#### 3) V0 Flatten VAE
-- [x] lookback=14: `v0_flatten_vae` × seed `{42,52,62}`
-- [x] lookback=28: `v0_flatten_vae` × seed `{42,52,62}`
+| lookback | model | n(seed) | valid WAPE mean | test WAPE mean | test WAPE std |
+|---:|---|---:|---:|---:|---:|
+| 14 | `p0_prophet` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 14 | `p1_prophet_reg` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 14 | `p2_prophet_segmented` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 28 | `p0_prophet` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 28 | `p1_prophet_reg` | 2 | 1.1027 | 1.0756 | 0.0269 |
+| 28 | `p2_prophet_segmented` | 2 | 1.1027 | 1.0756 | 0.0269 |
 
-### 15.3 メモ（メモリオーバーフロー関連）
+#### seed別（抜粋）
 
-- Sequential VAE の `lookback=28` 系は一時的にメモリ制約で未実施扱いだったが、現時点では必要パターンのログが揃っており、**未実施は解消済み**。
-- 以降は、この 60 run を固定母集団として結果比較（overall / horizon / subset）を更新する。
+- `p0/p1/p2` と `lookback=14/28` の多くで同一スコア列が繰り返されており、
+  例として seed42 は `valid_wape=1.0929, test_wape=1.1024`、seed52 は `valid_wape=1.1125, test_wape=1.0487`、seed62 は `valid_wape=1.0382, test_wape=1.0687` で一致。
+- この一致は「モデル差/窓差が効いていない」可能性を示唆するため、実装上の切替反映を要確認。
+
+### 15.3 スコアが出ていない実験（できなかったこと）
+
+#### A) Sequential VAE（36 run）
+
+- `lookback=28` 系では、`DefaultCPUAllocator: can't allocate memory ... 67737449472 bytes` がログに記録されており、
+  **メモリオーバーフローで学習が停止**。
+- `lookback=14` 系も多くが `[split] sample_count ...` までで終了し、`[result]` 未出力。
+- 一部ログには `resource_tracker` 警告のみ、または競合マーカー文字列（`<<<<<<<`, `>>>>>>>`）が混入したものがあり、
+  正常な計測ログとして扱えない。
+
+#### B) V0 Flatten VAE（6 run）
+
+- 全 seed / 全 lookback で `TypeError: save_learning_curve() got an unexpected keyword argument 'output_path'` により終了。
+- 学習自体が完了していても、後段の保存処理エラーで実行全体が異常終了している可能性がある。
+
+#### C) Prophet 欠測（2 run）
+
+- `log_lb28_p1_prophet_reg_s62.log` は `zsh: command not found: $` のみ。
+- `log_lb28_p2_prophet_segmented_s62.log` は空ファイル。
+- したがって当該2 runは再実行が必要。
+
+### 15.4 ここまでで分かったこと（考察）
+
+1. **現時点での比較結論は Prophet 内の部分比較まで**
+   - VAE 側に有効スコアがないため、Scenario18 の主目的である Prophet vs Sequential VAE 比較は未達。
+
+2. **Prophet結果は「差が小さすぎる/同一値が多い」ため解釈に注意**
+   - `p0/p1/p2` 間で seedごとに同値が続くため、真にモデル差を反映した結果かは未検証。
+   - 入力回帰子や segmented 分岐が実際に推論へ反映されているか、run.py の分岐・特徴投入を監査すべき。
+
+3. **ボトルネックは性能より実験基盤の安定性**
+   - Sequential VAE はメモリ要件が高く、`lookback=28` で顕著に失敗。
+   - V0 は保存関数引数不整合という実装不整合で全滅。
+   - まず「最後まで走ってメトリクスを吐く」再現性の確立が先決。
+
+### 15.5 次アクション（このファイルで追跡する ToDo）
+
+- [ ] `run.py` で `save_learning_curve` の引数名を修正し、V0 6run を再実行してスコア回収。
+- [ ] Sequential VAE のメモリ対策（batch縮小、系列サンプリング、mixed precision、grad accumulation）を入れて 36run を再実行。
+- [ ] Prophet の `p1/p2` seed62 欠測2runを再実行。
+- [ ] `p0/p1/p2` のスコア同一問題をコードレベルで検証（回帰子投入・分割学習の有効化確認）。
+- [ ] 本節の表を「最新ログ再集計」で更新し、比較考察（WAPE差分、seed頑健性、horizon別）を追記。
