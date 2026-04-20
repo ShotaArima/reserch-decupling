@@ -258,7 +258,7 @@ def main() -> None:
 
     if losses:
         fig_path = OUTPUT_DIR / f"train_loss_{model_name}_{args.ablation_mode}_seed{args.seed}.png"
-        save_learning_curve(losses, title=f"scenario18 {model_name} ({args.ablation_mode})", output_path=fig_path)
+        save_learning_curve(losses, fig_path, title=f"scenario18 {model_name} ({args.ablation_mode})")
 
     print("[result] ")
     print(
