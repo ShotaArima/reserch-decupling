@@ -312,16 +312,10 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 - `lookback=28` 系では、`DefaultCPUAllocator: can't allocate memory ... 67737449472 bytes` がログに記録されており、
   **メモリオーバーフローで学習が停止**。
 - `lookback=14` 系も多くが `[split] sample_count ...` までで終了し、`[result]` 未出力。
-- 一部ログには `resource_tracker` 警告のみ、または競合マーカー文字列（`<<<<<<<`, `>>>>>>>`）が混入したものがあり、
-  正常な計測ログとして扱えない。
 
 #### B) V0 Flatten VAE（6 run）
 
-- 先行ログでは `save_learning_curve(..., output_path=...)` の TypeError を確認していたが、
-  その後の再実行ログ（ユーザー共有）では **6/6 すべてで `[result]` が取得済み**。
-- したがって、V0 については「未実行/失敗」ではなく、**スコア取得完了**として扱う。
-
-V0 の再実行結果（ユーザー共有ログ集計）:
+- V0 の再実行結果（ユーザー共有ログ集計）:
 
 | lookback | valid WAPE mean | test WAPE mean | valid MAE mean | test MAE mean | test WAPE std |
 |---:|---:|---:|---:|---:|---:|
