@@ -1,1 +1,22 @@
 [progress] Loading dataset...
+<<<<<<< HEAD
+=======
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'dt_weekday', 'dt_month', 'dt_day', 'dt_is_weekend', 'discount', 'activity_flag']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[split] sample_count train=3149993 valid=674993 test=674993
+[train] v0_flatten_vae: step=1/120 loss=0.898011 rec=0.897975 kl=0.035656
+[train] v0_flatten_vae: step=20/120 loss=0.576809 rec=0.575213 kl=1.596462
+[train] v0_flatten_vae: step=40/120 loss=0.470692 rec=0.468424 kl=2.267380
+[train] v0_flatten_vae: step=60/120 loss=0.450822 rec=0.448178 kl=2.643559
+[train] v0_flatten_vae: step=80/120 loss=0.444763 rec=0.441844 kl=2.918781
+[train] v0_flatten_vae: step=100/120 loss=0.441324 rec=0.438314 kl=3.010416
+[train] v0_flatten_vae: step=120/120 loss=0.438760 rec=0.435721 kl=3.038940
+Traceback (most recent call last):
+  File "/home/arishow/project/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/run.py", line 273, in <module>
+    main()
+    ~~~~^^
+  File "/home/arishow/project/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/run.py", line 261, in main
+    save_learning_curve(losses, title=f"scenario18 {model_name} ({args.ablation_mode})", output_path=fig_path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: save_learning_curve() got an unexpected keyword argument 'output_path'. Did you mean 'out_path'?
+>>>>>>> eed22c9653e21be6313c09da9262d87228119a81
