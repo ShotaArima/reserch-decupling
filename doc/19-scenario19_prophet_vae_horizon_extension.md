@@ -72,22 +72,47 @@ uv run python -u scenarios/scenario19_prophet_vae_horizon_extension/run.py \
 - `h28_scenario2_train_loss.png`
 - `h35_scenario2_train_loss.png`
 - `h42_scenario2_train_loss.png`
+- `experiments.log`
 
 ---
 
-## ログ方針
-長時間実行を想定し、タイムスタンプ付きで詳細ログを出力する。
+## 実験結果（2026-04-19 〜 2026-04-20 実行）
+`scenarios/scenario19_prophet_vae_horizon_extension/output/experiments.log` の結果を整理。
 
-- データ読込開始/完了
-- horizon 開始通知
-- tensor shape と one-step pair 件数
-- Prophet 実行結果（または skip 理由）
-- Scenario2 の loss snapshot（start/mid/end）
-- 各 artifact 保存先
-- 最終サマリ（horizon x model）
+### WAPE（horizon 別）
+| Horizon | Model | valid_wape | test_wape |
+|---:|---|---:|---:|
+| 14 | Prophet | 0.4636 | 0.4584 |
+| 14 | Scenario2 | 0.4292 | 0.4242 |
+| 21 | Prophet | 0.4636 | 0.4584 |
+| 21 | Scenario2 | 0.4281 | 0.4229 |
+| 28 | Prophet | 0.4636 | 0.4584 |
+| 28 | Scenario2 | 0.4284 | 0.4235 |
+| 35 | Prophet | 0.4636 | 0.4584 |
+| 35 | Scenario2 | 0.4283 | 0.4231 |
+| 42 | Prophet | 0.4636 | 0.4584 |
+| 42 | Scenario2 | 0.4285 | 0.4232 |
+
+### 主要な観察
+- **全 horizon で Scenario2 が Prophet を上回る**（valid/test ともに低い WAPE）。
+- Scenario2 の test_wape は `0.4229〜0.4242` の狭い範囲で安定しており、
+  horizon を 14→42 日に伸ばしても大きな劣化は見られない。
+- Prophet 側は全 horizon で同一値（`valid_wape=0.4636, test_wape=0.4584`）となっており、
+  今回の設定では horizon 拡張に対する差が出ていない。
+
+### 参考: Scenario2 学習 loss（start / mid / end）
+| Horizon | start | mid | end |
+|---:|---:|---:|---:|
+| 14 | 1.0013 | 0.4223 | 0.4173 |
+| 21 | 0.9680 | 0.4204 | 0.4160 |
+| 28 | 1.0602 | 0.4211 | 0.4165 |
+| 35 | 1.0134 | 0.4178 | 0.4160 |
+| 42 | 0.8382 | 0.4190 | 0.4160 |
 
 ---
 
-## 期待する解釈
-- horizon が長くなるほど誤差がどの程度増えるかをモデル別に確認できる。
-- Prophet と Decoupling のどちらが長期化に強いかを、同じ split/指標で比較できる。
+## まとめ
+- Scenario19 の範囲では、**Decoupling（Scenario2）は horizon 拡張に対して安定**であり、
+  Prophet baseline より一貫して良い精度を示した。
+- 次アクションとしては、Prophet 側の horizon 感度が出にくい要因（サンプル抽出・前処理・推論設定）を
+  切り分けると、比較の解像度がさらに上がる。
