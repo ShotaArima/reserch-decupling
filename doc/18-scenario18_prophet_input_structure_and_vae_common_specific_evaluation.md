@@ -264,3 +264,36 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 ## 14. 一文まとめ
 
 **Scenario18 は、Prophet の高精度化に効く入力構造を明示しつつ、同一条件で Sequential VAE(common/specific) の潜在遷移モデルを比較し、予測性能・寄与分解・解釈性を統合評価する実験計画である。**
+
+
+---
+
+## 15. 実験実行ステータス（2026-04-20 時点）
+
+Scenario18 の実行状況を、実ログファイル（`scenarios/scenario18_prophet_vs_sequential_vae/output/log_*.log`）基準で整理する。
+
+### 15.1 進捗サマリ
+
+- **1. Prophet Models**: 18/18 完了
+- **2. Sequential VAE Models**: 36/36 完了
+- **3. V0 Flatten VAE**: 6/6 完了
+- **合計**: **60/60 完了**
+
+### 15.2 詳細チェック（3区分）
+
+#### 1) Prophet Models
+- [x] lookback=14: `p0_prophet`, `p1_prophet_reg`, `p2_prophet_segmented` × seed `{42,52,62}`
+- [x] lookback=28: `p0_prophet`, `p1_prophet_reg`, `p2_prophet_segmented` × seed `{42,52,62}`
+
+#### 2) Sequential VAE Models
+- [x] lookback=14: `v1_seq_vae`, `v2_seq_vae_transition` × ablation `{both, common_only, specific_only}` × seed `{42,52,62}`
+- [x] lookback=28: `v1_seq_vae`, `v2_seq_vae_transition` × ablation `{both, common_only, specific_only}` × seed `{42,52,62}`
+
+#### 3) V0 Flatten VAE
+- [x] lookback=14: `v0_flatten_vae` × seed `{42,52,62}`
+- [x] lookback=28: `v0_flatten_vae` × seed `{42,52,62}`
+
+### 15.3 メモ（メモリオーバーフロー関連）
+
+- Sequential VAE の `lookback=28` 系は一時的にメモリ制約で未実施扱いだったが、現時点では必要パターンのログが揃っており、**未実施は解消済み**。
+- 以降は、この 60 run を固定母集団として結果比較（overall / horizon / subset）を更新する。
