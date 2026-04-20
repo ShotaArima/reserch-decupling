@@ -273,20 +273,23 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 このセクションでは、`scenarios/scenario18_prophet_vs_sequential_vae/output/log_*.log` を一次情報として、
 「何を実験し、何が分かり、何が未達か」を 1 枚で把握できるように集約する。
 
-### 15.1 全体進捗（実行コマンドベース vs スコア取得ベース）
+### 15.1 全体進捗（再実験反映版）
 
-- 実行ログファイル自体は **60/60 パターン分**存在。
-- ただし、`[result]` 行（`valid_wape/test_wape/valid_mae/test_mae`）まで確認できたのは **22/60**（既存ログ16 + 共有追記V0の6）。
-- したがって、**「実行トリガーはほぼ完了」だが「評価可能な実験は一部のみ」**という状態。
+- 実行ログファイルは **60/60 パターン分**存在。
+- `[result]` 行（`valid_wape/test_wape/valid_mae/test_mae`）まで確認できたのは **24/60**。
+  - 内訳: Prophet 18 run + V0 6 run。
+- 先に欠測だった `lb28 × p1_prophet_reg × seed62` / `lb28 × p2_prophet_segmented × seed62` は、
+  今回の再実験ログでスコア出力まで到達したことを確認。
+- したがって現状は、**Prophet と V0 まで比較可能、V1/V2 が未回収**という状態。
 
 | 区分 | 期待run数 | ログ存在 | スコア出力あり | 備考 |
 |---|---:|---:|---:|---|
-| 1. Prophet Models | 18 | 18 | 16 | `lb28` の `p1/p2` seed62 が欠測 |
+| 1. Prophet Models | 18 | 18 | 18 | 再実験で欠測2runを回収 |
 | 2. Sequential VAE Models | 36 | 36 | 0 | 主にメモリ確保失敗/中断で結果なし |
 | 3. V0 Flatten VAE | 6 | 6 | 6 | 再実行ログ（共有）で全seedスコア取得 |
-| **合計** | **60** | **60** | **22** |  |
+| **合計** | **60** | **60** | **24** |  |
 
-### 15.2 スコアが出ている実験（Prophetのみ）
+### 15.2 スコアが出ている実験（Prophet + V0）
 
 #### 集約（平均は seed 平均）
 
@@ -295,15 +298,19 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 | 14 | `p0_prophet` | 3 | 1.0812 | 1.0733 | 0.0222 |
 | 14 | `p1_prophet_reg` | 3 | 1.0812 | 1.0733 | 0.0222 |
 | 14 | `p2_prophet_segmented` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 14 | `v0_flatten_vae` | 3 | 0.4724 | 0.5058 | 0.0134 |
 | 28 | `p0_prophet` | 3 | 1.0812 | 1.0733 | 0.0222 |
-| 28 | `p1_prophet_reg` | 2 | 1.1027 | 1.0756 | 0.0269 |
-| 28 | `p2_prophet_segmented` | 2 | 1.1027 | 1.0756 | 0.0269 |
+| 28 | `p1_prophet_reg` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 28 | `p2_prophet_segmented` | 3 | 1.0812 | 1.0733 | 0.0222 |
+| 28 | `v0_flatten_vae` | 3 | 0.4588 | 0.4666 | 0.0054 |
 
 #### seed別（抜粋）
 
 - `p0/p1/p2` と `lookback=14/28` の多くで同一スコア列が繰り返されており、
   例として seed42 は `valid_wape=1.0929, test_wape=1.1024`、seed52 は `valid_wape=1.1125, test_wape=1.0487`、seed62 は `valid_wape=1.0382, test_wape=1.0687` で一致。
 - この一致は「モデル差/窓差が効いていない」可能性を示唆するため、実装上の切替反映を要確認。
+- V0 は Prophet 群に対して test WAPE が大幅に低く、現ログ上では `~0.47-0.51`（V0） vs `~1.07`（Prophet）という乖離がある。
+  指標算出条件・サンプリング条件の公平性（評価母集団、正規化、欠損補完）を再点検しないと、過大比較になるリスクが高い。
 
 ### 15.3 スコアが出ていない実験（できなかったこと）
 
@@ -313,7 +320,7 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
   **メモリオーバーフローで学習が停止**。
 - `lookback=14` 系も多くが `[split] sample_count ...` までで終了し、`[result]` 未出力。
 
-#### B) V0 Flatten VAE（6 run）
+#### B) V0 Flatten VAE（6 run, 完走）
 
 - V0 の再実行結果（ユーザー共有ログ集計）:
 
@@ -325,16 +332,17 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 - `lookback=28` は `lookback=14` と比べて test WAPE が **0.0392 改善（約7.75%相対改善）**。
 - seed 分散も `lookback=28` の方が小さく、長窓入力の方が安定している傾向。
 
-#### C) Prophet 欠測（2 run）
+#### C) Sequential VAE（V1/V2）未完走の継続課題
 
-- `log_lb28_p1_prophet_reg_s62.log` は `zsh: command not found: $` のみ。
-- `log_lb28_p2_prophet_segmented_s62.log` は空ファイル。
-- したがって当該2 runは再実行が必要。
+- 旧版で欠測だった Prophet 2run は解消。
+- 現在の欠測は **V1/V2 の 36 run に限定**される。
+- 特に `lookback=28` でメモリ不足に起因する停止が多く、`lookback=14` でも `[result]` 到達前終了が散見される。
 
 ### 15.4 ここまでで分かったこと（考察）
 
-1. **現時点での比較結論は Prophet 内の部分比較まで**
-   - VAE 側に有効スコアがないため、Scenario18 の主目的である Prophet vs Sequential VAE 比較は未達。
+1. **比較可能範囲は「Prophet + V0」まで拡張**
+   - 再実験により Prophet 欠測2runが埋まり、Prophet 18run は全回収。
+   - ただし Scenario18 の主目的である **Prophet vs Sequential VAE（V1/V2）** 比較は未達。
 
 2. **Prophet結果は「差が小さすぎる/同一値が多い」ため解釈に注意**
    - `p0/p1/p2` 間で seedごとに同値が続くため、真にモデル差を反映した結果かは未検証。
@@ -344,10 +352,13 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
    - Sequential VAE はメモリ要件が高く、`lookback=28` で顕著に失敗。
    - V0 は再実行で回収できたため、現時点の最大ボトルネックは Sequential VAE 側の完走率。
    - まず V1/V2 を「最後まで走ってメトリクスを吐く」再現性の確立が先決。
+4. **比較設計上のコンフリクト（指標ギャップ）を明示管理すべき**
+   - Prophet と V0 の WAPE 差が極端で、モデル優劣というより評価条件差の可能性がある。
+   - 以降の考察では「スコアそのもの」と「測定条件の同一性」を分離して記述し、コンフリクトを明示する。
 
 
 
-### 15.5 追加考察（V0の不足分を補完）
+### 15.5 追加考察（再実験反映＋全体振り返り）
 
 1. **V0でも「lookback=28 > lookback=14」が明確**
    - V0 は構造的には単純な flatten ベースラインだが、それでも長い履歴窓で test WAPE が改善。
@@ -364,6 +375,7 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 4. **ただし、Scenario18の主結論はまだ未完成**
    - V0は回収できた一方、Sequential VAE（V1/V2）の比較スコアが未整備なため、
      「common/specific分離が Prophet を超えるか」の本命問いは依然として未回答。
+   - 加えて Prophet と V0 の絶対値ギャップが大きく、比較設計コンフリクトを解決しない限り結論の外的妥当性は限定的。
 
 5. **現時点の到達点（更新）**
    - Prophet（一部）と V0 は比較可能。
@@ -373,7 +385,8 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 ### 15.6 次アクション（このファイルで追跡する ToDo）
 
 - [x] V0 6run の再実行ログからスコア回収（lookback 28 優位を確認）。
+- [x] Prophet の `p1/p2` seed62 欠測2runを再実行し、スコア回収。
 - [ ] Sequential VAE のメモリ対策（batch縮小、系列サンプリング、mixed precision、grad accumulation）を入れて 36run を再実行。
-- [ ] Prophet の `p1/p2` seed62 欠測2runを再実行。
 - [ ] `p0/p1/p2` のスコア同一問題をコードレベルで検証（回帰子投入・分割学習の有効化確認）。
+- [ ] Prophet/V0 比較の評価条件コンフリクトを監査（評価母集団、サンプリング数、前処理、指標計算式）。
 - [ ] 本節の表を「最新ログ再集計」で更新し、比較考察（WAPE差分、seed頑健性、horizon別）を追記。
