@@ -276,15 +276,15 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 ### 15.1 全体進捗（実行コマンドベース vs スコア取得ベース）
 
 - 実行ログファイル自体は **60/60 パターン分**存在。
-- ただし、`[result]` 行（`valid_wape/test_wape/valid_mae/test_mae`）まで出力されたのは **16/60**。
+- ただし、`[result]` 行（`valid_wape/test_wape/valid_mae/test_mae`）まで確認できたのは **22/60**（既存ログ16 + 共有追記V0の6）。
 - したがって、**「実行トリガーはほぼ完了」だが「評価可能な実験は一部のみ」**という状態。
 
 | 区分 | 期待run数 | ログ存在 | スコア出力あり | 備考 |
 |---|---:|---:|---:|---|
 | 1. Prophet Models | 18 | 18 | 16 | `lb28` の `p1/p2` seed62 が欠測 |
 | 2. Sequential VAE Models | 36 | 36 | 0 | 主にメモリ確保失敗/中断で結果なし |
-| 3. V0 Flatten VAE | 6 | 6 | 0 | `save_learning_curve(..., output_path=...)` の TypeError |
-| **合計** | **60** | **60** | **16** |  |
+| 3. V0 Flatten VAE | 6 | 6 | 6 | 再実行ログ（共有）で全seedスコア取得 |
+| **合計** | **60** | **60** | **22** |  |
 
 ### 15.2 スコアが出ている実験（Prophetのみ）
 
@@ -317,8 +317,19 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 
 #### B) V0 Flatten VAE（6 run）
 
-- 全 seed / 全 lookback で `TypeError: save_learning_curve() got an unexpected keyword argument 'output_path'` により終了。
-- 学習自体が完了していても、後段の保存処理エラーで実行全体が異常終了している可能性がある。
+- 先行ログでは `save_learning_curve(..., output_path=...)` の TypeError を確認していたが、
+  その後の再実行ログ（ユーザー共有）では **6/6 すべてで `[result]` が取得済み**。
+- したがって、V0 については「未実行/失敗」ではなく、**スコア取得完了**として扱う。
+
+V0 の再実行結果（ユーザー共有ログ集計）:
+
+| lookback | valid WAPE mean | test WAPE mean | valid MAE mean | test MAE mean | test WAPE std |
+|---:|---:|---:|---:|---:|---:|
+| 14 | 0.4724 | 0.5058 | 0.4642 | 0.5015 | 0.0134 |
+| 28 | 0.4588 | 0.4666 | 0.4508 | 0.4627 | 0.0055 |
+
+- `lookback=28` は `lookback=14` と比べて test WAPE が **0.0392 改善（約7.75%相対改善）**。
+- seed 分散も `lookback=28` の方が小さく、長窓入力の方が安定している傾向。
 
 #### C) Prophet 欠測（2 run）
 
@@ -337,12 +348,37 @@ uv run python scenarios/scenario18_prophet_vs_sequential_vae/run.py \
 
 3. **ボトルネックは性能より実験基盤の安定性**
    - Sequential VAE はメモリ要件が高く、`lookback=28` で顕著に失敗。
-   - V0 は保存関数引数不整合という実装不整合で全滅。
-   - まず「最後まで走ってメトリクスを吐く」再現性の確立が先決。
+   - V0 は再実行で回収できたため、現時点の最大ボトルネックは Sequential VAE 側の完走率。
+   - まず V1/V2 を「最後まで走ってメトリクスを吐く」再現性の確立が先決。
 
-### 15.5 次アクション（このファイルで追跡する ToDo）
 
-- [ ] `run.py` で `save_learning_curve` の引数名を修正し、V0 6run を再実行してスコア回収。
+
+### 15.5 追加考察（V0の不足分を補完）
+
+1. **V0でも「lookback=28 > lookback=14」が明確**
+   - V0 は構造的には単純な flatten ベースラインだが、それでも長い履歴窓で test WAPE が改善。
+   - これは Scenario18 の H18-2（`lookback=28 + direct 7-step` 優位）と整合的なシグナル。
+
+2. **学習曲線は3seedとも同じ形で、過学習の暴走は見えない**
+   - 共有された学習曲線画像では、初期急減後に 0.44 近傍で滑らかに収束。
+   - train loss の収束挙動と valid/test 指標の方向性が矛盾しておらず、最適化自体は安定。
+
+3. **KL項は中盤以降で増加して頭打ち、再構成誤差は着実に低下**
+   - 6ログすべてで `rec` は単調に改善し、`kl` は 2〜4 程度に増えて安定。
+   - 典型的なVAE学習挙動（表現圧縮と再構成のトレードオフ）に収まっている。
+
+4. **ただし、Scenario18の主結論はまだ未完成**
+   - V0は回収できた一方、Sequential VAE（V1/V2）の比較スコアが未整備なため、
+     「common/specific分離が Prophet を超えるか」の本命問いは依然として未回答。
+
+5. **現時点の到達点（更新）**
+   - Prophet（一部）と V0 は比較可能。
+   - V1/V2 が揃えば、
+     `Prophet vs V0 vs V1 vs V2` の本比較と「単純VAE→順序VAE」での上積み量が評価できる。
+
+### 15.6 次アクション（このファイルで追跡する ToDo）
+
+- [x] V0 6run の再実行ログからスコア回収（lookback 28 優位を確認）。
 - [ ] Sequential VAE のメモリ対策（batch縮小、系列サンプリング、mixed precision、grad accumulation）を入れて 36run を再実行。
 - [ ] Prophet の `p1/p2` seed62 欠測2runを再実行。
 - [ ] `p0/p1/p2` のスコア同一問題をコードレベルで検証（回帰子投入・分割学習の有効化確認）。
