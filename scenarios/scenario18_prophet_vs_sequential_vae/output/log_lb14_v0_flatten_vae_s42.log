@@ -1,0 +1,14 @@
+[progress] Loading dataset...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'dt_weekday', 'dt_month', 'dt_day', 'dt_is_weekend', 'discount', 'activity_flag']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[split] sample_count train=3149993 valid=674993 test=674993
+[train] v0_flatten_vae: step=1/120 loss=1.036002 rec=1.035962 kl=0.039960
+[train] v0_flatten_vae: step=20/120 loss=0.644917 rec=0.644140 kl=0.777653
+[train] v0_flatten_vae: step=40/120 loss=0.505223 rec=0.503468 kl=1.754839
+[train] v0_flatten_vae: step=60/120 loss=0.465744 rec=0.463385 kl=2.359201
+[train] v0_flatten_vae: step=80/120 loss=0.455407 rec=0.452691 kl=2.716506
+[train] v0_flatten_vae: step=100/120 loss=0.450093 rec=0.447154 kl=2.939360
+[train] v0_flatten_vae: step=120/120 loss=0.446613 rec=0.443569 kl=3.044036
+[result] 
+model=v0_flatten_vae mode=both valid_wape=0.4693 test_wape=0.4907 valid_mae=0.4612 test_mae=0.4866
+[saved] /home/arishow/project/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/output/metrics_v0_flatten_vae_both_seed42.csv
