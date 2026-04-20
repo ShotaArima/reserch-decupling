@@ -1,0 +1,9 @@
+[progress] Loading dataset...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'dt_weekday', 'dt_month', 'dt_day', 'dt_is_weekend', 'discount', 'activity_flag']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[split] sample_count train=3149993 valid=674993 test=674993
+[prophet] sampled 2000 windows out of 674993 for faster evaluation
+[prophet] sampled 2000 windows out of 674993 for faster evaluation
+[result] 
+model=p0_prophet mode=both valid_wape=1.0382 test_wape=1.0687 valid_mae=1.0679 test_mae=1.0734
+[saved] /Users/shota/project/tcu/reserch-decupling/scenarios/scenario18_prophet_vs_sequential_vae/output/metrics_p0_prophet_both_seed62.csv

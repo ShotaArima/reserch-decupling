@@ -1,0 +1,6 @@
+[progress] Loading dataset...
+[features] common=['city_id', 'store_id', 'management_group_id', 'first_category_id', 'second_category_id', 'third_category_id', 'product_id', 'holiday_flag', 'dt_weekday', 'dt_month', 'dt_day', 'dt_is_weekend', 'discount', 'activity_flag']
+[features] specific=['sale_amount', 'hours_sale', 'discount', 'activity_flag', 'stock_hour6_22_cnt', 'hours_stock_status']
+[split] sample_count train=3149993 valid=674993 test=674993
+/Users/shota/.local/share/uv/python/cpython-3.13.9-macos-aarch64-none/lib/python3.13/multiprocessing/resource_tracker.py:324: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown: {'/mp-hdyjzfaf'}
+  warnings.warn(
